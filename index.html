@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PixelSpur — Luxury Trending AI Aesthetic Prompts</title>
+  <meta name="description" content="Obsidian & silver AI prompt studio. Transform any portrait or photo into viral trending aesthetics: Old Money Golden Hour, Y2K Direct Flash, Leica B&W Chiaroscuro, and Liquid Chrome Surrealism."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- Dynamic Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Metallic Silver Ambient Lighting -->
+<div class="silver-ambient" aria-hidden="true">
+  <div class="silver-orb orb-silver-1"></div>
+  <div class="silver-orb orb-silver-2"></div>
+</div>
+
+<!-- Fixed Header Navbar -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">◆</span>
+      <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      <span class="logo-badge">PROMPTS</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="aesthetic-studio.html" class="nav-link">
+        <span class="nav-pill">Studio 01</span> Viral Portraits &amp; Fashion (32)
+      </a>
+      <a href="sprite-studio.html" class="nav-link">
+        <span class="nav-pill">Studio 02</span> Sprite Sheet Studio
+      </a>
+      <a href="cinematic-studio.html" class="nav-link">
+        <span class="nav-pill">Fine Art</span> Cinematic &amp; Surrealism (14)
+      </a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="sprite-studio.html" class="btn btn-small btn-silver">Launch Sprite Studio</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════ HOMEPAGE HERO WITH SHOWCASE ════════════ -->
+<section id="hero-home">
+  <div class="container hero-home-inner">
+    <div class="silver-badge reveal-on-scroll">
+      <span class="badge-dot"></span>
+      <span>AI AESTHETIC PROMPTS &amp; GAME ASSET STUDIO</span>
+    </div>
+
+    <h1 class="hero-home-title reveal-on-scroll">
+      Transform Any Photo into <br/>
+      <span class="silver-grad-text">Trending Visual Aesthetics</span> &amp;
+      <span class="silver-shine-text">Game Sprite Sheets</span>
+    </h1>
+
+    <p class="hero-home-sub reveal-on-scroll">
+      Access three dedicated creative studios: <strong>32 Viral Portrait &amp; Fashion Presets</strong> calibrated with real camera optics, <strong>14 Cinematic &amp; Surrealism Master Presets</strong>, and a <strong>Smart Sprite Sheet Studio with Animation Telling</strong>, automatic frame detection, canvas defringing, live animation playback, and JSON export.
+    </p>
+
+    <div class="hero-home-ctas reveal-on-scroll">
+      <a href="aesthetic-studio.html" class="btn btn-silver btn-lg">
+        <span>📸</span> Viral Portraits (32 Presets)
+      </a>
+      <a href="sprite-studio.html" class="btn btn-silver-outline btn-lg">
+        <span>🎮</span> Smart Sprite Sheet Studio
+      </a>
+    </div>
+
+    <!-- Featured Visual Showcase (Old Money & Liquid Chrome) -->
+    <div class="hero-visual-frame reveal-on-scroll">
+      <img src="assets/old_money_aesthetic.jpg" alt="Old Money Golden Hour Italian Villa Portrait" class="hero-visual-img" loading="eager"/>
+      <div class="hero-visual-overlay">
+        <div class="hero-overlay-text">
+          <h4>Old Money • Editorial Golden Hour</h4>
+          <p>85mm f/1.4 lens • Portra 400 • Sun flare &amp; Lake Como quiet luxury</p>
+        </div>
+        <a href="aesthetic-studio.html" class="btn btn-small btn-silver">
+          Get Prompt <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ INFINITE SCROLLING MARQUEE SHOWCASE ════════════ -->
+<section class="marquee-section">
+  <div class="container marquee-header reveal-on-scroll">
+    <h3>Trending Aesthetics Showcase</h3>
+    <p>Real example results created with PixelSpur fixed master prompts</p>
+  </div>
+
+  <div class="marquee-wrapper">
+    <!-- Marquee Track (Repeated for continuous seamless loop) -->
+    <div class="marquee-track">
+
+      <!-- Item 1: Old Money -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/old_money_aesthetic.jpg" alt="Old Money Italian Villa Golden Hour" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Quiet Luxury</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Old Money Golden Hour</h4>
+          <p class="marquee-desc">Warm rim lighting, linen textures, and dreamy Italian lake bokeh.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 2: Y2K Flash -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/y2k_flash_aesthetic.jpg" alt="Y2K On-Camera Flash Portrait" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Y2K Direct Flash</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Y2K Direct Flash Night</h4>
+          <p class="marquee-desc">Disposable camera snapshot, midnight shadows, and party aesthetic.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 3: Leica B&W Man -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/man_bw_aesthetic.jpg" alt="Black & White Man Standing Chiaroscuro" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Leica M B&amp;W</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Chiaroscuro Silver Rim</h4>
+          <p class="marquee-desc">Dramatic silver rim light, deep blacks, and concrete reflections.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 4: Liquid Chrome -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/chrome_sculpture.jpg" alt="Liquid Chrome Sculpture" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Liquid Chrome</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Liquid Chrome Surrealism</h4>
+          <p class="marquee-desc">Metallic reflections, star reflections, and obsidian darkness.</p>
+          <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 5: Editorial Fashion -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/editorial_fashion.jpg" alt="Editorial Fashion Portrait in Paris" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Leica M11</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Parisian Editorial Fashion</h4>
+          <p class="marquee-desc">Portra 400 film grain, natural skin pores, and Vogue editorial.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 6: Cyberpunk Neon -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/cyberpunk_neon.jpg" alt="Neo Cyberpunk Street Hacker" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Tech Noir</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Neo-Cyberpunk Alley</h4>
+          <p class="marquee-desc">Analog CCTV grain, cyan neon reflections, and 35mm wide angle.</p>
+          <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 7: Ghibli Cel -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/ghibli_anime.jpg" alt="Anime Cel Shaded Scenery" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Ghibli Cel</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Anime Cel-Shaded Hill</h4>
+          <p class="marquee-desc">Volumetric golden-hour rays and crisp gouache textures.</p>
+          <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 8: Dark Fantasy -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/dark_fantasy.jpg" alt="Dark Fantasy Concept Art" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Elden Core</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Gothic Cathedral Knight</h4>
+          <p class="marquee-desc">Renaissance chiaroscuro, heavy rim lighting, and oil texture.</p>
+          <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <!-- Item 9: Game Sprite Strip -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/spritesheet_sample.jpg" alt="Pixel Knight Sprite Strip Animation" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Game Sprite Strip</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Pixel Knight Walk Cycle</h4>
+          <p class="marquee-desc">Auto-detected 6 frames, canvas defringed, 60fps player &amp; JSON.</p>
+          <a href="sprite-studio.html" class="btn btn-small btn-silver-outline marquee-action">Open Studio →</a>
+        </div>
+      </div>
+
+      <!-- DUPLICATE TRACK FOR INFINITE SEAMLESS LOOP -->
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/old_money_aesthetic.jpg" alt="Old Money Italian Villa Golden Hour" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Quiet Luxury</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Old Money Golden Hour</h4>
+          <p class="marquee-desc">Warm rim lighting, linen textures, and dreamy Italian lake bokeh.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/y2k_flash_aesthetic.jpg" alt="Y2K On-Camera Flash Portrait" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Y2K Direct Flash</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Y2K Direct Flash Night</h4>
+          <p class="marquee-desc">Disposable camera snapshot, midnight shadows, and party aesthetic.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/man_bw_aesthetic.jpg" alt="Black & White Man Standing Chiaroscuro" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Leica M B&amp;W</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Chiaroscuro Silver Rim</h4>
+          <p class="marquee-desc">Dramatic silver rim light, deep blacks, and concrete reflections.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/chrome_sculpture.jpg" alt="Liquid Chrome Sculpture" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Liquid Chrome</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Liquid Chrome Surrealism</h4>
+          <p class="marquee-desc">Metallic reflections, star reflections, and obsidian darkness.</p>
+          <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/editorial_fashion.jpg" alt="Editorial Fashion Portrait in Paris" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Leica M11</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Parisian Editorial Fashion</h4>
+          <p class="marquee-desc">Portra 400 film grain, natural skin pores, and Vogue editorial.</p>
+          <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline marquee-action">Use Preset →</a>
+        </div>
+      </div>
+
+      <div class="marquee-card">
+        <div class="marquee-thumb-wrap">
+          <img src="assets/spritesheet_sample.jpg" alt="Pixel Knight Sprite Strip Animation" class="marquee-thumb" loading="lazy"/>
+          <span class="marquee-badge">Game Sprite Strip</span>
+        </div>
+        <div class="marquee-content">
+          <h4 class="marquee-title">Pixel Knight Walk Cycle</h4>
+          <p class="marquee-desc">Auto-detected 6 frames, canvas defringed, 60fps player &amp; JSON.</p>
+          <a href="sprite-studio.html" class="btn btn-small btn-silver-outline marquee-action">Open Studio →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TWO DEDICATED STUDIOS ════════════ -->
+<section class="section-studios">
+  <div class="container">
+    <div class="studios-container">
+
+      <!-- ─── STUDIO 01: Viral Portraits & Fashion Studio ─── -->
+      <article class="studio-card-large reveal-on-scroll">
+        <div class="studio-card-media">
+          <img src="assets/man_bw_aesthetic.jpg" alt="Black and White Man Standing Aesthetic Fine Art Example" class="studio-card-img" loading="eager"/>
+          <span class="studio-card-badge">STUDIO 01 • 32 VIRAL PRESETS</span>
+        </div>
+        <div class="studio-card-content">
+          <h2 class="studio-card-title">Viral Portraits &amp; Fashion Studio</h2>
+          <p class="studio-card-desc">
+            Transform personal photos, selfies, and model headshots into 32 trending photography aesthetics. Uses physics-based prompting with calibrated lenses (Leica 35mm, 85mm f/1.4), authentic film grain, and natural catchlights.
+          </p>
+
+          <ul class="studio-features-list">
+            <li><span>✦</span> <strong>Old Money &amp; Quiet Luxury</strong>: Lake Como 85mm f/1.4 golden hour &amp; linen textures.</li>
+            <li><span>✦</span> <strong>Cyber-Goth UV &amp; Kintsugi</strong>: Bioluminescent neon strobe &amp; molten 24k gold lacquer.</li>
+            <li><span>✦</span> <strong>Y2K Flash &amp; 90s Tokyo</strong>: Direct on-camera party snapshot &amp; Shibuya rain film.</li>
+            <li><span>✦</span> <strong>Met Gala &amp; Haute Couture</strong>: Avant-garde glass headpieces, liquid chrome &amp; Vogue runway.</li>
+          </ul>
+
+          <div class="studio-card-action">
+            <a href="aesthetic-studio.html" class="btn btn-silver btn-lg btn-block">
+              Explore All 32 Master Presets <span>→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─── STUDIO 02: Smart Sprite Sheet Studio ─── -->
+      <article class="studio-card-large reveal-on-scroll" data-delay="150">
+        <div class="studio-card-media">
+          <img src="assets/spritesheet_sample.jpg" alt="Game Asset Sprite Sheet Animation Strip Sample" class="studio-card-img" loading="eager"/>
+          <span class="studio-card-badge">STUDIO 02 • GAME ASSET ENGINE</span>
+        </div>
+        <div class="studio-card-content">
+          <h2 class="studio-card-title">Smart Sprite Sheet Studio</h2>
+          <p class="studio-card-desc">
+            Generate calibrated game-ready 2D sprite strips with Midjourney, Flux, or SDXL. Features new Animation Telling motion choreography, 20+ game action types, auto-frame detection, canvas background defringing, 60fps animation player, and JSON export.
+          </p>
+
+          <ul class="studio-features-list">
+            <li><span>✦</span> <strong>Animation Telling Option</strong>: Describe custom motions, weapon trails, and VFX with instant prompt weaving.</li>
+            <li><span>✦</span> <strong>20+ Game Action Presets</strong>: Slashes, 3-hit combos, bow releases, spell cast, dashes, blocks, and collapse.</li>
+            <li><span>✦</span> <strong>Smart Frame Detection &amp; Slider</strong>: Auto-sets 4-8 frame sequences with manual fine-tune override.</li>
+            <li><span>✦</span> <strong>Canvas Chroma-Key &amp; 60fps Player</strong>: Zero-latency green/magenta removal and live animation player.</li>
+          </ul>
+
+          <div class="studio-card-action">
+            <a href="sprite-studio.html" class="btn btn-silver btn-lg btn-block">
+              Launch Sprite Sheet Studio <span>→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Fine Art Bonus Banner -->
+    <div class="smart-sync-banner reveal-on-scroll" style="margin-top: 3rem;">
+      <div class="smart-sync-title">
+        <span>🎨 Fine Art &amp; Sci-Fi Surrealism Studio (14 Master Presets)</span>
+        <span style="color: var(--silver-400); font-weight: 400;">Explore Liquid Chrome, Solar-Punk Metropolis, Dune Brutalism, Ghibli Cel, and Dark Fantasy.</span>
+      </div>
+      <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline">
+        Open Cinematic Studio (14) →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="logo-icon">◆</span>
+        <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      </div>
+      <p class="footer-text">
+        Luxury obsidian black and brushed silver AI prompt engineering suite for trending portraits, fashion, and cinematic art direction.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-pill">🔒 100% Client-Side Privacy</span>
+        <span class="footer-pill">⚡ Zero Latency</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Creative Studios</h5>
+      <ul class="footer-links">
+        <li><a href="aesthetic-studio.html">Viral Portraits &amp; Fashion (32 Presets)</a></li>
+        <li><a href="sprite-studio.html">Smart Sprite Sheet Studio</a></li>
+        <li><a href="cinematic-studio.html">Cinematic &amp; Surrealism (14 Presets)</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">AI Models Supported</h5>
+      <ul class="footer-links">
+        <li><span>Midjourney v6 &amp; Niji 6</span></li>
+        <li><span>Black Forest Labs Flux.1</span></li>
+        <li><span>Stability AI SDXL 1.0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 PixelSpur Studio. All rights reserved. Curated for photographers, digital artists &amp; creators.</p>
+  </div>
+</footer>
+
+<!-- Application Scripts -->
+<script src="app.js"></script>
+</body>
+</html>

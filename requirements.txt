@@ -1,0 +1,2 @@
+# PixelSpur uses only Python 3 standard library modules (http.server, socketserver, json, time).
+# No external pip dependencies required.

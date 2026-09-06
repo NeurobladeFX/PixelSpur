@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viral Portraits &amp; Fashion Prompt Studio — 32 Trending Aesthetics — PixelSpur</title>
+  <meta name="description" content="32 trending viral portrait and fashion AI prompts for Midjourney v6, Flux.1, and SDXL. Transform raw portraits into Old Money, Y2K Flash, Leica B&amp;W, Dark Academia, Met Gala Couture, and more."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- Ambient Metallic Silver Glows -->
+<div class="silver-ambient" aria-hidden="true">
+  <div class="silver-orb orb-silver-1"></div>
+  <div class="silver-orb orb-silver-2"></div>
+</div>
+
+<!-- Fixed Header Navbar -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">◆</span>
+      <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      <span class="logo-badge">STUDIO 01</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">← Back to Overview</a>
+      <a href="aesthetic-studio.html" class="nav-link active">
+        <span class="nav-pill">Active</span> Viral Portraits &amp; Fashion (32)
+      </a>
+      <a href="sprite-studio.html" class="nav-link">Sprite Sheet Studio</a>
+      <a href="cinematic-studio.html" class="nav-link">Cinematic &amp; Surrealism →</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="cinematic-studio.html" class="btn btn-small btn-silver-outline">Switch to Studio 02</a>
+    </div>
+  </div>
+</header>
+
+<!-- Studio Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="page-badge-row">
+      <span class="silver-badge">✦ 32 MASTER PORTRAIT &amp; FASHION AESTHETICS</span>
+    </div>
+    <h1 class="page-title">
+      Viral Portraits &amp; <br/>
+      <span class="silver-grad-text">Fashion Prompt Studio</span>
+    </h1>
+    <p class="page-sub">
+      Upload your existing portrait, selfie, or model photo to <strong>Midjourney</strong>, <strong>Flux.1</strong>, or <strong>SDXL</strong>, then paste our <strong>calibrated master prompts</strong>. Transform raw photos into 32 viral social-media aesthetics with natural skin microtexture, authentic lens optics, and cinematic lighting.
+    </p>
+
+    <!-- 3-Step Workflow -->
+    <div class="workflow-box">
+      <div class="workflow-header">
+        <span>⚡ How to Transform Your Photo in 3 Steps</span>
+      </div>
+      <div class="workflow-steps-row">
+        <div class="wf-step">
+          <div class="wf-num">1</div>
+          <div>
+            <h5>Upload Your Image to AI</h5>
+            <p>Upload your portrait to Midjourney (as an image URL or <code>--sref</code>), Flux img2img, or SDXL.</p>
+          </div>
+        </div>
+        <div class="wf-step">
+          <div class="wf-num">2</div>
+          <div>
+            <h5>Copy Our Fixed Master Prompt</h5>
+            <p>Select any of the 32 trending aesthetics below. Formulated with authentic focal lengths, lighting rigs, and film stocks.</p>
+          </div>
+        </div>
+        <div class="wf-step">
+          <div class="wf-num">3</div>
+          <div>
+            <h5>Get Your Viral Aesthetic</h5>
+            <p>Generate an ultra-realistic, stylized transformation preserving facial geometry with high aesthetic fidelity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Studio Toolbar: Category Tabs & Live Search -->
+<div class="container">
+  <div class="studio-toolbar reveal-on-scroll">
+    <div class="filter-row">
+      <!-- Category Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Styles (32)</button>
+        <button class="filter-btn" data-filter="viral">Viral &amp; Party</button>
+        <button class="filter-btn" data-filter="luxury">Quiet Luxury &amp; Minimal</button>
+        <button class="filter-btn" data-filter="editorial">High-Fashion Editorial</button>
+        <button class="filter-btn" data-filter="moody">Moody &amp; Fine-Art</button>
+        <button class="filter-btn" data-filter="retro">Retro &amp; Film Nostalgia</button>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="search-box-wrap">
+        <span class="search-icon-svg">🔍</span>
+        <input type="text" id="prompt-search" placeholder="Search aesthetics, cameras, or moods..." aria-label="Search prompts"/>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="filter-stats-bar">
+      <span>Showing <strong id="showing-count">32</strong> of <strong id="total-count">32</strong> Master Aesthetic Prompts</span>
+      <span>⚡ 1-Click Multi-Engine Copy (Midjourney v6 • Flux.1 • SDXL)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery of 28 Trending Portrait & Fashion Prompts -->
+<main class="container">
+  <div class="aesthetic-grid-full">
+    <!-- 01. 01. Old Money / Quiet Luxury (Lake Como) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/old_money_aesthetic.jpg" alt="01. Old Money / Quiet Luxury (Lake Como)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Quiet Luxury • 85mm f/1.4</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">01. Old Money / Quiet Luxury (Lake Como)</h3>
+        <p class="card-desc-full">
+          The #1 viral quiet luxury aesthetic on Instagram. Italian villa terrace overlooking Lake Como, warm golden sunlight rim lighting, soft sun flare, crisp linen shirt, creamy bokeh, and sharp catchlights in eyes.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] cinematic portrait of an elegant person during golden hour on an Italian villa terrace overlooking Lake Como, quiet luxury aesthetic, old money style, warm golden sunlight rim lighting, sun flare, linen shirt, dreamy soft bokeh, shot on 85mm f/1.4 lens, Kodak Portra 400 film grain, Vogue editorial, natural skin texture with sharp catchlights in eyes --ar 4:5 --style raw --s 250</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02. 02. Y2K Direct On-Camera Flash (Party) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/y2k_flash_aesthetic.jpg" alt="02. Y2K Direct On-Camera Flash (Party)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Y2K Flash • Disposable 35mm</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">02. Y2K Direct On-Camera Flash (Party)</h3>
+        <p class="card-desc-full">
+          Hard on-camera direct flash, high contrast, glossy skin highlights, deep midnight shadows, disposable camera 35mm grain, and cool city lights in background blur.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] 2000s direct on-camera flash photography portrait, stylish young person at nighttime rooftop party in city, high contrast, glossy highlights on skin, deep midnight shadows, raw authentic candid snapshot, disposable camera aesthetic, grainy 35mm film texture, cool cyberpunk city lights in background blur, sharp catchlights in eyes, viral aesthetic --ar 4:5 --style raw --s 200</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03. 03. High-Contrast B&W Chiaroscuro (Man Standing) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="moody">
+      <div class="card-thumb-wrap">
+        <img src="assets/man_bw_aesthetic.jpg" alt="03. High-Contrast B&W Chiaroscuro (Man Standing)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Leica Monochrom • Fine Art</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">03. High-Contrast B&W Chiaroscuro (Man Standing)</h3>
+        <p class="card-desc-full">
+          Deep obsidian blacks, radiant silver rim lighting, dramatic chiaroscuro contrast, textured minimalist architectural background, and authentic Kodak Tri-X 400 film grain.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] high contrast black and white fine art portrait, man standing in dramatic silver rim light, moody chiaroscuro lighting, minimalist architectural background with textured concrete and subtle reflections, deep obsidian blacks and radiant silver highlights, shot on Leica M Monochrom with 35mm Summilux lens, Kodak Tri-X 400 film grain, cinematic, elegant, award-winning fine art --ar 4:5 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04. 04. Parisian Haute Couture (Vogue Editorial) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/editorial_fashion.jpg" alt="04. Parisian Haute Couture (Vogue Editorial)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Leica M11 • Portra 400</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">04. Parisian Haute Couture (Vogue Editorial)</h3>
+        <p class="card-desc-full">
+          Authentic Kodak Portra 400 film grain, natural skin microtexture, soft ambient window lighting, and Parisian café backdrop. Pure unposed candid luxury.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] hyper-realistic editorial fashion portrait, shot on 35mm Leica M11, Kodak Portra 400 film grain, stylish model wearing avant-garde textured coat, Parisian café background, soft natural window lighting, natural skin microtexture, sharp catchlights in eyes, Vogue editorial, cinematic shallow depth of field --ar 4:5 --style raw --s 200</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05. 05. 90s Tokyo Shibuya Street Film (Rain Night) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/tokyo_90s_film.jpg" alt="05. 90s Tokyo Shibuya Street Film (Rain Night)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Fujifilm Superia • 35mm Grain</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">05. 90s Tokyo Shibuya Street Film (Rain Night)</h3>
+        <p class="card-desc-full">
+          Candid street portrait in Shibuya, oversized distressed leather bomber jacket, glowing neon signage reflecting on rain-slicked asphalt, authentic 90s analog grain.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] 1990s candid street photography portrait in Shibuya Tokyo at night, person wearing oversized distressed leather bomber jacket holding umbrella in light rain, vibrant neon shop signs reflecting in wet asphalt, shot on 35mm Fujifilm Superia 400, authentic color bleed, visible analog grain, cinematic Tokyo street style --ar 4:5 --style raw --s 220</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 06. 06. Dark Academia Renaissance (Rembrandt Light) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="moody">
+      <div class="card-thumb-wrap">
+        <img src="assets/dark_academia.jpg" alt="06. Dark Academia Renaissance (Rembrandt Light)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Moody Academia • 50mm f/1.2</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">06. Dark Academia Renaissance (Rembrandt Light)</h3>
+        <p class="card-desc-full">
+          Antique mahogany grand library, towering vintage bookshelves, dark charcoal wool trench coat, warm amber desk lamp casting soft chiaroscuro Rembrandt shadows.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] dark academia moody portrait of a thoughtful person in an antique grand library, surrounded by dark mahogany bookshelves and vintage parchment books, wearing dark charcoal wool coat and turtleneck, dramatic warm Rembrandt lighting, soft chiaroscuro shadows, 50mm f/1.2 lens, rich film grain, cinematic painterly atmosphere --ar 4:5 --style raw --s 300</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 07. 07. Desert Dune Sunset Boho (Flowing Silk) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/desert_boho.jpg" alt="07. Desert Dune Sunset Boho (Flowing Silk)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Golden Hour • Sahara Dunes</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">07. Desert Dune Sunset Boho (Flowing Silk)</h3>
+        <p class="card-desc-full">
+          Sweeping sand dunes at sunset, billowing terracotta silk garment fluttering in warm desert breeze, golden hour sun flare, glowing bronzed skin tone, and wide horizon.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] high fashion editorial portrait in sweeping desert sand dunes during golden hour sunset, model wearing flowing raw silk garment fluttering in warm breeze, sun flare, terracotta and warm sand color palette, 85mm f/1.4 lens, shallow depth of field, natural glowing skin, Harper's Bazaar aesthetic --ar 4:5 --style raw --s 250</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 08. 08. Scandinavian Cozy Minimalist (Cashmere Loft) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/scandi_minimal.jpg" alt="08. Scandinavian Cozy Minimalist (Cashmere Loft)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Quiet Luxury • Hasselblad X2D</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">08. Scandinavian Cozy Minimalist (Cashmere Loft)</h3>
+        <p class="card-desc-full">
+          Minimalist Nordic interior, oatmeal ribbed cashmere knitwear, soft diffused overcast morning window light, natural skin microtexture, effortless calm aesthetic.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] minimalist Scandinavian portrait, person wearing chunky oatmeal cashmere knit sweater in bright Copenhagen loft apartment, soft diffused overcast morning window light, subtle warm wood and white lime-wash walls in soft focus, shot on Hasselblad X2D, hyper-detailed skin texture, calm serene expression, Kinfolk aesthetic --ar 4:5 --style raw --s 180</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 09. 09. Ethereal Angelcore (Prism Rainbow Flare) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="retro">
+      <div class="card-thumb-wrap">
+        <img src="assets/angelcore_dream.jpg" alt="09. Ethereal Angelcore (Prism Rainbow Flare)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Prism Flare • Dreamcore</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">09. Ethereal Angelcore (Prism Rainbow Flare)</h3>
+        <p class="card-desc-full">
+          Delicate rainbow prism light refraction across face, sheer pearl-white organza, soft focus halo backlight, dreamy pastel color grading, and celestial ambiance.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] ethereal dreamcore portrait, delicate rainbow prism light dispersion across face, person wearing sheer pearl-white tulle and iridescent organza, soft focus halo backlight, dreamy pastel color grading, crystalline lens reflections, sharp catchlights in eyes, ethereal celestial fashion photography --ar 4:5 --style raw --s 280</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10. 10. Met Gala Avant-Garde (Sculptural Gown) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/met_gala_couture.jpg" alt="10. Met Gala Avant-Garde (Sculptural Gown)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Avant-Garde • High Runway</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">10. Met Gala Avant-Garde (Sculptural Gown)</h3>
+        <p class="card-desc-full">
+          Architectural pleated structural gown silhouette, translucent sculpted glass headpiece, intense single spotlight against obsidian darkness, high-fashion runway drama.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] avant-garde Met Gala red carpet fashion portrait, dramatic sculpted translucent glass and floral headpiece, architectural haute couture pleated silhouette, intense single spotlight against deep black background, high fashion editorial, shot by Nick Knight, dramatic shadows, razor-sharp textures --ar 4:5 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11. 11. Miami Vice 80s Pastel Sunset (Synthwave) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/synthwave_80s.jpg" alt="11. Miami Vice 80s Pastel Sunset (Synthwave)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">80s Synthwave • Miami Dusk</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">11. Miami Vice 80s Pastel Sunset (Synthwave)</h3>
+        <p class="card-desc-full">
+          Pastel turquoise and pink linen suit, retro sports car, palm tree silhouettes against vibrant twilight gradient, glowing neon reflections, and rich retro nostalgia.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] 1980s retro Miami Vice aesthetic portrait, person in pastel linen blazer leaning against vintage sports car at dusk, tropical palm tree silhouettes against vibrant pink and violet sunset gradient, glowing neon hotel sign reflections, 35mm vintage film look, saturated color palette, cinematic nostalgia --ar 4:5 --style raw --s 240</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12. 12. Vintage Polaroid 600 (Summer Nostalgia) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="retro">
+      <div class="card-thumb-wrap">
+        <img src="assets/vintage_polaroid.jpg" alt="12. Vintage Polaroid 600 (Summer Nostalgia)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Polaroid 600 • Sun Bleach</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">12. Vintage Polaroid 600 (Summer Nostalgia)</h3>
+        <p class="card-desc-full">
+          Authentic Polaroid instant film feel, warm orange light leak on edge, sun-bleached coastal tones, relaxed candid smile, and nostalgic summer memories.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] authentic vintage Polaroid 600 square portrait, candid nostalgic moment during summer afternoon by Mediterranean coast, warm orange light leak on left edge, slightly faded sun-bleached colors, gentle analog film softness, natural candid expression, authentic instant camera aesthetic --ar 4:5 --style raw --s 220</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 13. 13. Seoul Streetwear Cyber-Techwear -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/techwear_seoul.jpg" alt="13. Seoul Streetwear Cyber-Techwear" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Cyber Techwear • Seongsu-dong</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">13. Seoul Streetwear Cyber-Techwear</h3>
+        <p class="card-desc-full">
+          Matte black modular technical jacket with metallic hardware, wet reflective concrete floor, cool cyan and violet ambient street glow, crisp fabric textures.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] futuristic techwear street fashion portrait in Seoul, model wearing matte black modular waterproof technical jacket with metallic hardware, wet reflective concrete floor, cool cyan and violet ambient street lighting, futuristic urban cyberpunk fashion, shot on 50mm f/1.4 lens, hyper-sharp fabric details --ar 4:5 --style raw --s 260</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 14. 14. 90s Supermodel Studio Minimal (Raw Skin) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/supermodel_studio.jpg" alt="14. 90s Supermodel Studio Minimal (Raw Skin)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Raw Supermodel • Silver Strobe</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">14. 90s Supermodel Studio Minimal (Raw Skin)</h3>
+        <p class="card-desc-full">
+          Simple black fitted turtleneck, soft wind machine blowing wisps of hair, completely unretouched natural skin microtexture with freckles, grey studio backdrop.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] iconic 1990s supermodel studio portrait in style of Peter Lindbergh, person wearing simple black mock-neck sweater, wind gently blowing hair across face, completely raw natural skin microtexture with freckles, silver beauty dish key light, seamless dark grey studio backdrop, timeless effortless beauty --ar 4:5 --style raw --s 210</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 15. 15. Baroque Gilded Gold Leaf (Royal Oil) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="moody">
+      <div class="card-thumb-wrap">
+        <img src="assets/baroque_gold.jpg" alt="15. Baroque Gilded Gold Leaf (Royal Oil)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Baroque Gold • Oil Masterpiece</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">15. Baroque Gilded Gold Leaf (Royal Oil)</h3>
+        <p class="card-desc-full">
+          Real 24k gold leaf flakes applied along cheekbone and temples, deep emerald velvet cape with golden embroidery, dramatic Caravaggio directional lighting, fine art masterpiece.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] regal Baroque royal portrait, delicate flakes of real 24k gold leaf applied along cheekbone and temples, wearing deep emerald green and black velvet cape with intricate bullion embroidery, Caravaggio dramatic directional lighting, dark textured canvas background, royal fine art masterpiece --ar 4:5 --style raw --s 320</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 16. 16. Tuscan Vineyard Cottagecore (Analog 35mm) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="retro">
+      <div class="card-thumb-wrap">
+        <img src="assets/tuscan_cottagecore.jpg" alt="16. Tuscan Vineyard Cottagecore (Analog 35mm)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Cottagecore • Sun Dappled</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">16. Tuscan Vineyard Cottagecore (Analog 35mm)</h3>
+        <p class="card-desc-full">
+          Embroidered cream linen dress in sun-dappled olive groves, holding wicker basket, warm golden sunlight filtering through leaves creating dappled shadows, Portra 160 grain.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] idyllic Tuscan countryside cottagecore portrait, person wearing delicate embroidered cream linen dress standing in sun-dappled olive grove, holding wicker basket, warm golden sunlight filtering through tree leaves creating dappled shadows, shot on 35mm Kodak Portra 160, romantic warm aesthetic --ar 4:5 --style raw --s 200</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 17. 17. Liquid Silver Mercury (Futuristic Couture) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/liquid_chrome_portrait.jpg" alt="17. Liquid Silver Mercury (Futuristic Couture)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Liquid Chrome • Obsidian Studio</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">17. Liquid Silver Mercury (Futuristic Couture)</h3>
+        <p class="card-desc-full">
+          Molten liquid silver chrome shoulder piece reflecting studio strobe lights, sleek wet-look styling, pure obsidian black backdrop, and high-contrast silver rim lighting.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] futuristic avant-garde fashion portrait, model wearing sculpted molten liquid silver chrome shoulder piece reflecting surrounding studio lights, sleek wet-look styling, pure obsidian black backdrop, high-contrast silver rim lighting and strobe illumination, Dazed magazine cover style --ar 4:5 --style raw --s 340</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 18. 18. Gothic Victorian Dark Romance (Candlelit) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="moody">
+      <div class="card-thumb-wrap">
+        <img src="assets/gothic_victorian.jpg" alt="18. Gothic Victorian Dark Romance (Candlelit)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Gothic Romance • Candlelight</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">18. Gothic Victorian Dark Romance (Candlelit)</h3>
+        <p class="card-desc-full">
+          High Victorian black lace ruff collar, tarnished antique silver filigree jewelry, candlelit stone cathedral arches, soft candle glow on porcelain skin, and deep burgundy lips.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] dark romantic Victorian gothic portrait, person wearing high Victorian black lace ruff collar and antique tarnished silver filigree jewelry, moody candlelit gothic stone cathedral background, soft warm candle glow illuminating pale skin, deep burgundy lip tone, Guillermo del Toro dark fantasy tone --ar 4:5 --style raw --s 290</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 19. 19. Dual Color-Gel Studio (Cyan & Magenta) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/color_gel_studio.jpg" alt="19. Dual Color-Gel Studio (Cyan & Magenta)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Color-Gel • Dual Strobe</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">19. Dual Color-Gel Studio (Cyan & Magenta)</h3>
+        <p class="card-desc-full">
+          Vivid dual-strobe studio lighting with electric cyan rim light on one side and hot magenta fill light on the opposite, sharp profile silhouette, glossy skin reflections.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] creative color-gel studio fashion portrait, intense dual-light setup with vivid electric cyan rim lighting on one side and hot magenta fill light on the opposite side, sharp dramatic profile silhouette, glossy skin reflections, deep black studio shadows, modern fashion magazine cover --ar 4:5 --style raw --s 270</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 20. 20. 1970s Kodachrome Road Trip (Golden Dusk) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="retro">
+      <div class="card-thumb-wrap">
+        <img src="assets/kodachrome_70s.jpg" alt="20. 1970s Kodachrome Road Trip (Golden Dusk)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Kodachrome 64 • 70s Americana</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">20. 1970s Kodachrome Road Trip (Golden Dusk)</h3>
+        <p class="card-desc-full">
+          Vintage convertible on Route 66 at sunset, retro aviator sunglasses, authentic Kodachrome 64 slide film colors, saturated warm reds and ambers, cinematic 70s film still.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] 1970s vintage Americana road trip portrait, person wearing retro aviator sunglasses sitting on vintage convertible car along Route 66 at golden hour sunset, authentic Kodachrome 64 slide film colors, rich saturated reds and warm ambers, slight halation on highlights, cinematic 70s film still --ar 4:5 --style raw --s 230</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 21. Cyber-Goth Bioluminescence (UV Subsurface Glow) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/cybergoth_uv.jpg" alt="21. Cyber-Goth Bioluminescence (UV Subsurface Glow)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">UV Strobe • Neon Bioluminescence</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">21. Cyber-Goth Bioluminescence (UV Subsurface Glow)</h3>
+        <p class="card-desc-full">
+          Intricate bioluminescent UV-reactive geometric face markings glowing vivid electric cyan and neon violet under ultraviolet blacklight, glossy obsidian latex collar, wet glass skin sheen, and Dazed Beauty editorial mood.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] cyber-goth high fashion portrait, intricate bioluminescent UV-reactive geometric face paint glowing intense neon cyan and deep violet under blacklight, sleek high-gloss obsidian latex collar, wet iridescent lip sheen, high-contrast ultraviolet studio rim lighting, 85mm f/1.4 lens, natural skin microtexture, Dazed Beauty cover aesthetic, sharp catchlights --ar 4:5 --style raw --s 320</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 22. Couture Kintsugi Gold Fracture (Imperial Porcelain) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/kintsugi_gold.jpg" alt="22. Couture Kintsugi Gold Fracture (Imperial Porcelain)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Kintsugi Gold • Imperial Couture</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">22. Couture Kintsugi Gold Fracture (Imperial Porcelain)</h3>
+        <p class="card-desc-full">
+          Delicate porcelain skin with fine micro-cracks fused by molten 24k gold leaf lacquer in Japanese kintsugi philosophy, structured imperial gold and midnight silk brocade, and dramatic Rembrandt studio lighting.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] fine art avant-garde fashion portrait, face adorned with delicate porcelain micro-cracks repaired with glowing molten 24k gold lacquer in Japanese kintsugi philosophy, wearing structured imperial gold and midnight silk brocade, dramatic Rembrandt key light, shot on Hasselblad H6D-100c, museum exhibition quality, razor-sharp textures --ar 4:5 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 23. Holographic Prism Foil (Futuristic Editorial) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/holographic_foil.jpg" alt="23. Holographic Prism Foil (Futuristic Editorial)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Holographic • Chromatic Prism</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">23. Holographic Prism Foil (Futuristic Editorial)</h3>
+        <p class="card-desc-full">
+          Translucent holographic iridescent trench coat reflecting blinding spectrum flares, rainbow chromatic prism dispersion across cheekbones, wet glass skin texture, and metallic silver studio backdrop.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] futuristic fashion editorial portrait, model wearing sheer holographic iridescent prismatic trench coat reflecting blinding spectrum flares, chromatic prism dispersion across cheekbones, wet glass skin microtexture, silver studio backdrop, shot on 50mm f/1.2 lens, Vogue Italia cover style, razor-sharp eyes --ar 4:5 --style raw --s 280</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 24. Coachella Golden Hour 35mm (Festival Indie Sleaze) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/coachella_indie.jpg" alt="24. Coachella Golden Hour 35mm (Festival Indie Sleaze)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Contax T2 • Indie Sleaze 35mm</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">24. Coachella Golden Hour 35mm (Festival Indie Sleaze)</h3>
+        <p class="card-desc-full">
+          Candid festival portrait during golden hour sunset at Coachella, person wearing amber-tinted retro aviator sunglasses and bohemian crochet top, direct warm sunlight flare creating dreamy haze, dust motes in air, and authentic Contax T2 analog grain.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] candid festival portrait during golden hour sunset at Coachella, person wearing amber-tinted retro aviator sunglasses and bohemian crochet top, direct warm sunlight flare creating dreamy haze, dust motes in air, shot on Contax T2 35mm film, Portra 800 grain, authentic indie sleaze candid aesthetic, viral Instagram look --ar 4:5 --style raw --s 220</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 25. Alpine Blizzard Gorpcore (Extreme Weather) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/alpine_gorpcore.jpg" alt="25. Alpine Blizzard Gorpcore (Extreme Weather)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Gorpcore • Arctic Peak 85mm</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">25. Alpine Blizzard Gorpcore (Extreme Weather)</h3>
+        <p class="card-desc-full">
+          High-altitude mountaineering gorpcore portrait, premium technical waterproof alpine shell, delicate frost and snowflakes clinging to eyelashes, wind-flushed cheeks, and harsh alpine sun rim lighting.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] high-altitude mountaineering gorpcore portrait, person wearing premium technical orange and charcoal waterproof alpine shell, frost and delicate snowflakes clinging to eyelashes and eyebrows, cold flushed cheeks, harsh crisp mountain rim lighting, blowing blizzard in background blur, shot on 85mm f/1.4, National Geographic style --ar 4:5 --style raw --s 250</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 26. Neo-Noir Rain Trench Coat (Anamorphic Cine) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="moody">
+      <div class="card-thumb-wrap">
+        <img src="assets/neonoir_rain.jpg" alt="26. Neo-Noir Rain Trench Coat (Anamorphic Cine)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Anamorphic 50mm • Rain Noir</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">26. Neo-Noir Rain Trench Coat (Anamorphic Cine)</h3>
+        <p class="card-desc-full">
+          Midnight drizzle in foggy city alleyway, tailored dark wet trench coat, golden amber streetlight rim light, rain droplets clinging to face and collar, and horizontal blue anamorphic streak lens flare.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] cinematic neo-noir detective portrait at midnight, person in wet dark wool trench coat standing in misty city rain, golden amber streetlight rim light, rain droplets clinging to face and collar, horizontal blue anamorphic streak lens flare, 50mm anamorphic lens, shallow depth of field, 35mm film grain, Blade Runner mood --ar 4:5 --style raw --s 320</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 27. Italian Riviera 1960s Cinecittà (La Dolce Vita) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="retro">
+      <div class="card-thumb-wrap">
+        <img src="assets/riviera_1960s.jpg" alt="27. Italian Riviera 1960s Cinecittà (La Dolce Vita)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">1960s Cinecittà • Ilford HP5 B&amp;W</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">27. Italian Riviera 1960s Cinecittà (La Dolce Vita)</h3>
+        <p class="card-desc-full">
+          Vintage mahogany Riva speedboat off Portofino coast, silk headscarf fluttering in coastal wind, oversized tortoiseshell cat-eye sunglasses, brilliant Mediterranean sunlight, sparkling turquoise water, and rich 1960s Kodachrome tones.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] vintage 1960s Kodachrome Italian Riviera glamorous portrait, chic woman in oversized tortoiseshell cat-eye sunglasses and silk headscarf leaning against a classic wooden Riva speedboat on sparkling turquoise Mediterranean water in Portofino, sun-drenched warm vintage film tones, 1965 Vogue Italia --ar 4:5 --style raw --s 250</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 28. Obsidian & Liquid Chrome Cyber-Deity -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/obsidian_deity.jpg" alt="28. Obsidian & Liquid Chrome Cyber-Deity" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Obsidian Chrome • Fine Art</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">28. Obsidian &amp; Liquid Chrome Cyber-Deity</h3>
+        <p class="card-desc-full">
+          Fluid sculpted molten liquid chrome jawline cuff and floating silver ear jewelry, rich deep obsidian velvet skin tone, razor-sharp silver strobe rim lighting, and minimalist black void backdrop.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] sculptural avant-garde fine art portrait, person adorned with fluid molten liquid chrome jawline cuff and floating silver ear jewelry, rich deep obsidian velvet skin tone, dramatic razor-sharp silver strobe rim lighting, pure minimalist black void background, Harper's Bazaar China high-fashion cover, 8k resolution --ar 4:5 --style raw --s 340</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 29. 90s Grunge Flash & Leather (Indie Sleaze) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="retro">
+      <div class="card-thumb-wrap">
+        <img src="assets/grunge_leather_flash.jpg" alt="29. 90s Grunge Flash & Leather (Indie Sleaze)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Indie Sleaze • Contax T2</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">29. 90s Grunge Flash &amp; Leather (Indie Sleaze)</h3>
+        <p class="card-desc-full">
+          Candid raw direct-flash backstage aesthetic. Oversized distressed vintage leather biker jacket over emerald silk slip dress, smudged kohl eyeliner, textured wet-look hair, authentic Kodak Gold 200 film grain, and high-contrast spontaneous party mood.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] candid direct on-camera flash portrait of a cool 90s model backstage at a London rock venue, wearing oversized distressed vintage motorcycle leather jacket over silk slip dress, messy textured wet-look hair, smudged kohl eyeliner, Contax T2 direct flash, authentic Kodak Gold 200 film grain, raw high-contrast indie sleaze aesthetic, 35mm photograph --ar 4:5 --style raw --s 220</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 30. Sculptural Glass & Iridescent Organza -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/glass_organza_couture.jpg" alt="30. Sculptural Glass & Iridescent Organza" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Haute Couture • Vogue Paris</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">30. Sculptural Glass &amp; Iridescent Organza</h3>
+        <p class="card-desc-full">
+          Architectural blown-glass bodice with flowing translucent iridescent organza pleats, prismatic rainbow caustics dancing across smooth dewy skin, minimalist dark studio background, and soft strobe lighting.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] haute couture editorial portrait of a high-fashion model wearing an architectural blown-glass and translucent iridescent organza sculptural gown, prismatic rainbow refraction caustics across smooth dewy skin, clean minimalist dark studio background, soft strobe lighting, Vogue Paris cover, Hasselblad 100mm f/2.2 --ar 4:5 --style raw --s 320</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 31. Neo-Cyberpunk Shinjuku Streetwear (Neon Alley) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/shinjuku_techwear_neon.jpg" alt="31. Neo-Cyberpunk Shinjuku Streetwear" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Techwear • Sony A7R V</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">31. Neo-Cyberpunk Shinjuku Streetwear (Neon Alley)</h3>
+        <p class="card-desc-full">
+          Night street photography in a neon-lit Shinjuku alleyway. Translucent reflective nylon raincoat over black tactical cargo techwear, glowing kanji signs, magenta and electric cyan reflections on rain-slicked asphalt, and atmospheric steam.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] candid night street portrait of a fashionable Tokyo model in a narrow Shinjuku neon alleyway, wearing a high-tech translucent reflective nylon raincoat over techwear cargo vest, magenta and electric cyan reflections on wet asphalt, steam rising, Sony A7R V with 50mm f/1.2 GM lens, sharp cinematic focus --ar 4:5 --style raw --s 280</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 32. Sahara Sunset Bronze Goddess (Pleated Chiffon) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
+      <div class="card-thumb-wrap">
+        <img src="assets/sahara_sunset_goddess.jpg" alt="32. Sahara Sunset Bronze Goddess" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Desert Couture • Kodak Ektar</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">32. Sahara Sunset Bronze Goddess (Pleated Chiffon)</h3>
+        <p class="card-desc-full">
+          Sun-drenched golden hour fashion editorial. Radiantly glowing model in billowing terracotta pleated silk chiffon gown atop vast Sahara sand dunes, dramatic golden sun flare, warm bronze skin tones, and 85mm f/1.4 lens bokeh.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] breathtaking sun-drenched fashion editorial portrait of a radiant model in an undulating terracotta pleated silk chiffon gown atop sweeping sand dunes in the Sahara desert at sunset, warm bronze skin glow, dramatic golden lens flare, windblown flowing fabrics, golden rim lighting, 85mm f/1.4 lens, Kodak Ektar 100 --ar 4:5 --style raw --s 250</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 33. Harajuku Cyber-Streetwear (Neon City) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="viral">
+      <div class="card-thumb-wrap">
+        <img src="assets/viral_fashion_1.png" alt="33. Harajuku Cyber-Streetwear (Neon City)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Streetwear • Cyberpunk</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">33. Harajuku Cyber-Streetwear (Neon City)</h3>
+        <p class="card-desc-full">
+          Hyper-stylized Tokyo Harajuku fashion, glowing neon accents, oversized techwear jackets, dynamic wide angle, futuristic city lights, and high-fashion editorial polish.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] hyper-stylized Tokyo Harajuku cyber-streetwear fashion portrait, young model wearing oversized metallic techwear jacket with glowing neon pink and cyan accents, dynamic low-angle wide shot, futuristic neon city lights reflecting in puddles, cinematic rim lighting, award-winning Vogue editorial fashion photography, extremely detailed, viral aesthetic --ar 4:5 --style raw --s 300</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 34. Ethereal Silk Couture (Golden Hour) -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="luxury">
+      <div class="card-thumb-wrap">
+        <img src="assets/viral_fashion_2.png" alt="34. Ethereal Silk Couture (Golden Hour)" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Haute Couture • Golden Hour</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">34. Ethereal Silk Couture (Golden Hour)</h3>
+        <p class="card-desc-full">
+          Flowing translucent silk, windblown haute couture, warm golden hour sunlight, soft ethereal bloom, delicate features, and breathtaking luxury fashion editorial vibe.
+        </p>
+        <label class="field-label">Fixed Master Prompt (Image-to-Image):</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] ethereal high-fashion haute couture portrait, model wearing flowing translucent white silk gown blowing in the wind, standing in a field of tall grass during perfect golden hour sunlight, soft ethereal glowing bloom, delicate and elegant, shot on medium format Hasselblad, extremely detailed, breathtaking luxury fashion editorial, viral aesthetic --ar 4:5 --style raw --s 300</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="logo-icon">◆</span>
+        <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      </div>
+      <p class="footer-text">
+        Obsidian &amp; silver AI prompt engineering laboratory for viral portraits and fine art aesthetics.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-pill">🔒 100% Client-Side Privacy</span>
+        <span class="footer-pill">⚡ Zero Latency</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Aesthetic Studios</h5>
+      <ul class="footer-links">
+        <li><a href="index.html">Platform Overview</a></li>
+        <li><a href="aesthetic-studio.html">Viral Portraits &amp; Fashion (32 Presets)</a></li>
+        <li><a href="cinematic-studio.html">Cinematic &amp; Surrealism</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Supported AI Models</h5>
+      <ul class="footer-links">
+        <li><span>Midjourney v6 &amp; Niji 6</span></li>
+        <li><span>Black Forest Labs Flux.1</span></li>
+        <li><span>Stability AI SDXL 1.0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 PixelSpur Studio. All rights reserved. Curated for photographers, digital artists &amp; creators.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

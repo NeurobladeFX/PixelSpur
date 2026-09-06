@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg-impossible_geometry_svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070d17" />
+      <stop offset="60%" stop-color="#132135" />
+      <stop offset="100%" stop-color="#070d17" />
+    </linearGradient>
+    <radialGradient id="glow-impossible_geometry_svg" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#cbd5e1" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow2-impossible_geometry_svg" cx="20%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#cbd5e1" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg-impossible_geometry_svg)" />
+
+  <circle cx="560" cy="150" r="220" fill="url(#glow-impossible_geometry_svg)" filter="url(#blur)" />
+  <circle cx="160" cy="380" r="180" fill="url(#glow2-impossible_geometry_svg)" filter="url(#blur)" />
+
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="125" x2="800" y2="125" />
+    <line x1="0" y1="250" x2="800" y2="250" />
+    <line x1="0" y1="375" x2="800" y2="375" />
+    <line x1="200" y1="0" x2="200" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="600" y1="0" x2="600" y2="500" />
+  </g>
+
+  <circle cx="400" cy="190" r="110" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="8 6" />
+  <circle cx="400" cy="190" r="80" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-opacity="0.25" />
+  <circle cx="400" cy="190" r="45" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+
+  <text x="400" y="202" font-size="38" text-anchor="middle" dominant-baseline="middle">📐</text>
+
+  <path d="M 40 60 L 40 35 L 65 35" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+  <path d="M 760 60 L 760 35 L 735 35" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+  <path d="M 40 440 L 40 465 L 65 465" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+  <path d="M 760 440 L 760 465 L 735 465" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+
+  <rect x="52" y="45" width="160" height="24" rx="12" fill="rgba(0,0,0,0.7)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="132" y="61" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" letter-spacing="1.5" text-anchor="middle">MASTER PRESET</text>
+
+  <rect x="0" y="320" width="800" height="180" fill="linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 65%, transparent 100%)" />
+  
+  <text x="50" y="390" fill="#ffffff" font-family="'Inter', sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5">SURREALIST IMPOSSIBLE GEOMETRY</text>
+  <text x="50" y="420" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="13" font-weight="500">M.C. Escher Dreams • Floating Marble</text>
+
+  <rect x="50" y="440" width="200" height="22" rx="4" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="150" y="455" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" letter-spacing="1" text-anchor="middle">MIDJOURNEY • FLUX.1 • SDXL</text>
+</svg>

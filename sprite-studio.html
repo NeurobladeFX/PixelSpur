@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Sprite Sheet Studio — PixelSpur</title>
+  <meta name="description" content="AI Game Asset Sprite Sheet Generator & Interactive Animation Player. Smart frame detection, canvas chroma-key background removal, live animation playback, and JSON export."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- Ambient Metallic Silver Glows -->
+<div class="silver-ambient" aria-hidden="true">
+  <div class="silver-orb orb-silver-1"></div>
+  <div class="silver-orb orb-silver-2"></div>
+</div>
+
+<!-- Fixed Header Navbar -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">◆</span>
+      <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      <span class="logo-badge">STUDIO 02</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">← Back to Overview</a>
+      <a href="aesthetic-studio.html" class="nav-link">Viral Portraits &amp; Fashion (32)</a>
+      <a href="sprite-studio.html" class="nav-link active">
+        <span class="nav-pill">Active</span> Sprite Sheet Studio
+      </a>
+      <a href="cinematic-studio.html" class="nav-link">Cinematic &amp; Surrealism</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline">Switch to Studio 01</a>
+    </div>
+  </div>
+</header>
+
+<!-- Studio Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="page-badge-row">
+      <span class="silver-badge">✦ GAME ASSET SPRITE STUDIO &amp; SMART PLAYER</span>
+    </div>
+    <h1 class="page-title">
+      Smart Sprite Sheet <br/>
+      <span class="silver-grad-text">Studio &amp; Animation Player</span>
+    </h1>
+    <p class="page-sub">
+      Generate calibrated game-ready 2D sprite strips with Midjourney, Flux, or SDXL. Our smart engine <strong>auto-detects frame counts</strong> from your animation actions, eliminates green/magenta screens via <strong>in-browser canvas defringing</strong>, previews animations at 60fps, and downloads <strong>game engine JSON metadata</strong>.
+    </p>
+
+    <!-- Smart Feature Highlights -->
+    <div class="smart-sync-banner" style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div class="smart-sync-title">
+        <span>⚡ Calibrated Prompt Engine:</span>
+        <span style="color: var(--silver-400); font-weight: 400;">Kinematic treadmill motion, locked profile cameras &amp; multi-engine output.</span>
+      </div>
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <span class="smart-sync-badge" id="detected-frames-badge">10 FRAMES SET</span>
+        <button type="button" class="btn btn-silver-outline btn-sm" id="header-btn-feedback" style="font-size: 0.72rem; padding: 0.35rem 0.75rem; border-color: var(--silver-400); color: #fff;">
+          🧠 AI Training Lab (<span id="header-feedback-count">3</span>)
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Interactive Studio Grid -->
+<main class="container sprite-studio-wrap">
+  <div class="sprite-grid">
+
+    <!-- ─── COLUMN 1: SMART PROMPT GENERATOR ─── -->
+    <div class="studio-col">
+
+      <!-- Preset Quick Starter & AI Co-Pilot Toolbar -->
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><span>⚡</span> Quick Starter Presets</h3>
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-silver btn-sm" id="btn-surprise-me" title="Generate an unexpected random character and animation concept">
+              🎲 Surprise Me
+            </button>
+            <span class="panel-pill">Smart Presets</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label class="field-label" for="preset-select">Load Popular Preset:</label>
+            <select id="preset-select">
+              <option value="custom">-- Custom Configuration --</option>
+              <option value="knight_walk" selected>Pixel Knight — Walk Cycle</option>
+              <option value="cyber_run">Cyberpunk Ninja — Run Sprint</option>
+              <option value="ninja_dash">Shadow Assassin — Smoke Dash &amp; Katana Slash</option>
+              <option value="paladin_block">Holy Paladin — Shield Barrier &amp; Golden Aura</option>
+              <option value="archer_shoot">Elven Ranger — Precision Bow Draw &amp; Release</option>
+              <option value="brawler_combo">Cyber Monk — 3-Hit Martial Arts Combo</option>
+              <option value="mage_cast">Anime Sorceress — Cast Spell</option>
+              <option value="witch_meteor">Pixel Witch — Meteor Awakening</option>
+              <option value="mecha_slash">Mecha Pilot — Heavy Sword Slash</option>
+              <option value="rogue_jump">Retro Platformer — Jump &amp; Fall</option>
+              <option value="boss_death">Abyssal Lord — Defeat &amp; Dark Matter Dissolve</option>
+              <option value="slime_idle">Chibi Monster — Idle Breathing</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="art-style">Art Style (10 Curated Standards):</label>
+            <select id="art-style">
+              <option value="16-bit retro pixel art, clean sharp pixel contours, vibrant palette" selected>16-Bit SNES / Genesis Pixel Art</option>
+              <option value="8-bit retro NES game asset, limited 4-color high-contrast palette, chunky pixel grid">8-Bit Nostalgic NES / Game Boy</option>
+              <option value="32-bit high-res PS1 Saturn pixel art, Castlevania Symphony of the Night ultra-detailed sprite, micro-dithering">32-Bit Hi-Res PS1 / Saturn Pixel Art</option>
+              <option value="modern clean vector 2D game asset, flat cell shading, bold clean ink outlines, Hollow Knight aesthetic">Modern HD Vector 2D (Hollow Knight / Cuphead)</option>
+              <option value="dark fantasy gothic chibi sprite, detailed armor, painterly lighting, Blasphemous aesthetic">Dark Fantasy Painterly Chibi (Blasphemous)</option>
+              <option value="hand-drawn Studio Ghibli anime cel game asset, delicate ink line art, soft watercolor textures">Studio Ghibli Anime Cel Art</option>
+              <option value="cyberpunk neon pixel art, vibrant chromatic palette, glowing neon contours, Hyper Light Drifter style">Cyberpunk Neon Hi-Bit (Hyper Light Drifter)</option>
+              <option value="cute chibi kawaii creature monster sprite, rounded soft proportions, playful clean outlines">Cute Chibi Creature / Monster</option>
+              <option value="grimdark gothic graphic novel ink sprite, high-contrast black shadows, crosshatching, Darkest Dungeon aesthetic">Grimdark Comic Ink (Darkest Dungeon)</option>
+              <option value="2.5D stylized isometric action RPG game asset, rich painted textures, specular rim lighting, Hades style">2.5D Stylized Isometric RPG (Hades)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action & Character Details -->
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><span>🎮</span> Character &amp; Animation Actions</h3>
+          <span class="panel-pill" id="action-frame-indicator">Prompt: 10 Frames</span>
+        </div>
+
+        <label class="field-label" for="char-description">Character Description:</label>
+        <textarea id="char-description" rows="2" placeholder="e.g. A heroic medieval knight in dark silver plate armor, glowing blue visor, holding a runic broadsword">A medieval knight in engraved silver plate armor with a glowing blue visor, holding a rune broadsword</textarea>
+
+        <div class="form-row">
+          <div>
+            <label class="field-label" for="action-select">Animation Action (26 Actions):</label>
+            <select id="action-select">
+              <optgroup label="Locomotion &amp; Movement">
+                <option value="walk" selected>Walk Cycle (Looping In-Place on Treadmill)</option>
+                <option value="run">Run Sprint (Looping In-Place on Treadmill)</option>
+                <option value="dash">High-Speed Evasion Dash</option>
+                <option value="jump">Jump, Apex &amp; Land (3-Phase Cycle)</option>
+                <option value="double_jump">Double Jump / Mid-Air Somersault</option>
+                <option value="backflip">Acrobatic Backflip / Evasive Retreat</option>
+                <option value="roll_dodge">Tactical Combat Roll / Dodge</option>
+                <option value="wall_slide">Vertical Wall Slide &amp; Kick-off</option>
+                <option value="climb">Vertical Wall / Ladder Climb Cycle</option>
+              </optgroup>
+              <optgroup label="Idle &amp; Stances">
+                <option value="idle">Relaxed Idle Breathing (Looping)</option>
+                <option value="idle_combat">Combat-Ready Battle Stance (Looping)</option>
+              </optgroup>
+              <optgroup label="Melee &amp; Physical Combat">
+                <option value="attack">Sword Slash / Melee Strike</option>
+                <option value="attack_combo">3-Hit Rapid Melee Combo Sequence</option>
+                <option value="heavy_smash">Heavy Overhead Ground Smash</option>
+                <option value="block">Shield Block / Defensive Guard</option>
+              </optgroup>
+              <optgroup label="Ranged &amp; Magic">
+                <option value="archery">Archery / Precision Bow Draw &amp; Release</option>
+                <option value="gun_fire">Gunfire Recoil &amp; Tactical Reload</option>
+                <option value="cast">Arcane Spell Cast / Channeling</option>
+                <option value="charge_power">Power Charge / DBZ Ki Aura Flare</option>
+                <option value="ultimate">Ultimate Awakening / Cataclysmic Burst</option>
+              </optgroup>
+              <optgroup label="Impact, Damage &amp; Defeat">
+                <option value="hurt">Hit Reaction / Heavy Stagger</option>
+                <option value="knockback">Knockback Recovery &amp; Roll</option>
+                <option value="item_consume">Potion Drink / Item Consume</option>
+                <option value="death">Defeat / Dramatic Collapse &amp; Dissolve</option>
+                <option value="victory">Victory Celebration / Triumphant Taunt</option>
+                <option value="custom">Custom Choreography (Described Below)</option>
+              </optgroup>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="bg-chroma">Background Chroma Key:</label>
+            <select id="bg-chroma">
+              <option value="solid bright green #00FF00 background, zero shadows">Chroma Green (#00FF00)</option>
+              <option value="solid bright magenta pink #FF00FF background, zero shadows">Magenta Pink (#FF00FF)</option>
+              <option value="pure pitch black #000000 background, zero ambient shadows">Pitch Black (#000000)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 🎬 ANIMATION TELLING OPTION -->
+        <div class="custom-anim-section" style="margin-top: 1rem;">
+          <div class="field-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label class="field-label" for="anim-description" style="margin-bottom: 0;">
+              <span>🎬 Describe Custom Motion (Animation Telling):</span>
+            </label>
+            <span class="field-hint" style="font-size: 0.72rem; color: var(--silver-300);">Choreography &amp; Keyframe Notes</span>
+          </div>
+          <textarea id="anim-description" rows="2" placeholder="e.g. Charges forward, executes a 360-degree whirlwind blade strike leaving blue lightning trails, then recovers into a low crouch"></textarea>
+
+          <!-- Quick Action Suggestion Chips -->
+          <div class="anim-chips-wrap" style="margin-top: 0.5rem;">
+            <span style="font-size: 0.72rem; color: var(--silver-400); display: block; margin-bottom: 0.35rem; font-weight: 600;">⚡ Quick Action Telling Presets:</span>
+            <div class="anim-chips-row">
+              <button type="button" class="anim-chip" data-chip="Executes a spinning 360-degree whirlwind blade strike with glowing cyan electric trails" data-action="attack">🌪️ Whirlwind Slash</button>
+              <button type="button" class="anim-chip" data-chip="Leaps backward into shadows, hurling three glowing shurikens before sliding to a halt" data-action="backflip">🥷 Shadow Shuriken</button>
+              <button type="button" class="anim-chip" data-chip="Channels a swirling cosmic meteor sphere overhead and hurls it forward with shockwave particles" data-action="cast">☄️ Meteor Blast</button>
+              <button type="button" class="anim-chip" data-chip="Performs a fast low evasive combat roll forward under incoming fire and pops up into ready stance" data-action="roll_dodge">🔄 Combat Roll</button>
+              <button type="button" class="anim-chip" data-chip="Takes heavy blunt impact to chest, staggers back off-balance, and braces firmly on one knee" data-action="hurt">💥 Heavy Impact</button>
+              <button type="button" class="anim-chip" data-chip="Rapidly sheathes glowing katana with an audible click as a sonic shockwave ripples outward" data-action="attack_combo">⚔️ Katana Sheathe</button>
+              <button type="button" class="anim-chip" data-chip="Powers up as a radiant aura erupts from the ground, hair floating with crackling energy" data-action="charge_power">⚡ Ki Charge</button>
+              <button type="button" class="anim-chip" data-chip="Raises a heavy tower shield deflecting incoming barrage with golden spark ricochets" data-action="block">🛡️ Shield Deflect</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⚡ VISUAL FX (VFX) & ELEMENTAL AURA PILLS -->
+        <div class="vfx-section" style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--silver-border);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <span style="font-size: 0.76rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.35rem;">
+              <span>✨</span> Visual FX &amp; Elemental Overlays (Click to Toggle):
+            </span>
+            <span id="vfx-count-badge" style="font-size: 0.68rem; font-family: var(--mono); color: var(--silver-400);">0 Active</span>
+          </div>
+          <div class="vfx-chips-row" style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
+            <button type="button" class="vfx-chip" data-vfx="crackling cyan lightning arcs and electric discharge sparks">⚡ Lightning Sparks</button>
+            <button type="button" class="vfx-chip" data-vfx="blazing orange fiery flame embers and heatwave distortion">🔥 Fire &amp; Embers</button>
+            <button type="button" class="vfx-chip" data-vfx="glinting glacial frost crystal shards and sub-zero ice mist">❄️ Frost &amp; Ice</button>
+            <button type="button" class="vfx-chip" data-vfx="kinetic high-speed dash smoke trails and foot impact dust puffs">💨 Speed Dust &amp; Blur</button>
+            <button type="button" class="vfx-chip" data-vfx="orbiting glowing purple arcane rune glyphs and magic particle sparks">🔮 Arcane Glyphs</button>
+            <button type="button" class="vfx-chip" data-vfx="radiant golden divine light halos and shimmering specular star glints">✨ Holy Radiance</button>
+            <button type="button" class="vfx-chip" data-vfx="swirling dark abyssal void smoke tendrils and shadow matter">🌑 Dark Void Smoke</button>
+            <button type="button" class="vfx-chip" data-vfx="radial translucent impact shockwave ripple distortion rings">🩸 Shockwave Ripple</button>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-top: 1rem;">
+          <div>
+            <label class="field-label" for="view-angle">Perspective / Angle:</label>
+            <select id="view-angle">
+              <option value="side-scroller lateral side profile view">Side-Scroller 2D Profile</option>
+              <option value="3/4 isometric top-down action RPG view">3/4 Isometric RPG</option>
+              <option value="front-facing direct combat view">Front-Facing Combat</option>
+              <option value="top-down 90-degree bird's eye overhead view">Top-Down 90° Overhead</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="animation-pacing">Animation Pacing &amp; Physics:</label>
+            <select id="animation-pacing">
+              <option value="arcade" selected>Snappy Arcade (Fast impact, instant recovery)</option>
+              <option value="heavy">Heavy / Souls-like (Weighted windup, high momentum)</option>
+              <option value="anime">Fluid Anime / Sakuga (Dynamic smear frames &amp; arcs)</option>
+              <option value="bouncy">Bouncy Chibi (Playful squash-and-stretch recoil)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-top: 0.75rem;">
+          <div>
+            <label class="field-label" for="engine-mode">Prompt Target Engine:</label>
+            <select id="engine-mode">
+              <option value="mj">Midjourney v6.1 (--ar 16:9 --style raw --v 6.1)</option>
+              <option value="flux">Flux.1 (Natural Language Game Asset)</option>
+              <option value="sdxl">SDXL 1.0 / Pony (Weighted Tags &amp; Negatives)</option>
+              <option value="gemini">Google Gemini / Imagen 3 (Anti-Watermark Clean)</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="ai-co-pilot-toggle" style="display: flex; justify-content: space-between;">
+              <span>AI Auto-Enhance Co-Pilot:</span>
+              <span id="ai-enhance-status" style="font-size: 0.7rem; color: #4ade80;">Active</span>
+            </label>
+            <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.25rem;">
+              <button type="button" class="btn btn-silver btn-block btn-sm" id="btn-toggle-ai-enhance" style="font-size: 0.75rem;">
+                ✨ AI Auto-Enhance: ON
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Frame Count Selection -->
+        <div class="frame-count-section" style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--silver-border);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="field-label" for="frame-slider" style="margin-bottom: 0; font-weight: 700;">
+              <span>🎞️</span> Animation Frame Count (Prompt):
+            </label>
+            <span id="frame-override-val" style="font-family: var(--mono); font-size: 0.78rem; color: #fff; font-weight: 700; background: rgba(255,255,255,0.08); padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid var(--silver-border-hi);">10 Frames (2 Rows × 5 Cols)</span>
+          </div>
+
+          <!-- Quick Frame Count Buttons -->
+          <div class="frame-btn-row" style="display: flex; gap: 0.4rem; margin-bottom: 0.75rem;">
+            <button type="button" class="frame-btn" data-frames="4"><strong>4</strong>f</button>
+            <button type="button" class="frame-btn" data-frames="6"><strong>6</strong>f</button>
+            <button type="button" class="frame-btn" data-frames="8"><strong>8</strong>f</button>
+            <button type="button" class="frame-btn active" data-frames="10"><strong>10</strong>f</button>
+            <button type="button" class="frame-btn" data-frames="12"><strong>12</strong>f</button>
+            <button type="button" class="frame-btn" data-frames="16"><strong>16</strong>f</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <input type="range" id="frame-slider" class="slider" min="2" max="16" value="10" style="flex: 1;"/>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <input type="number" id="frame-number-input" min="2" max="16" value="10" style="width: 58px; padding: 0.3rem 0.4rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px; font-family: var(--mono); font-size: 0.82rem; text-align: center;" />
+              <span style="font-size: 0.72rem; color: var(--silver-400);">frames</span>
+            </div>
+          </div>
+
+          <div class="form-row" style="margin-top: 0.65rem;">
+            <div>
+              <label class="field-label" for="prompt-layout-mode" style="font-size: 0.72rem; margin-bottom: 0.2rem;">Prompt Sheet Layout:</label>
+              <select id="prompt-layout-mode" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+                <option value="auto" selected>Auto (Strip if ≤ 8f, 2-Row Grid if &gt; 8f)</option>
+                <option value="grid">2-Row Grid (Top &amp; Bottom Rows)</option>
+                <option value="strip">1-Row Strip (Horizontal Left-to-Right)</option>
+              </select>
+            </div>
+            <div style="display: flex; align-items: flex-end; padding-bottom: 0.2rem;">
+              <span style="font-size: 0.68rem; color: var(--silver-400); line-height: 1.4;">
+                ℹ️ Frames &amp; layout set here configure the exact prompt instructions and aspect ratio.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Master Prompt Output with Tabs -->
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><span>📋</span> AI Calibrated Master Prompt</h3>
+          <span class="panel-pill" id="prompt-quality-pill">Score: 100/100</span>
+        </div>
+
+        <!-- Prompt Output Tabs -->
+        <div class="prompt-tabs-bar" style="display: flex; gap: 0.35rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 0.5rem;">
+          <button type="button" class="prompt-tab-btn active" data-tab="positive">📋 Master Positive Prompt</button>
+          <button type="button" class="prompt-tab-btn" data-tab="negative">🚫 Negative Exclusions</button>
+          <button type="button" class="prompt-tab-btn" data-tab="spec">🎮 Game Engine Spec</button>
+        </div>
+
+        <div class="prompt-tab-pane" id="tab-pane-positive" style="display: block;">
+          <div class="prompt-box" id="sprite-prompt-output">Loading prompt...</div>
+          <div class="prompt-actions" style="margin-top: 0.75rem;">
+            <button class="btn btn-silver btn-block" id="copy-sprite-prompt">
+              📋 Copy Master Sprite Prompt
+            </button>
+          </div>
+        </div>
+
+        <div class="prompt-tab-pane" id="tab-pane-negative" style="display: none;">
+          <div class="prompt-box" id="negative-prompt-output" style="color: #fca5a5;">Loading negative prompt...</div>
+          <div class="prompt-actions" style="margin-top: 0.75rem;">
+            <button class="btn btn-silver-outline btn-block" id="copy-negative-prompt">
+              📋 Copy Negative Exclusions
+            </button>
+          </div>
+        </div>
+
+        <div class="prompt-tab-pane" id="tab-pane-spec" style="display: none;">
+          <div class="prompt-box" id="game-spec-output" style="font-family: var(--mono); font-size: 0.75rem;">Loading engine metadata...</div>
+          <div class="prompt-actions" style="margin-top: 0.75rem;">
+            <button class="btn btn-silver-outline btn-block" id="copy-spec-prompt">
+              📋 Copy Game Spec JSON
+            </button>
+          </div>
+        </div>
+
+        <!-- 📊 REAL-TIME KINEMATIC QUALITY LINTER -->
+        <div class="linter-box" style="margin-top: 1rem; padding: 0.75rem; background: rgba(255,255,255,0.02); border: 1px solid var(--silver-border); border-radius: var(--radius-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <span style="font-size: 0.74rem; font-weight: 700; color: #fff;">Kinematic Prompt Linter:</span>
+            <span id="linter-status-text" style="font-size: 0.7rem; color: #4ade80; font-family: var(--mono);">100% Production Ready</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.68rem; color: var(--silver-400);">
+            <div id="lint-root" style="display: flex; align-items: center; gap: 0.35rem; color: #4ade80;">✓ Stationary Root Motion Locked (Treadmill, Center of Mass X=50%)</div>
+            <div id="lint-ground" style="display: flex; align-items: center; gap: 0.35rem; color: #4ade80;">✓ Razor-Flat Baseline Locked at Y=85%</div>
+            <div id="lint-border" style="display: flex; align-items: center; gap: 0.35rem; color: #4ade80;">✓ Borderless Anti-Box &amp; Anti-Divider Negative Rules Active</div>
+            <div id="lint-ratio" style="display: flex; align-items: center; gap: 0.35rem; color: #4ade80;">✓ Aspect Ratio Calibrated to Target Engine &amp; Frame Layout</div>
+          </div>
+        </div>
+
+        <!-- AI Training & Action Pack Trigger -->
+        <div class="feedback-trigger-row" style="margin-top: 0.85rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-silver-outline btn-sm" id="btn-gen-action-pack" style="flex: 1; font-size: 0.74rem; padding: 0.5rem 0.6rem;">
+            📦 Full Character Action Pack (5 Prompts)
+          </button>
+          <button type="button" class="btn btn-silver-outline btn-sm" id="btn-open-feedback" style="font-size: 0.74rem; padding: 0.5rem 0.6rem;">
+            🧠 Report Issue / Train Model
+          </button>
+          <button type="button" class="btn btn-silver-outline btn-sm" id="btn-view-feedback-records" title="View recorded AI training datasets" style="font-size: 0.74rem; white-space: nowrap; padding: 0.5rem 0.6rem;">
+            👁️ (<span id="feedback-count-badge">3</span>)
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ─── COLUMN 2: DEFRINGER & SMART ANIMATION PLAYER ─── -->
+    <div class="studio-col">
+
+      <!-- Upload / Drop Zone -->
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><span>🖼️</span> Import Sprite Strip</h3>
+          <span class="panel-pill">Canvas Defringer</span>
+        </div>
+
+        <div id="drop-zone" tabindex="0" role="button" aria-label="Drop or paste AI generated sprite strip image (Ctrl+V supported)">
+          <div class="drop-icon-circle">⇧</div>
+          <span class="drop-label">Drop AI Generated Sprite Strip Here</span>
+          <span class="drop-hint">Supports PNG, JPG, WebP or <kbd>Ctrl+V</kbd> paste anywhere</span>
+          <input type="file" id="file-input" accept="image/*" style="display:none;"/>
+        </div>
+
+        <button type="button" class="btn btn-silver-outline btn-sm" id="btn-load-sample-sheet" style="font-size: 0.72rem; margin-top: 0.6rem; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.4rem;" title="Load built-in Knight 12-frame sheet to test auto-detection and defringing">
+          <span>⚔️</span> Load Demo Knight Walk Sheet (Test Auto-Grid &amp; No-Seam Slicing)
+        </button>
+
+        <!-- Canvas Wrapper for Defringing & Slicing Overlay -->
+        <div id="canvas-wrapper" style="display:none; margin-top: 1rem;">
+          <div class="source-canvas-container" style="position: relative; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--silver-border);">
+            <canvas id="source-canvas" style="display: block; width: 100%;"></canvas>
+            <canvas id="grid-overlay-canvas" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.35rem; flex-wrap: wrap; gap: 0.4rem;">
+            <span class="canvas-hint-badge" style="margin-top: 0;">Original / Processed Canvas</span>
+            <label for="toggle-show-grid-lines" style="font-size: 0.72rem; color: var(--silver-300); display: flex; align-items: center; gap: 0.35rem; cursor: pointer; margin-bottom: 0;">
+              <input type="checkbox" id="toggle-show-grid-lines" checked />
+              <span>📐 Show Slicing Grid Overlay</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Chroma Key & Defringe Controls -->
+        <div class="controls-group" id="chroma-controls" style="display:none;">
+          <div class="controls-header">
+            <span class="controls-label">Chroma Key & Alpha Defringe</span>
+            <span class="controls-tag">Alpha Clean</span>
+          </div>
+
+          <div class="slider-row">
+            <label for="color-picker">Key Color:</label>
+            <input type="color" id="color-picker" value="#00FF00" style="width: 44px; height: 28px; padding: 0; border: none; cursor: pointer; background: transparent;"/>
+            <span style="font-size: 0.75rem; color: var(--silver-400); margin-left: 0.5rem;">Click canvas or pick color</span>
+          </div>
+
+          <div class="slider-row">
+            <label for="tolerance-slider">Tolerance:</label>
+            <input type="range" id="tolerance-slider" class="slider" min="5" max="150" value="45"/>
+            <span class="slider-val" id="tolerance-val">45</span>
+          </div>
+
+          <div class="slider-row">
+            <label for="defringe-slider">Defringe Edge:</label>
+            <input type="range" id="defringe-slider" class="slider" min="0" max="10" value="2"/>
+            <span class="slider-val" id="defringe-val">2</span>
+          </div>
+
+          <!-- ─── 📦 SMART INNER BOX & FRAME DIVIDER CLEANER ─── -->
+          <div class="box-cleaner-wrap" style="margin-top: 0.85rem; padding: 0.75rem; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: var(--radius-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="toggle-smart-box-clean" style="margin-bottom: 0; font-size: 0.78rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                <span>📦</span> Eliminate Inner Boxes &amp; Dividers
+              </label>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-smart-box-clean" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <p style="font-size: 0.69rem; color: var(--silver-400); margin-top: 0.35rem; line-height: 1.4; margin-bottom: 0;">
+              Automatically detects and purges two-tone green/magenta boxes, comic panel borders, and vertical frame divider lines generated by AI.
+            </p>
+          </div>
+
+          <!-- ─── AI & GEMINI WATERMARK REMOVER ─── -->
+          <div class="watermark-tools-wrap" style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--silver-border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+              <span class="controls-label" style="font-size: 0.82rem; display: flex; align-items: center; gap: 0.35rem;">
+                <span>✨</span> Gemini / AI Watermark Erase
+              </span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-watermark-erase" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div id="watermark-options" style="display: block;">
+              <div class="slider-row" style="margin-bottom: 0.5rem;">
+                <label for="wm-corner-select" style="font-size: 0.75rem;">Target Corner:</label>
+                <select id="wm-corner-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+                  <option value="br" selected>Bottom-Right (Gemini Standard)</option>
+                  <option value="bl">Bottom-Left</option>
+                  <option value="tr">Top-Right</option>
+                  <option value="tl">Top-Left</option>
+                  <option value="all-bottom">Entire Bottom Strip</option>
+                </select>
+              </div>
+
+              <div class="slider-row">
+                <label for="wm-size-slider" style="font-size: 0.75rem;">Erase Box Size:</label>
+                <input type="range" id="wm-size-slider" class="slider" min="30" max="180" value="85"/>
+                <span class="slider-val" id="wm-size-val">85px</span>
+              </div>
+            </div>
+
+            <!-- Canvas Interactive Tools -->
+            <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed rgba(255,255,255,0.1);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.76rem; font-weight: 600; color: #fff;">Manual Canvas Tool:</span>
+                <span id="active-tool-badge" style="font-size: 0.68rem; color: var(--silver-400); font-family: var(--mono);">Eyedropper Active</span>
+              </div>
+
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-silver btn-sm" id="btn-tool-eyedropper" title="Click canvas to select chroma color">
+                  🔍 Eyedropper
+                </button>
+                <button type="button" class="btn btn-silver-outline btn-sm" id="btn-tool-eraser" title="Click and drag on canvas to erase watermark or artifacts">
+                  🧹 Eraser Brush
+                </button>
+                <button type="button" class="btn btn-silver-outline btn-sm" id="btn-tool-clear-eraser" title="Reset all manual painted eraser strokes">
+                  🔄 Reset Strokes
+                </button>
+              </div>
+
+              <div class="slider-row" id="eraser-size-row" style="display: none; margin-top: 0.5rem;">
+                <label for="eraser-size-slider" style="font-size: 0.75rem;">Brush Size:</label>
+                <input type="range" id="eraser-size-slider" class="slider" min="6" max="60" value="24"/>
+                <span class="slider-val" id="eraser-size-val">24px</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Smart Animation Player & JSON Export -->
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><span>▶️</span> Smart Animation Player</h3>
+          <span class="panel-pill" id="player-status-badge">Auto Sliced</span>
+        </div>
+
+        <div class="smart-player-status">
+          <span>Active Frames: <strong id="player-frame-count">6 Frames</strong></span>
+          <span>Detected Resolution: <strong id="player-res-info">Waiting for Image</strong></span>
+        </div>
+
+        <!-- Slicing Grid Controls (Columns & Rows) -->
+        <div class="grid-controls-box" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--silver-border); border-radius: var(--radius-sm); padding: 0.75rem; margin-top: 0.75rem; margin-bottom: 0.85rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.4rem;">
+            <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span style="font-size: 0.78rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.35rem;">
+                <span>📐</span> Slicing Grid Layout:
+              </span>
+              <button type="button" class="btn btn-silver btn-sm" id="btn-sync-to-prompt" style="font-size: 0.7rem; padding: 0.2rem 0.55rem;" title="Automatically align grid columns and rows to the exact count configured in your prompt">
+                🔗 Auto-Check from Prompt
+              </button>
+              <button type="button" class="btn btn-silver-outline btn-sm" id="btn-auto-detect-grid" style="font-size: 0.7rem; padding: 0.2rem 0.55rem;" title="Run Computer Vision projection analysis to automatically discover columns and rows">
+                ⚡ Auto-Detect Grid (CV)
+              </button>
+            </div>
+            <span id="grid-status-badge" style="font-size: 0.7rem; font-family: var(--mono); color: var(--silver-400);">5 Cols × 2 Rows (10 Frames)</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;">
+            <div>
+              <label for="col-select" style="font-size: 0.7rem; color: var(--silver-400); display: block; margin-bottom: 0.2rem;">Columns (Frames/Row):</label>
+              <select id="col-select" style="width: 100%; padding: 0.25rem 0.4rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+                <option value="2">2 Columns</option>
+                <option value="3">3 Columns</option>
+                <option value="4">4 Columns</option>
+                <option value="5" selected>5 Columns</option>
+                <option value="6">6 Columns</option>
+                <option value="7">7 Columns</option>
+                <option value="8">8 Columns</option>
+                <option value="9">9 Columns</option>
+                <option value="10">10 Columns</option>
+                <option value="11">11 Columns</option>
+                <option value="12">12 Columns</option>
+                <option value="14">14 Columns</option>
+                <option value="16">16 Columns</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="row-select" style="font-size: 0.7rem; color: var(--silver-400); display: block; margin-bottom: 0.2rem;">Rows (Vertical):</label>
+              <select id="row-select" style="width: 100%; padding: 0.25rem 0.4rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+                <option value="1">1 Row (Strip)</option>
+                <option value="2" selected>2 Rows (Grid / 10f or 12f)</option>
+                <option value="3">3 Rows (Grid)</option>
+                <option value="4">4 Rows (Grid)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="row-mode-select" style="font-size: 0.7rem; color: var(--silver-400); display: block; margin-bottom: 0.2rem;">Row Playback:</label>
+              <select id="row-mode-select" style="width: 100%; padding: 0.25rem 0.4rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+                <option value="all" selected>All Rows (Sequential)</option>
+                <option value="row1">Row 1 Only (Top)</option>
+                <option value="row2">Row 2 Only (Bottom)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Quick Layout Preset Chips -->
+          <div style="display: flex; gap: 0.35rem; margin-top: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 0.68rem; color: var(--silver-300);">Quick Presets:</span>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="4" data-rows="1" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1×4 Strip</button>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="6" data-rows="1" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1×6 Strip</button>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="8" data-rows="1" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1×8 Strip</button>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="4" data-rows="2" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2×4 Grid (8f)</button>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="5" data-rows="2" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2×5 Grid (10f)</button>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="6" data-rows="2" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2×6 Grid (12f)</button>
+            <button type="button" class="btn btn-silver-outline btn-sm grid-preset-btn" data-cols="10" data-rows="1" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1×10 Strip</button>
+          </div>
+
+          <!-- ─── 🔍 SLICING FINE-TUNE & INSET TRIM CONTROLS ─── -->
+          <div class="slice-finetune-wrap" style="margin-top: 0.75rem; padding-top: 0.65rem; border-top: 1px dashed rgba(255,255,255,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <span style="font-size: 0.72rem; font-weight: 700; color: #fff;">
+                🎯 Slice Boundary Trim &amp; Offset (Eliminate Seams &amp; Lines):
+              </span>
+              <button type="button" class="btn btn-silver-outline btn-sm" id="btn-reset-slice-offsets" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">
+                Reset Offsets
+              </button>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; font-size: 0.68rem;">
+              <div>
+                <label for="slice-inset-slider" style="display: block; margin-bottom: 0.2rem; color: var(--silver-400);">Frame Inset / Trim: <strong id="slice-inset-val" style="color: #fff;">0px</strong></label>
+                <input type="range" id="slice-inset-slider" class="slider slider-sm" min="0" max="15" value="0" />
+              </div>
+              <div>
+                <label for="slice-offset-x-slider" style="display: block; margin-bottom: 0.2rem; color: var(--silver-400);">X-Shift: <strong id="slice-offset-x-val" style="color: #fff;">0px</strong></label>
+                <input type="range" id="slice-offset-x-slider" class="slider slider-sm" min="-30" max="30" value="0" />
+              </div>
+              <div>
+                <label for="slice-offset-y-slider" style="display: block; margin-bottom: 0.2rem; color: var(--silver-400);">Y-Shift: <strong id="slice-offset-y-val" style="color: #fff;">0px</strong></label>
+                <input type="range" id="slice-offset-y-slider" class="slider slider-sm" min="-30" max="30" value="0" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation Canvas -->
+        <div class="anim-canvas-wrap">
+          <canvas id="anim-canvas" width="256" height="256"></canvas>
+          <div class="anim-placeholder" id="anim-placeholder">
+            <span>Drop or paste (<kbd>Ctrl+V</kbd>) your generated sprite sheet above to see instant sliced animation playback!</span>
+          </div>
+        </div>
+
+        <!-- Playback Controls -->
+        <div class="playback-bar">
+          <button class="pb-btn pb-play" id="btn-play-toggle" title="Play / Pause">▶</button>
+          <button class="pb-btn" id="btn-step-prev" title="Previous Frame">⏮</button>
+          <button class="pb-btn" id="btn-step-next" title="Next Frame">⏭</button>
+          <span class="frame-info" id="frame-display">Frame: 0 / 6</span>
+
+          <div class="fps-group">
+            <span>Speed:</span>
+            <input type="range" id="fps-slider" class="slider slider-sm" min="1" max="24" value="10"/>
+            <span id="fps-val">10</span><span>fps</span>
+          </div>
+        </div>
+
+        <!-- ─── 🎞️ EXTRACTED FRAMES MANAGER & REMOVER ─── -->
+        <div class="extracted-frames-panel" id="extracted-frames-panel" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--silver-border);">
+          <div class="frames-panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div>
+              <h4 style="margin: 0; font-size: 0.88rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🎞️</span> Extracted Frames Manager
+              </h4>
+              <span style="font-size: 0.7rem; color: var(--silver-400);">Non-destructive removal • Real-time player &amp; export sync</span>
+            </div>
+            <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+              <span class="smart-sync-badge" id="extracted-frames-badge" style="font-size: 0.7rem; padding: 0.2rem 0.55rem;">0 Frames</span>
+              <button type="button" class="btn btn-silver-outline btn-sm" id="btn-restore-all-frames" style="font-size: 0.7rem; padding: 0.2rem 0.6rem; display: none;" title="Restore all removed frames">
+                🔄 Restore All
+              </button>
+              <button type="button" class="btn btn-silver-outline btn-sm" id="btn-download-individual-frames" style="font-size: 0.7rem; padding: 0.2rem 0.6rem; display: none;" title="Download each active frame as a separate transparent PNG">
+                💾 Save Individual PNGs
+              </button>
+            </div>
+          </div>
+
+          <p id="frames-manager-hint" style="font-size: 0.72rem; color: var(--silver-400); margin-bottom: 0.75rem; line-height: 1.4;">
+            Every frame is automatically sliced below. Click <strong>🗑️ Remove</strong> to exclude defective or unwanted frames from the live playback and exported sheet. Click <strong>👁️</strong> to inspect, or <strong>⬅ ➡</strong> to reorder.
+          </p>
+
+          <!-- Frame Cards Grid / Tray -->
+          <div class="extracted-frames-grid" id="extracted-frames-grid">
+            <div class="frames-empty-state" id="frames-empty-state" style="padding: 1.5rem; text-align: center; background: rgba(255,255,255,0.02); border: 1px dashed var(--silver-800); border-radius: var(--radius-sm); color: var(--silver-300); font-size: 0.76rem;">
+              <span>Drop, paste (<kbd>Ctrl+V</kbd>), or import a sprite sheet above to automatically slice and manage individual frames here.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Downloads: Cleaned PNG + Game Engine JSON Metadata -->
+        <div class="download-group" style="margin-top: 1.25rem;">
+          <div class="btn-row">
+            <button class="btn btn-silver btn-block" id="btn-download-png">
+              💾 Download Cleaned PNG Strip (Active Only)
+            </button>
+            <button class="btn btn-silver-outline btn-block" id="btn-download-json">
+              📄 Download Animation JSON Metadata
+            </button>
+          </div>
+          <button class="btn btn-silver btn-block" id="btn-download-bundle" style="margin-top: 0.35rem;">
+            📦 Download PNG + JSON Game Bundle
+          </button>
+          <span class="download-hint">
+            JSON format is 100% compatible with Godot 4, Unity 2D SpriteSheet, Phaser 3, and Pixi.js.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="logo-icon">◆</span>
+        <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      </div>
+      <p class="footer-text">
+        Obsidian &amp; silver AI prompt engineering laboratory for viral portraits and game asset sprite sheets.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-pill">🔒 100% Client-Side Canvas</span>
+        <span class="footer-pill">⚡ Zero Latency</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Aesthetic Studios</h5>
+      <ul class="footer-links">
+        <li><a href="index.html">Platform Overview</a></li>
+        <li><a href="aesthetic-studio.html">Viral Portraits &amp; Fashion (32 Presets)</a></li>
+        <li><a href="sprite-studio.html">Sprite Sheet Studio</a></li>
+        <li><a href="cinematic-studio.html">Cinematic &amp; Surrealism</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Supported Game Engines</h5>
+      <ul class="footer-links">
+        <li><span>Godot Engine 4.x</span></li>
+        <li><span>Unity 2D Sprite Animation</span></li>
+        <li><span>Phaser 3 / Pixi.js HTML5</span></li>
+        <li><span>Unreal Engine Paper2D</span></li>
+      </ul>
+    </div>
+  </div>
+
+<!-- ════════════ MODAL 1: AI TRAINING & ISSUE REPORTING LAB ════════════ -->
+<div class="modal-backdrop" id="modal-feedback" role="dialog" aria-modal="true" aria-labelledby="modal-feedback-title">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modal-feedback-title"><span>🧠</span> AI Training &amp; Feedback Lab</h3>
+        <p style="font-size: 0.74rem; color: var(--silver-400); margin-top: 0.25rem;">
+          Record generation glitches, treadmill drifting, loop misalignments, or suggest ideal prompt ground truths. Submissions write directly to <code style="color:#fff; font-size:0.72rem;">user_responses.json</code> &amp; <code style="color:#fff; font-size:0.72rem;">user_responses.jsonl</code> to fine-tune our next-gen diffusion engine.
+        </p>
+      </div>
+      <button type="button" class="modal-close" id="modal-feedback-close" aria-label="Close modal">&times;</button>
+    </div>
+
+    <form id="feedback-form">
+      <div class="form-row">
+        <div>
+          <label class="field-label" for="fb-category">Issue / Training Category:</label>
+          <select id="fb-category" style="padding: 0.35rem 0.5rem; font-size: 0.78rem;">
+            <option value="character_drifting" selected>Character Drifting (Treadmill In-Place Motion Failed)</option>
+            <option value="loop_glitch">Loop Glitch (Final Frame Does Not Match Frame 1)</option>
+            <option value="perspective_shift">Perspective Distortion (Rotated Off Locked 90° Profile)</option>
+            <option value="watermark_artifacts">AI Watermark, Sparkle Logo, or Text Artifacts</option>
+            <option value="anatomical_morph">Character Morphing (Costume, Armor, or Face Inconsistent)</option>
+            <option value="slicing_misaligned">Frame Slicing Misalignment (Grid Spacing Uneven)</option>
+            <option value="limb_clipping">Limb Clipping at Frame Box Edge</option>
+            <option value="general_enhancement">Prompt Quality Enhancement / Ground Truth Sample</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" for="fb-rating">Result Satisfaction Rating:</label>
+          <div class="rating-stars-wrap" id="fb-star-container">
+            <button type="button" class="star-btn active" data-star="1">★</button>
+            <button type="button" class="star-btn active" data-star="2">★</button>
+            <button type="button" class="star-btn active" data-star="3">★</button>
+            <button type="button" class="star-btn" data-star="4">★</button>
+            <button type="button" class="star-btn" data-star="5">★</button>
+            <span id="fb-rating-text" style="font-size: 0.74rem; font-family: var(--mono); color: var(--silver-300); margin-left: 0.35rem;">3 / 5</span>
+          </div>
+          <input type="hidden" id="fb-rating" value="3"/>
+        </div>
+      </div>
+
+      <!-- Context Snapshot (Auto-Filled) -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--silver-border); border-radius: var(--radius-sm); padding: 0.65rem 0.75rem; margin-top: 0.75rem; margin-bottom: 0.75rem;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--silver-400); margin-bottom: 0.3rem;">
+          <span>Active Context: <strong id="fb-ctx-info" style="color: #fff;">Walk • 10 Frames • Midjourney</strong></span>
+          <span style="color: var(--silver-300);">Auto-Captured</span>
+        </div>
+        <div id="fb-prompt-preview" style="font-family: var(--mono); font-size: 0.68rem; color: var(--silver-300); max-height: 60px; overflow-y: auto; white-space: pre-wrap; word-break: break-word;"></div>
+      </div>
+
+      <div style="margin-bottom: 0.75rem;">
+        <label class="field-label" for="fb-user-issue">What went wrong with the AI output? (Problem Description):</label>
+        <textarea id="fb-user-issue" rows="2" placeholder="e.g. In Frame 4 and 5 the character's armor shifted from silver to gold and the feet drifted 40px forward instead of walking in place." required></textarea>
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <label class="field-label" for="fb-expected">What should the ideal output look like? (Ground Truth for AI Training):</label>
+        <textarea id="fb-expected" rows="2" placeholder="e.g. Feet should stay anchored at Y=85% with zero horizontal displacement, silver armor texture must remain identical across all frames."></textarea>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button type="submit" class="btn btn-silver" id="fb-submit-btn" style="flex: 1;">
+          🚀 Submit &amp; Record to AI Training File
+        </button>
+        <button type="button" class="btn btn-silver-outline" id="fb-btn-download-json" title="Download entire dataset as JSON">
+          💾 Export JSON
+        </button>
+        <button type="button" class="btn btn-silver-outline" id="fb-btn-download-jsonl" title="Download fine-tuning dataset as JSONL">
+          📄 Export JSONL
+        </button>
+      </div>
+      <div id="fb-status-msg" style="margin-top: 0.65rem; font-size: 0.76rem; text-align: center; display: none;"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ════════════ MODAL 2: RECORDED AI TRAINING DATASET VIEWER ════════════ -->
+<div class="modal-backdrop" id="modal-dataset" role="dialog" aria-modal="true" aria-labelledby="modal-dataset-title">
+  <div class="modal-card modal-card-lg">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modal-dataset-title"><span>📊</span> Recorded AI Training &amp; Feedback Dataset</h3>
+        <p style="font-size: 0.74rem; color: var(--silver-400); margin-top: 0.25rem;">
+          Live records synchronized with <code style="color:#fff;">user_responses.json</code> and <code style="color:#fff;">user_responses.jsonl</code>. Used to train next-generation sprite diffusion checkpoints.
+        </p>
+      </div>
+      <button type="button" class="modal-close" id="modal-dataset-close" aria-label="Close modal">&times;</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+      <span style="font-size: 0.76rem; color: var(--silver-300);">Total Samples: <strong id="dataset-total-count" style="color: #fff;">0</strong></span>
+      <div style="display: flex; gap: 0.4rem;">
+        <button type="button" class="btn btn-silver-outline btn-sm" id="dataset-refresh-btn">🔄 Refresh Data</button>
+        <button type="button" class="btn btn-silver btn-sm" id="dataset-dl-json-btn">💾 Download JSON</button>
+        <button type="button" class="btn btn-silver-outline btn-sm" id="dataset-dl-jsonl-btn">📄 Download JSONL</button>
+      </div>
+    </div>
+
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr>
+            <th style="width: 105px;">ID</th>
+            <th style="width: 130px;">Category</th>
+            <th style="width: 105px;">Action / Frames</th>
+            <th>Reported Issue</th>
+            <th>Ground Truth Target</th>
+            <th style="width: 60px;">Rating</th>
+          </tr>
+        </thead>
+        <tbody id="dataset-table-body">
+          <tr>
+            <td colspan="6" style="text-align: center; color: var(--silver-300); padding: 2rem;">Loading training dataset records...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ MODAL 3: FULL CHARACTER ACTION PACK GENERATOR ════════════ -->
+<div class="modal-backdrop" id="modal-action-pack" role="dialog" aria-modal="true" aria-labelledby="modal-action-pack-title">
+  <div class="modal-card modal-card-lg">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modal-action-pack-title"><span>📦</span> Complete Character Action Pack</h3>
+        <p style="font-size: 0.74rem; color: var(--silver-400); margin-top: 0.25rem;">
+          Generate 5 synchronized animation sprite sheet prompts for your character (Walk, Run Sprint, Melee Attack, Hit Reaction, and Defeat/Death) calibrated for game engines.
+        </p>
+      </div>
+      <button type="button" class="modal-close" id="modal-action-pack-close" aria-label="Close modal">&times;</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+      <span style="font-size: 0.76rem; color: var(--silver-300);" id="pack-char-title">Target: <strong>Character Action Pack</strong></span>
+      <button type="button" class="btn btn-silver btn-sm" id="btn-copy-all-pack">📋 Copy All 5 Prompts</button>
+    </div>
+
+    <div class="action-pack-list" id="action-pack-list" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 460px; overflow-y: auto; padding-right: 0.25rem;">
+      <!-- Dynamic Action Pack Cards Loaded by JS -->
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

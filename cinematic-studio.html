@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cinematic &amp; Surrealism Prompt Studio — PixelSpur</title>
+  <meta name="description" content="Transform your concepts into museum-grade art: Liquid Chrome Surrealism, Neo-Cyberpunk Dystopia, Ghibli Cel-Shading, and Dark Fantasy concept art."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- Ambient Metallic Silver Glows -->
+<div class="silver-ambient" aria-hidden="true">
+  <div class="silver-orb orb-silver-1"></div>
+  <div class="silver-orb orb-silver-2"></div>
+</div>
+
+<!-- Fixed Header Navbar -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">◆</span>
+      <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      <span class="logo-badge">STUDIO 02</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">← Back to Overview</a>
+      <a href="aesthetic-studio.html" class="nav-link">Viral Portraits &amp; Fashion (32)</a>
+      <a href="sprite-studio.html" class="nav-link">Sprite Sheet Studio</a>
+      <a href="cinematic-studio.html" class="nav-link active">
+        <span class="nav-pill">Active</span> Cinematic &amp; Surrealism (14)
+      </a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="aesthetic-studio.html" class="btn btn-small btn-silver-outline">Switch to Studio 01</a>
+    </div>
+  </div>
+</header>
+
+<!-- Studio Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="page-badge-row">
+      <span class="silver-badge">✦ 14 MASTER CINEMATIC ART &amp; SURREALISM PRESETS</span>
+    </div>
+    <h1 class="page-title">
+      Cinematic &amp; Surrealism <br/>
+      <span class="silver-grad-text">Prompt Studio</span>
+    </h1>
+    <p class="page-sub">
+      Command generative AI with museum-grade lighting, volumetric atmospheric depth, and distinct artistic movements.
+      From liquid chrome cosmic surrealism and colossal desert brutalism to hand-painted Ghibli cel anime and Wes Anderson symmetry.
+    </p>
+
+    <!-- 3-Step Workflow -->
+    <div class="workflow-box">
+      <div class="workflow-header">
+        <span>⚡ Image &amp; Concept Transformation Workflow</span>
+      </div>
+      <div class="workflow-steps-row">
+        <div class="wf-step">
+          <div class="wf-num">1</div>
+          <div>
+            <h5>Input Subject or Image</h5>
+            <p>Use our prompt alone, or combine it with an uploaded reference image URL in Midjourney or Flux.</p>
+          </div>
+        </div>
+        <div class="wf-step">
+          <div class="wf-num">2</div>
+          <div>
+            <h5>Copy Fixed Master Formula</h5>
+            <p>Our formulas specify exact rendering engines, lighting physics, chiaroscuro contrasts, and color palettes.</p>
+          </div>
+        </div>
+        <div class="wf-step">
+          <div class="wf-num">3</div>
+          <div>
+            <h5>Generate High-Art Results</h5>
+            <p>Produce cinematic visuals free of generic AI artifacts, tuned for gallery-worthy digital art.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Studio Toolbar: Category Tabs & Live Search -->
+<div class="container">
+  <div class="studio-toolbar reveal-on-scroll">
+    <div class="filter-row">
+      <!-- Category Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Cinematic (14)</button>
+        <button class="filter-btn" data-filter="scifi">Sci-Fi &amp; Cyberpunk</button>
+        <button class="filter-btn" data-filter="fantasy">Dark Fantasy &amp; Myth</button>
+        <button class="filter-btn" data-filter="surrealism">Surrealism &amp; Fine Art</button>
+        <button class="filter-btn" data-filter="anime">Anime &amp; Retro Cel</button>
+        <button class="filter-btn" data-filter="architectural">Architectural &amp; Utopia</button>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="search-box-wrap">
+        <span class="search-icon-svg">🔍</span>
+        <input type="text" id="prompt-search" placeholder="Search cinematic styles, directors, or engines..." aria-label="Search prompts"/>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="filter-stats-bar">
+      <span>Showing <strong id="showing-count">14</strong> of <strong id="total-count">14</strong> Master Cinematic Prompts</span>
+      <span>⚡ 1-Click Multi-Engine Copy (Midjourney v6 • Flux.1 • SDXL)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery of Cinematic & Surrealism Prompts -->
+<main class="container">
+  <div class="aesthetic-grid-full">
+
+    <!-- Preset 1: Liquid Chrome Surrealism -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="surrealism">
+      <div class="card-thumb-wrap">
+        <img src="assets/chrome_sculpture.jpg" alt="Liquid Chrome Surrealism Floating Sculpture" class="card-thumb" loading="eager"/>
+        <span class="thumb-tag">Liquid Chrome • Luxury</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">01. Liquid Chrome Surrealism &amp; Obsidian Art</h3>
+        <p class="card-desc-full">
+          Hyper-detailed metallic reflections, floating liquid chrome curves mirroring the cosmic night sky, soft silver light trails, and museum exhibition lighting against obsidian black.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] surreal fine art photography of a floating liquid chrome and polished silver sculpture, reflecting starry cosmic darkness, hyper-detailed metallic reflections, obsidian black background with soft silver light trails, museum exhibition lighting, 8k resolution, minimalist luxury aesthetic --ar 16:9 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 2: Neo-Cyberpunk Dystopia -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="scifi">
+      <div class="card-thumb-wrap">
+        <img src="assets/cyberpunk_neon.jpg" alt="Neo-Cyberpunk Surveillance Dystopia" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">CCTV Grain • Scanlines</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">02. Neo-Cyberpunk &amp; Surveillance Dystopia</h3>
+        <p class="card-desc-full">
+          Rainy tech brutalism, monochrome atmosphere with piercing cyan neon accents, analog CCTV scanlines, chromatic aberration, and 35mm wide-angle cinematography.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] neo cyberpunk surveillance dystopia, rain-slicked dark alleyway in futuristic Tokyo, glowing neon signs in cyan and magenta, analog CCTV texture, scanlines, chromatic aberration, hooded lone hacker with cybernetic glowing eye looking at holographic terminal, 35mm wide angle cinematography --ar 16:9 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 3: Anime Cel-Shaded & Ghibli-core -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="anime">
+      <div class="card-thumb-wrap">
+        <img src="assets/ghibli_anime.jpg" alt="Anime Cel Shaded Scenery" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Makoto Shinkai • Gouache</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">03. Anime Cel-Shaded &amp; Ghibli-core</h3>
+        <p class="card-desc-full">
+          Lush natural scenery, volumetric golden-hour crepuscular rays, vibrant gouache paint textures, and crisp hand-inked line weight. Transforms any scene into an 8k anime screencap.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] Makoto Shinkai studio ghibli anime aesthetic, lush green grassy hill under vast blue sky with fluffy white cumulus clouds, volumetric golden hour crepuscular sun rays, vibrant gouache anime scenery, crisp line weight, 8k anime screencap, cinematic masterpiece --ar 16:9 --style raw --s 250 --niji 6</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 4: Dark Fantasy Concept Art -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="fantasy">
+      <div class="card-thumb-wrap">
+        <img src="assets/dark_fantasy.jpg" alt="Dark Fantasy Concept Art Elden Core" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Elden Ring • Chiaroscuro</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">04. Dark Fantasy Concept Art (Elden-core)</h3>
+        <p class="card-desc-full">
+          Atmospheric oil painting, dramatic Renaissance chiaroscuro, heavy rim lighting, crumbling gothic cathedrals in mountain mist, and Frank Frazetta composition.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] dark fantasy concept art, Elden ring style, towering ancient ruined gothic cathedral in misty mountains, armored wandering knight holding glowing runic greatsword, dramatic Renaissance chiaroscuro, heavy rim lighting, moody ash and gold dust particles, oil painting texture, Frank Frazetta composition --ar 16:9 --style raw --s 450</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 5: Stylized 3D Claymation & Diorama -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="surrealism">
+      <div class="card-thumb-wrap">
+        <img src="assets/claymation_3d.jpg" alt="Stylized 3D Claymation Miniature Diorama" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Octane Render • Tilt-Shift</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">05. Stylized 3D Claymation &amp; Miniature Diorama</h3>
+        <p class="card-desc-full">
+          Miniature isometric tilt-shift diorama, tactile polymer clay texture with visible fingerprint microtextures, subsurface scattering, ambient occlusion, and warm Octane studio lighting.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] stylized 3D claymation miniature isometric diorama of a cozy Japanese ramen shop on a floating chunk of earth with tiny bonsai trees, tactile clay shader, visible fingerprint textures, subsurface scattering, ambient occlusion, cute miniature lanterns glowing warmly, Octane render 3D asset style --ar 16:9 --style raw --s 300</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 6: 90s Retro Anime OVA -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="anime">
+      <div class="card-thumb-wrap">
+        <img src="assets/retro_mecha.jpg" alt="90s Retro Anime Mecha OVA Screencap" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">90s Cel • VHS Tracking</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">06. 90s Retro Anime (Mecha OVA)</h3>
+        <p class="card-desc-full">
+          Vintage 1990s Japanese cel animation screencap, CRT monitor glow, VHS tape tracking glitch artifacts, warm retro color saturation, hand-inked line art, and nostalgic sci-fi aesthetic.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] 1990s retro anime aesthetic, vintage cel animation screen capture of a heroic mecha pilot inside high-tech cockpit during dramatic battle, glowing CRT gauges, VHS tape tracking glitch artifacts, warm retro color saturation, hand-inked line art, nostalgic sci-fi OVA masterpiece --ar 16:9 --style raw --s 300 --niji 5</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 7: Cosmic Solar-Punk Metropolis -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="architectural">
+      <div class="card-thumb-wrap">
+        <img src="assets/solarpunk_city.jpg" alt="Cosmic Solar-Punk Metropolis" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Solarpunk • Syd Mead Core</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">07. Cosmic Solar-Punk Metropolis (Bioluminescent Utopia)</h3>
+        <p class="card-desc-full">
+          Vertical cascading garden towers, sleek organic ivory curves, lush hanging flora, photovoltaic solar sails, golden hour volumetric haze, Moebius &amp; Syd Mead world design.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] surreal solarpunk utopian megacity, soaring organic architectural towers draped in vertical hanging rainforest gardens, gleaming white composite curves and photovoltaic solar sails, golden hour volumetric sunbeams piercing misty canyon skybridges, flying clean-energy transit pods, Moebius and Syd Mead concept art, 8k cinematic masterpiece --ar 16:9 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 8: Wes Anderson Symmetrical Pastel Vintage -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="anime">
+      <div class="card-thumb-wrap">
+        <img src="assets/wes_anderson.jpg" alt="Wes Anderson Symmetrical Pastel Vintage" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Wes Anderson • 35mm Arriflex</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">08. Wes Anderson Symmetrical Pastel Vintage</h3>
+        <p class="card-desc-full">
+          Perfect mathematical symmetry, 1970s pastel yellow, mint teal, and blush pink color harmony, centered orthographic framing, quirky deadpan atmosphere, shot on 35mm Arriflex.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] Wes Anderson cinematic style, perfectly symmetrical wide shot of a whimsical 1970s vintage concierge lobby, pastel mint green, mustard yellow, and powder pink color harmony, quirky deadpan characters standing in rigid posture, centered orthographic composition, shot on 35mm Arriflex, rich film grain, Kodak Vision3 250D --ar 16:9 --style raw --s 260</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 9: Dune-Inspired Colossal Brutalist Desert -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="scifi">
+      <div class="card-thumb-wrap">
+        <img src="assets/dune_desert.jpg" alt="Dune-Inspired Colossal Brutalist Desert" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Denis Villeneuve • Greig Fraser</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">09. Dune-Inspired Colossal Brutalist Desert (Arrakis Scale)</h3>
+        <p class="card-desc-full">
+          Colossal geometric sandstone monuments towering thousands of feet, lone cloaked traveler dwarfed by monumental architecture, harsh blinding sun rays, and heat distortion.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] epic cinematic sci-fi landscape inspired by Dune, colossal brutalist sandstone monolith monuments rising into hazy dust storm, lone tiny cloaked traveler standing on crest of gigantic sand dune in foreground emphasizing astronomical scale, harsh blinding sun rays, atmospheric heat distortion, Greig Fraser cinematography, IMAX 70mm frame --ar 16:9 --style raw --s 400</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 10: Bioluminescent Deep Abyss Leviathan -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="scifi">
+      <div class="card-thumb-wrap">
+        <img src="assets/bioluminescent_abyss.jpg" alt="Bioluminescent Deep Abyss Leviathan" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Bioluminescent • IMAX 70mm</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">10. Bioluminescent Deep Abyss Leviathan (Oceanic Sci-Fi)</h3>
+        <p class="card-desc-full">
+          Deep oceanic abyss, glowing ethereal jellyfish flora, giant ancient bioluminescent aquatic leviathan with glowing runes, cyan and cobalt luminescent light, and drifting particles.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] cinematic underwater exploration in midnight abyssal ocean, ancient colossal leviathan with glowing turquoise and amethyst bioluminescent patterns gliding gracefully past deep sea research submarine, towering glowing coral spires and ethereal jellyfish drifting in floating dust particles, IMAX 70mm underwater cinematography --ar 16:9 --style raw --s 380</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 11: Dark Neo-Gothic Steampunk Clockwork Metropolis -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="fantasy">
+      <div class="card-thumb-wrap">
+        <img src="assets/steampunk_clockwork.jpg" alt="Dark Neo-Gothic Steampunk Clockwork Metropolis" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Steampunk • Victorian Gothic</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">11. Dark Neo-Gothic Steampunk Clockwork Metropolis</h3>
+        <p class="card-desc-full">
+          Towering blackened iron and brass clockwork spires, gigantic exposed gears, amber gaslamps reflecting on rain-soaked cobblestones, steam plumes, and docking zeppelin airships.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] dark Victorian steampunk industrial metropolis at twilight, towering blackened iron and brass clockwork cathedral spires, gigantic ticking gears exposed to sky, glowing amber gas lamps reflecting on rain-soaked cobblestones, steam plumes illuminated by furnace glow, massive zeppelin airship docking at spire, cinematic concept art --ar 16:9 --style raw --s 350</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 12: Surrealist Impossible Geometry -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="surrealism">
+      <div class="card-thumb-wrap">
+        <img src="assets/impossible_geometry.jpg" alt="Surrealist Impossible Geometry" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">René Magritte • M.C. Escher</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">12. Surrealist Impossible Geometry (M.C. Escher Dreams)</h3>
+        <p class="card-desc-full">
+          Infinite floating white Carrara marble staircases twisting in anti-gravity under endless serene azure sky, floating reflective metallic dodecahedrons, and theatrical Magritte shadows.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] surreal fine art painting of impossible geometry, infinite floating white Carrara marble staircases twisting in anti-gravity under endless serene azure sky, floating reflective metallic dodecahedrons, soft theatrical shadows in style of René Magritte and Giorgio de Chirico, dreamlike metaphysical silence, 8k museum oil painting --ar 16:9 --style raw --s 300</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 13: Retro 70s Sci-Fi Paperback Book Cover -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="anime">
+      <div class="card-thumb-wrap">
+        <img src="assets/retroscifi_70s.jpg" alt="Retro 70s Sci-Fi Paperback Book Cover" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">John Harris • Chris Foss Core</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">13. Retro 70s Sci-Fi Paperback Book Cover (John Harris)</h3>
+        <p class="card-desc-full">
+          Colossal mysterious monolithic starship hovering silently over vast alien desert world with two pastel moons, rich painterly gouache and acrylic brushstrokes, and vintage sci-fi cover art.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] vintage 1970s science fiction paperback book cover art, colossal mysterious monolithic starship with glowing horizontal light strips hovering silently over vast alien desert world with two pastel moons, rich painterly gouache and acrylic brushstrokes, style of John Harris and Chris Foss, nostalgic retro sci-fi masterpiece --ar 16:9 --style raw --s 320</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Preset 14: Ancient Mythological Deity & Dark Chiaroscuro -->
+    <article class="aesthetic-card-full reveal-on-scroll" data-category="fantasy">
+      <div class="card-thumb-wrap">
+        <img src="assets/eldritch_myth.jpg" alt="Ancient Mythological Deity & Dark Chiaroscuro" class="card-thumb" loading="lazy"/>
+        <span class="thumb-tag">Caravaggio • Eldritch Deity</span>
+      </div>
+      <div class="card-body-full">
+        <h3 class="card-title-full">14. Ancient Mythological Deity &amp; Dark Chiaroscuro</h3>
+        <p class="card-desc-full">
+          Ancient primordial deity with obsidian ram horns and towering gilded halo crown, draped in blackened velvet and ornate antique gold ceremonial chains, floating incense smoke and embers.
+        </p>
+        <label class="field-label">Fixed Master Prompt:</label>
+        <pre class="prompt-copy-box">[IMAGE_URL] regal dark mythological concept art, ancient primordial deity with obsidian ram horns and towering gilded halo crown, draped in blackened velvet and ornate antique gold ceremonial chains, floating incense smoke and glowing golden embers, extreme chiaroscuro spotlight from above against impenetrable darkness, Caravaggio oil painting --ar 16:9 --style raw --s 400</pre>
+        <div class="card-actions-row">
+          <button class="btn btn-small btn-silver copy-prompt-trigger">📋 Copy Prompt</button>
+          <button class="btn btn-small btn-silver-outline copy-mj-trigger">⚡ Midjourney</button>
+          <button class="btn btn-small btn-silver-outline copy-flux-trigger">🔮 Flux.1</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="logo-icon">◆</span>
+        <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      </div>
+      <p class="footer-text">
+        Luxury obsidian &amp; silver AI prompt engineering suite for cinematic art direction and aesthetic visual transformations.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-pill">🔒 100% Client-Side Privacy</span>
+        <span class="footer-pill">⚡ Zero Latency</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Aesthetic Studios</h5>
+      <ul class="footer-links">
+        <li><a href="index.html">Platform Overview</a></li>
+        <li><a href="aesthetic-studio.html">Viral Portraits &amp; Fashion (32 Presets)</a></li>
+        <li><a href="sprite-studio.html">Sprite Sheet Studio (Smart Engine)</a></li>
+        <li><a href="cinematic-studio.html">Cinematic &amp; Surrealism (14 Presets)</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">AI Models Supported</h5>
+      <ul class="footer-links">
+        <li><span>Midjourney v6 &amp; Niji 6</span></li>
+        <li><span>Black Forest Labs Flux.1</span></li>
+        <li><span>Stability AI SDXL 1.0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 PixelSpur Studio. All rights reserved. Curated for photographers, digital artists &amp; creators.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
