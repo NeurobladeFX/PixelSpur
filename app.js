@@ -2599,7 +2599,7 @@ function initSpriteStudio() {
 
     let records = [];
     try {
-      const res = await fetch('/api/feedback');
+      const res = await fetch('https://pixelspur.onrender.com/api/feedback');
       if (res.ok) {
         const data = await res.json();
         records = data.responses || [];
@@ -2672,7 +2672,7 @@ function initSpriteStudio() {
     }
 
     try {
-      const res = await fetch('/api/feedback', {
+      const res = await fetch('https://pixelspur.onrender.com/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -2732,7 +2732,7 @@ function initSpriteStudio() {
   async function downloadDatasetJSON() {
     let records = [];
     try {
-      const res = await fetch('/api/feedback');
+      const res = await fetch('https://pixelspur.onrender.com/api/feedback');
       if (res.ok) {
         const data = await res.json();
         records = data.responses || [];
@@ -2747,7 +2747,7 @@ function initSpriteStudio() {
   async function downloadDatasetJSONL() {
     let records = [];
     try {
-      const res = await fetch('/api/feedback');
+      const res = await fetch('https://pixelspur.onrender.com/api/feedback');
       if (res.ok) {
         const data = await res.json();
         records = data.responses || [];
@@ -2787,7 +2787,7 @@ function initSpriteStudio() {
 
   async function fetchFeedbackCount() {
     try {
-      const res = await fetch('/api/feedback');
+      const res = await fetch('https://pixelspur.onrender.com/api/feedback');
       if (res.ok) {
         const data = await res.json();
         if (typeof data.count === 'number') {
