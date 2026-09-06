@@ -10,6 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
   /* ═══════════════════════════════════════════════════════════
+     0. MONETAG VIGNETTE AD ENGINE
+     Fires on every download. On prompt copy: every 3rd click only.
+     ═══════════════════════════════════════════════════════════ */
+  let _copyCount = 0;
+
+  function showVignetteAd() {
+    try {
+      const s = document.createElement('script');
+      s.dataset.zone = '11738580';
+      s.src = 'https://n6wxm.com/vignette.min.js';
+      document.body.appendChild(s);
+    } catch (e) { /* fail silently */ }
+  }
+
+  function vignetteOnDownload() {
+    showVignetteAd();
+  }
+
+  function vignetteOnCopy() {
+    _copyCount++;
+    if (_copyCount % 3 === 0) showVignetteAd();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
      1. FIXED PROMPT COPY HANDLERS
      ═══════════════════════════════════════════════════════════ */
 
@@ -23,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const promptText = box.textContent.trim();
       navigator.clipboard.writeText(promptText).then(() => {
         flashBtn(btn, '✓ Copied Prompt!');
+        vignetteOnCopy();
       });
     });
   });
@@ -38,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const mjFormatted = `/imagine prompt: ${promptText}`;
       navigator.clipboard.writeText(mjFormatted).then(() => {
         flashBtn(btn, '✓ Midjourney Copied!');
+        vignetteOnCopy();
       });
     });
   });
@@ -57,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       navigator.clipboard.writeText(promptText).then(() => {
         flashBtn(btn, '✓ Flux.1 Copied!');
+        vignetteOnCopy();
       });
     });
   });
@@ -1455,6 +1482,7 @@ function initSpriteStudio() {
       return;
     }
     flashBtn(btnDownloadIndividualFrames, `✓ Exporting ${active.length} PNGs...`);
+    vignetteOnDownload();
     active.forEach((f, i) => {
       setTimeout(() => {
         const a = document.createElement('a');
@@ -2408,6 +2436,7 @@ function initSpriteStudio() {
     a.download = `pixelspur_spritesheet_${active.length}frames.png`;
     a.click();
     flashBtn(dlPngBtn, `✓ Downloaded ${active.length}f PNG!`);
+    vignetteOnDownload();
   });
 
   dlJsonBtn?.addEventListener('click', () => {
@@ -2419,6 +2448,7 @@ function initSpriteStudio() {
     const active = getActiveFrames();
     downloadFile(JSON.stringify(json, null, 2), `pixelspur_spritesheet_${active.length}frames.json`, 'application/json');
     flashBtn(dlJsonBtn, `✓ Downloaded ${active.length}f JSON!`);
+    vignetteOnDownload();
   });
 
   dlBundleBtn?.addEventListener('click', () => {
