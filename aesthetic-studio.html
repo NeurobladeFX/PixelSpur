@@ -889,5 +889,40 @@
 </footer>
 
 <script src="app.js"></script>
+
+<!-- ======== ADSTERRA LAZY LOADER (non-blocking, loads after page) ======== -->
+<div id="ad-slot-300x250" style="display:flex;justify-content:center;align-items:center;padding:1.5rem 0;min-height:270px;"></div>
+<div id="ad-slot-728x90" style="display:flex;justify-content:center;align-items:center;padding:1rem 0;min-height:110px;overflow:hidden;"></div>
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      // 300x250 Banner
+      (function() {
+        var slot = document.getElementById('ad-slot-300x250');
+        if (!slot) return;
+        var s1 = document.createElement('script');
+        s1.text = "atOptions = {'key':'c075bb1d519d3ba0713981030cb622ed','format':'iframe','height':250,'width':300,'params':{}};";
+        slot.appendChild(s1);
+        var s2 = document.createElement('script');
+        s2.src = 'https://www.highrevenueformat.com/c075bb1d519d3ba0713981030cb622ed/invoke.js';
+        s2.async = true;
+        slot.appendChild(s2);
+      })();
+      // 728x90 Leaderboard
+      (function() {
+        var slot = document.getElementById('ad-slot-728x90');
+        if (!slot) return;
+        var s3 = document.createElement('script');
+        s3.text = "atOptions = {'key':'d5787b8bf3e86de096d5f5bf12337635','format':'iframe','height':90,'width':728,'params':{}};";
+        slot.appendChild(s3);
+        var s4 = document.createElement('script');
+        s4.src = 'https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js';
+        s4.async = true;
+        slot.appendChild(s4);
+      })();
+    }, 1500); // 1.5 second delay after page load
+  });
+</script>
+
 </body>
 </html>
