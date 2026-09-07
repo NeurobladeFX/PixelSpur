@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="monetag" content="8d0e62e8b4c85d81fd08d0e941b169b7"/>
+  <title>Master Tutorial &amp; Video Walkthrough — PixelSpur Studio</title>
+  <meta name="description" content="Step-by-step interactive tutorial video and master guide for PixelSpur: engineer viral AI portraits, generate 2D game sprite sheets with Animation Telling, and direct cinematic surrealism."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Adsterra JS Async Format Loaders -->
+  <script>
+    if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];
+    atAsyncOptions.push({
+      key: 'd5787b8bf3e86de096d5f5bf12337635',
+      format: 'js',
+      async: true,
+      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635',
+      params: {},
+    });
+    atAsyncOptions.push({
+      key: 'c075bb1d519d3ba0713981030cb622ed',
+      format: 'js',
+      async: true,
+      container: 'atContainer-c075bb1d519d3ba0713981030cb622ed',
+      params: {},
+    });
+    var s1 = document.createElement('script');
+    s1.type = 'text/javascript';
+    s1.async = true;
+    s1.src = 'https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js';
+    document.getElementsByTagName('head')[0].appendChild(s1);
+
+    var s2 = document.createElement('script');
+    s2.type = 'text/javascript';
+    s2.async = true;
+    s2.src = 'https://www.highrevenueformat.com/c075bb1d519d3ba0713981030cb622ed/invoke.js';
+    document.getElementsByTagName('head')[0].appendChild(s2);
+  </script>
+</head>
+<body>
+
+<!-- Dynamic Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Ambient Metallic Silver Glows -->
+<div class="silver-ambient" aria-hidden="true">
+  <div class="silver-orb orb-silver-1"></div>
+  <div class="silver-orb orb-silver-2"></div>
+</div>
+
+<!-- Fixed Header Navbar -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">◆</span>
+      <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      <span class="logo-badge">ACADEMY</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">← Overview</a>
+      <a href="aesthetic-studio.html" class="nav-link">Viral Portraits (32)</a>
+      <a href="sprite-studio.html" class="nav-link">Sprite Sheet Studio</a>
+      <a href="cinematic-studio.html" class="nav-link">Cinematic (14)</a>
+      <a href="tutorial.html" class="nav-link active">
+        <span class="nav-pill">Active</span> Tutorial Video
+      </a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="sprite-studio.html" class="btn btn-small btn-silver">Launch Studios →</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════ HERO SECTION ════════════ -->
+<section class="tutorial-hero">
+  <div class="container">
+    <div class="silver-badge reveal-on-scroll">
+      <span class="badge-dot"></span>
+      <span>OFFICIAL VIDEO WALKTHROUGH &amp; TUTORIAL GUIDE</span>
+    </div>
+
+    <h1 class="hero-home-title reveal-on-scroll" style="margin-top: 1rem;">
+      Mastering the <span class="silver-grad-text">PixelSpur Platform</span>
+    </h1>
+
+    <p class="hero-home-sub reveal-on-scroll" style="max-width: 720px; margin: 0 auto 2.5rem;">
+      Watch the interactive video walkthrough below to learn how to engineer viral portrait aesthetics, generate calibrated game sprite sheets with Animation Telling, and export clean assets for Midjourney, Flux.1, Godot 4, and Unity.
+    </p>
+
+    <!-- ════════════ INTERACTIVE VIDEO WALKTHROUGH PLAYER ════════════ -->
+    <div class="tutorial-player-container reveal-on-scroll" id="tutorial-player">
+      
+      <!-- Video Window Header Bar -->
+      <div class="player-top-bar">
+        <div class="player-top-left">
+          <div class="player-dot"></div>
+          <span class="player-rec-badge">REC</span>
+          <span class="player-video-title">PixelSpur Studio Walkthrough &amp; Feature Masterclass • 60fps HD</span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--silver-400);">
+          CLIENT-SIDE ENGINE
+        </div>
+      </div>
+
+      <!-- Player Screen Viewport -->
+      <div class="player-screen" id="player-screen">
+        
+        <!-- Interactive Stage View -->
+        <div class="player-stage fade-in" id="player-stage">
+          <span class="stage-badge" id="stage-badge">Chapter 1 • Getting Started</span>
+          <h2 class="stage-title" id="stage-title">Welcome to PixelSpur Studio</h2>
+          <p class="stage-desc" id="stage-desc">
+            Explore 32 viral photo aesthetics, 14 cinematic surrealism presets, and the smart game sprite animation engine built with zero-latency client-side privacy.
+          </p>
+
+          <div class="stage-demo-box" id="stage-demo-box">
+            <div class="stage-demo-header">
+              <span>ACTIVE MODULE</span>
+              <span id="demo-module-status">PLATFORM OVERVIEW</span>
+            </div>
+            <div id="demo-content-text">
+              ◆ Fixed Master Prompts with physical camera optics (Leica 35mm, 85mm f/1.4, Portra 400)<br/>
+              ◆ Automatic 10-12 frame sprite sheet slicing, chroma-key defringing &amp; 60fps live canvas player<br/>
+              ◆ 1-Click parameter copy calibrated for Midjourney v6 and Flux.1
+            </div>
+          </div>
+
+          <div class="stage-cta-row" id="stage-cta-row">
+            <a href="aesthetic-studio.html" class="btn btn-silver btn-small" id="stage-primary-btn">
+              Explore Viral Portraits (32) →
+            </a>
+            <button type="button" class="btn btn-silver-outline btn-small" id="stage-action-btn">
+              📋 Copy Sample Prompt
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Player Controls Bar -->
+      <div class="player-controls-bar">
+        <!-- Interactive Scrubber -->
+        <div class="player-scrubber-track" id="scrubber-track" role="slider" aria-label="Video Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="player-scrubber-fill" id="scrubber-fill">
+            <div class="player-scrubber-handle"></div>
+          </div>
+        </div>
+
+        <div class="player-buttons-row">
+          <div class="player-btns-left">
+            <button type="button" class="player-ctrl-btn" id="btn-play-pause" title="Play/Pause">
+              ▶
+            </button>
+            <button type="button" class="player-ctrl-btn" id="btn-restart" title="Restart Video">
+              ↺
+            </button>
+            <div class="player-time-display">
+              <span id="current-time">0:00</span> / <span id="total-time">4:15</span>
+            </div>
+          </div>
+
+          <div class="player-btns-right">
+            <button type="button" class="player-speed-btn" id="btn-speed-toggle" title="Playback Speed">
+              1.0x
+            </button>
+            <button type="button" class="player-ctrl-btn" id="btn-fullscreen" title="Toggle Fullscreen">
+              ⛶
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Chapter Selector Below Player -->
+    <div class="tutorial-chapters-track reveal-on-scroll">
+      <button type="button" class="chapter-card-btn active" data-chapter="0">
+        <span class="chapter-num">CHAPTER 01</span>
+        <span class="chapter-name">Platform Overview</span>
+        <span class="chapter-time">0:00 • Introduction</span>
+      </button>
+
+      <button type="button" class="chapter-card-btn" data-chapter="1">
+        <span class="chapter-num">CHAPTER 02</span>
+        <span class="chapter-name">Viral Portrait Studio</span>
+        <span class="chapter-time">0:50 • 32 Master Presets</span>
+      </button>
+
+      <button type="button" class="chapter-card-btn" data-chapter="2">
+        <span class="chapter-num">CHAPTER 03</span>
+        <span class="chapter-name">Sprite Sheet Studio</span>
+        <span class="chapter-time">1:45 • Animation Telling</span>
+      </button>
+
+      <button type="button" class="chapter-card-btn" data-chapter="3">
+        <span class="chapter-num">CHAPTER 04</span>
+        <span class="chapter-name">Cinematic &amp; Fine Art</span>
+        <span class="chapter-time">2:50 • Surrealism Optics</span>
+      </button>
+
+      <button type="button" class="chapter-card-btn" data-chapter="4">
+        <span class="chapter-num">CHAPTER 05</span>
+        <span class="chapter-name">Pro Export &amp; Game Engines</span>
+        <span class="chapter-time">3:40 • Godot, Unity &amp; JSON</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ ADSTERRA MID-PAGE 728x90 LEADERBOARD ════════════ -->
+<div class="container ad-slot-wrapper" style="margin: 2rem auto 2.5rem;">
+  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635"></div>
+</div>
+
+<!-- ════════════ 3-STEP MASTER WORKFLOW GUIDES ════════════ -->
+<section class="section-studios" style="padding-top: 1rem;">
+  <div class="container">
+    
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <h2 style="font-size: 2rem; font-weight: 800; color: #fff;">
+        Comprehensive Step-by-Step Guides
+      </h2>
+      <p style="color: var(--silver-300); max-width: 600px; margin: 0.5rem auto 0;">
+        Follow these three production-tested workflows to get maximum quality from Midjourney, Flux.1, and 2D game engines.
+      </p>
+    </div>
+
+    <div class="tutorial-guides-grid">
+
+      <!-- Guide 1: Viral Portrait Engineering -->
+      <article class="tutorial-step-card reveal-on-scroll">
+        <div>
+          <div class="step-card-num">01</div>
+          <h3 class="step-card-title">Engineering Viral Portrait Headshots</h3>
+          <p class="step-card-desc">
+            How to transform any standard selfie or model photo into an Old Money, Y2K Flash, or Vogue Editorial masterpiece without plastic AI skin artifacts.
+          </p>
+          <ul class="step-tips-list">
+            <li><span>✦</span> <strong>Anchor the Camera Spec</strong>: Every preset specifies an authentic prime lens (e.g. <em>Leica 85mm f/1.4 Summilux</em>) to force realistic depth of field.</li>
+            <li><span>✦</span> <strong>Include Natural Imperfections</strong>: Always preserve prompts with <em>natural skin pores, fine peach fuzz, authentic film grain, and catchlights</em>.</li>
+            <li><span>✦</span> <strong>Use 1-Click Engine Copy</strong>: Click <strong>⚡ Midjourney</strong> for `--ar 4:5 --style raw` or <strong>🔮 Flux.1</strong> for natural language weighting.</li>
+          </ul>
+        </div>
+        <a href="aesthetic-studio.html" class="btn btn-silver-outline btn-block">
+          Open Viral Portraits Studio (32) →
+        </a>
+      </article>
+
+      <!-- Guide 2: Sprite Sheet Creation & Defringing -->
+      <article class="tutorial-step-card reveal-on-scroll">
+        <div>
+          <div class="step-card-num">02</div>
+          <h3 class="step-card-title">Game Sprite Sheets with Animation Telling</h3>
+          <p class="step-card-desc">
+            Generate horizontal sprite animation strips, remove background color with zero latency, and test live animation in the browser at 60fps.
+          </p>
+          <ul class="step-tips-list">
+            <li><span>✦</span> <strong>Weave Custom Choreography</strong>: Type your character's weapon VFX or step motion directly into the <strong>Animation Telling</strong> field.</li>
+            <li><span>✦</span> <strong>Auto-Detect Frames</strong>: The smart computer vision slice algorithm calculates uniform frame widths across 4 to 12 frames automatically.</li>
+            <li><span>✦</span> <strong>Canvas Chroma-Key</strong>: Toggle Green Screen or Magenta Chroma removal to defringe sprites instantly on client-side canvas.</li>
+            <li><span>✦</span> <strong>Game Engine JSON</strong>: Download Godot 4 &amp; Unity ready sprite JSON metadata files with 1 click.</li>
+          </ul>
+        </div>
+        <a href="sprite-studio.html" class="btn btn-silver btn-block">
+          Launch Sprite Sheet Studio →
+        </a>
+      </article>
+
+      <!-- Guide 3: Cinematic Surrealism & Lighting -->
+      <article class="tutorial-step-card reveal-on-scroll">
+        <div>
+          <div class="step-card-num">03</div>
+          <h3 class="step-card-title">Directing Cinematic &amp; Sci-Fi Concepts</h3>
+          <p class="step-card-desc">
+            Learn the exact lighting grammar used for Liquid Chrome Surrealism, Solarpunk Utopias, Dune Brutalism, and Ghibli Cel aesthetics.
+          </p>
+          <ul class="step-tips-list">
+            <li><span>✦</span> <strong>Volumetric Sunbeams &amp; Chiaroscuro</strong>: Harness high-contrast silver rim lighting to create museum-grade depth.</li>
+            <li><span>✦</span> <strong>Symmetrical Orthographic Framing</strong>: Emulate Wes Anderson and Stanley Kubrick vintage 35mm Arriflex aesthetics.</li>
+            <li><span>✦</span> <strong>Aspect Ratio Selection</strong>: Always use `--ar 16:9` or `--ar 21:9` for cinematic widescreen visual impact.</li>
+          </ul>
+        </div>
+        <a href="cinematic-studio.html" class="btn btn-silver-outline btn-block">
+          Explore Cinematic Studio (14) →
+        </a>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ MODEL SYNTAX CHEAT SHEET ════════════ -->
+<section style="padding: 2rem 0 4rem;">
+  <div class="container">
+    <div style="background: rgba(13, 17, 26, 0.85); border: 1px solid var(--silver-border); border-radius: var(--radius-lg); padding: 2.5rem;">
+      <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem;">
+        ⚡ AI Model Syntax Quick Reference
+      </h3>
+      <p style="color: var(--silver-300); font-size: 0.88rem; margin-bottom: 1.5rem;">
+        All PixelSpur master prompt buttons auto-append optimal engine calibration flags:
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.84rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12); color: var(--silver-200);">
+              <th style="padding: 0.75rem 1rem;">AI Model</th>
+              <th style="padding: 0.75rem 1rem;">Recommended Flags</th>
+              <th style="padding: 0.75rem 1rem;">Optimal Aspect Ratio</th>
+              <th style="padding: 0.75rem 1rem;">Key Prompt Strength</th>
+            </tr>
+          </thead>
+          <tbody style="color: var(--silver-300);">
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600; color: #fff;">Midjourney v6</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); color: var(--silver-100);">--style raw --s 250</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">--ar 4:5 or --ar 16:9</td>
+              <td style="padding: 0.75rem 1rem;">Photorealistic texture &amp; direct flash lighting</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600; color: #fff;">Flux.1 (Dev / Schnell)</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); color: var(--silver-100);">guidance: 3.5, steps: 28</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">896x1152 (Portrait)</td>
+              <td style="padding: 0.75rem 1rem;">Strict natural language &amp; anatomy precision</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600; color: #fff;">Midjourney Niji 6</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); color: var(--silver-100);">--niji 6 --style expressive</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">--ar 16:9 or --ar 1:1</td>
+              <td style="padding: 0.75rem 1rem;">Cel-shading, Ghibli gouache, anime aesthetics</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.75rem 1rem; font-weight: 600; color: #fff;">Stability SDXL 1.0</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); color: var(--silver-100);">cfg: 7.0, DPM++ 2M Karras</td>
+              <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">1024x1024 (Sprite Sheets)</td>
+              <td style="padding: 0.75rem 1rem;">High contrast pixel &amp; vector game assets</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ADSTERRA PRE-FOOTER 300x250 RECTANGLE ════════════ -->
+<div class="ad-slot-wrapper" style="margin: 3rem auto 1.5rem;">
+  <div id="atContainer-c075bb1d519d3ba0713981030cb622ed"></div>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="logo-icon">◆</span>
+        <span class="logo-name">Pixel<span class="logo-accent">Spur</span></span>
+      </div>
+      <p class="footer-text">
+        Luxury obsidian black and brushed silver AI prompt engineering suite for trending portraits, game sprites, and cinematic art direction.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-pill">🔒 100% Client-Side Privacy</span>
+        <span class="footer-pill">⚡ Zero Latency</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Creative Studios</h5>
+      <ul class="footer-links">
+        <li><a href="index.html">Platform Overview</a></li>
+        <li><a href="aesthetic-studio.html">Viral Portraits &amp; Fashion (32 Presets)</a></li>
+        <li><a href="sprite-studio.html">Smart Sprite Sheet Studio</a></li>
+        <li><a href="cinematic-studio.html">Cinematic &amp; Surrealism (14 Presets)</a></li>
+        <li><a href="tutorial.html">Tutorial Video &amp; Academy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">AI Models Supported</h5>
+      <ul class="footer-links">
+        <li><span>Midjourney v6 &amp; Niji 6</span></li>
+        <li><span>Black Forest Labs Flux.1</span></li>
+        <li><span>Stability AI SDXL 1.0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 PixelSpur Studio. All rights reserved. Curated for creators, game developers &amp; photographers.</p>
+  </div>
+</footer>
+
+<!-- Interactive Tutorial Script -->
+<script>
+  (function() {
+    // Chapters Data for Interactive Video Player
+    const chapters = [
+      {
+        id: 0,
+        badge: "Chapter 1 • Getting Started (0:00)",
+        title: "Welcome to PixelSpur Studio",
+        desc: "Explore 32 viral photo aesthetics, 14 cinematic surrealism presets, and the smart game sprite animation engine built with zero-latency client-side privacy.",
+        moduleStatus: "PLATFORM OVERVIEW",
+        demoText: "◆ Fixed Master Prompts with physical camera optics (Leica 35mm, 85mm f/1.4, Portra 400)\n◆ Automatic 10-12 frame sprite sheet slicing, chroma-key defringing & 60fps live canvas player\n◆ 1-Click parameter copy calibrated for Midjourney v6 and Flux.1",
+        primaryBtnText: "Explore Viral Portraits (32) →",
+        primaryBtnUrl: "aesthetic-studio.html",
+        samplePrompt: "[IMAGE_URL] Old Money aesthetic portrait, Lake Como golden hour, 85mm f/1.4 lens, natural skin pores, linen textures --ar 4:5 --style raw --s 250",
+        duration: 50
+      },
+      {
+        id: 1,
+        badge: "Chapter 2 • Viral Portraits (0:50)",
+        title: "32 Viral Camera & Lighting Presets",
+        desc: "Transform personal headshots and model photography into Old Money Golden Hour, Y2K Direct Flash, Kintsugi Molten Gold, and Haute Couture Glass Headpieces.",
+        moduleStatus: "VIRAL PORTRAITS ENGINE",
+        demoText: "✓ Instant category filtering: High-Fashion Editorial, Quiet Luxury, Streetwear, Cyber-Goth\n✓ Camera lenses: Leica M11 35mm, Canon 85mm f/1.4, 35mm Arriflex\n✓ 1-Click copy for Midjourney (--style raw) and Flux.1 guidance parameters",
+        primaryBtnText: "Open Portrait Studio →",
+        primaryBtnUrl: "aesthetic-studio.html",
+        samplePrompt: "[IMAGE_URL] Y2K on-camera direct flash portrait at midnight, party aesthetic, disposable camera snapshot, deep shadows, glossy skin, Portra 400 --ar 4:5 --style raw --s 250",
+        duration: 55
+      },
+      {
+        id: 2,
+        badge: "Chapter 3 • Game Sprite Engine (1:45)",
+        title: "Smart Sprite Sheet Studio & Animation Telling",
+        desc: "Create game-ready 2D horizontal sprite strips with custom motion choreography, auto-frame detection, live 60fps canvas player, and chroma-key background removal.",
+        moduleStatus: "SPRITE SHEET GENERATOR",
+        demoText: "⚔ Animation Telling: Weave weapon trails, spell VFX, and multi-hit combos into prompts\n⚔ 26+ Game Action presets: Slashing, Bow Shot, Dash, Spellcast, Defeat\n⚔ Canvas Chroma-Key: Instant green-screen / magenta removal on client side",
+        primaryBtnText: "Launch Sprite Studio →",
+        primaryBtnUrl: "sprite-studio.html",
+        samplePrompt: "2D game sprite sheet, pixel knight walking cycle animation, 8 uniform sequential horizontal frames, side view, green screen chroma-key background, pixel art style --ar 16:9",
+        duration: 65
+      },
+      {
+        id: 3,
+        badge: "Chapter 4 • Cinematic Surrealism (2:50)",
+        title: "Liquid Chrome & Sci-Fi Concept Art",
+        desc: "Direct museum-grade concept art: Liquid Chrome Surrealism, Solarpunk Utopia, Dune Brutalist Deserts, Ghibli Cel-Shading, and Moebius architectural fantasy.",
+        moduleStatus: "FINE ART & CINEMATIC",
+        demoText: "✦ Volumetric sunbeams, golden hour mist, and Syd Mead composite curves\n✦ Heavy silver rim lighting, chiaroscuro contrast, and 35mm wide-angle optics\n✦ Calibrated widescreen aspect ratios (--ar 16:9 and --ar 21:9)",
+        primaryBtnText: "Open Cinematic Studio →",
+        primaryBtnUrl: "cinematic-studio.html",
+        samplePrompt: "[IMAGE_URL] surreal solarpunk utopian megacity, soaring organic architectural towers draped in vertical hanging gardens, photovoltaic solar sails, golden hour sunbeams, Moebius concept art --ar 16:9 --style raw --s 350",
+        duration: 50
+      },
+      {
+        id: 4,
+        badge: "Chapter 5 • Game Engine Integration (3:40)",
+        title: "Exporting to Godot 4, Unity & Pixi.js",
+        desc: "Export cleaned transparent PNG strips and JSON animation metadata directly compatible with Godot AnimatedSprite2D, Unity 2D SpriteSheet, Phaser 3, and Pixi.js.",
+        moduleStatus: "ENGINE METADATA EXPORT",
+        demoText: "📦 Godot 4 & Unity JSON: frame coordinates, animation FPS, loop flags, and dimensions\n📦 1-Click PNG Strip download with alpha transparency\n📦 Complete Character Action Pack: 5 synchronized animation prompts generated in 1 click",
+        primaryBtnText: "Test JSON & Sprite Pack →",
+        primaryBtnUrl: "sprite-studio.html",
+        samplePrompt: '{"frames": [{"frame": {"x": 0, "y": 0, "w": 128, "h": 128}, "duration": 100}], "meta": {"app": "PixelSpur", "fps": 12, "format": "RGBA8888"}}',
+        duration: 35
+      }
+    ];
+
+    let currentChapterIdx = 0;
+    let isPlaying = true;
+    let playbackSpeed = 1.0;
+    let progressSeconds = 0;
+    const totalSeconds = 255; // 4 minutes 15 seconds
+
+    const stageBadge = document.getElementById('stage-badge');
+    const stageTitle = document.getElementById('stage-title');
+    const stageDesc = document.getElementById('stage-desc');
+    const demoModuleStatus = document.getElementById('demo-module-status');
+    const demoContentText = document.getElementById('demo-content-text');
+    const stagePrimaryBtn = document.getElementById('stage-primary-btn');
+    const stageActionBtn = document.getElementById('stage-action-btn');
+    const stageContainer = document.getElementById('player-stage');
+
+    const scrubberFill = document.getElementById('scrubber-fill');
+    const scrubberTrack = document.getElementById('scrubber-track');
+    const btnPlayPause = document.getElementById('btn-play-pause');
+    const btnRestart = document.getElementById('btn-restart');
+    const btnSpeedToggle = document.getElementById('btn-speed-toggle');
+    const btnFullscreen = document.getElementById('btn-fullscreen');
+    const currentTimeDisplay = document.getElementById('current-time');
+    const chapterButtons = document.querySelectorAll('.chapter-card-btn');
+
+    function formatTime(secs) {
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function renderChapter(idx) {
+      const ch = chapters[idx];
+      currentChapterIdx = idx;
+
+      // Update chapter cards UI
+      chapterButtons.forEach((btn, i) => {
+        if (i === idx) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+
+      // Animate transition
+      stageContainer.classList.remove('fade-in');
+      stageContainer.classList.add('fade-out');
+
+      setTimeout(() => {
+        stageBadge.textContent = ch.badge;
+        stageTitle.textContent = ch.title;
+        stageDesc.textContent = ch.desc;
+        demoModuleStatus.textContent = ch.moduleStatus;
+        demoContentText.innerHTML = ch.demoText.replace(/\n/g, '<br/>');
+        stagePrimaryBtn.textContent = ch.primaryBtnText;
+        stagePrimaryBtn.href = ch.primaryBtnUrl;
+
+        stageContainer.classList.remove('fade-out');
+        stageContainer.classList.add('fade-in');
+      }, 200);
+    }
+
+    function updateTimer() {
+      if (!isPlaying) return;
+
+      progressSeconds += 0.5 * playbackSpeed;
+      if (progressSeconds >= totalSeconds) {
+        progressSeconds = totalSeconds;
+        isPlaying = false;
+        btnPlayPause.textContent = '▶';
+      }
+
+      const percent = (progressSeconds / totalSeconds) * 100;
+      scrubberFill.style.width = percent + '%';
+      currentTimeDisplay.textContent = formatTime(progressSeconds);
+
+      // Check which chapter corresponds to current progress
+      if (progressSeconds < 50 && currentChapterIdx !== 0) renderChapter(0);
+      else if (progressSeconds >= 50 && progressSeconds < 105 && currentChapterIdx !== 1) renderChapter(1);
+      else if (progressSeconds >= 105 && progressSeconds < 170 && currentChapterIdx !== 2) renderChapter(2);
+      else if (progressSeconds >= 170 && progressSeconds < 220 && currentChapterIdx !== 3) renderChapter(3);
+      else if (progressSeconds >= 220 && currentChapterIdx !== 4) renderChapter(4);
+    }
+
+    const timerInterval = setInterval(updateTimer, 500);
+
+    // Play / Pause Toggle
+    btnPlayPause.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      btnPlayPause.textContent = isPlaying ? '⏸' : '▶';
+    });
+
+    // Restart
+    btnRestart.addEventListener('click', () => {
+      progressSeconds = 0;
+      isPlaying = true;
+      btnPlayPause.textContent = '⏸';
+      renderChapter(0);
+    });
+
+    // Speed Toggle
+    const speeds = [1.0, 1.25, 1.5, 2.0];
+    let speedIdx = 0;
+    btnSpeedToggle.addEventListener('click', () => {
+      speedIdx = (speedIdx + 1) % speeds.length;
+      playbackSpeed = speeds[speedIdx];
+      btnSpeedToggle.textContent = playbackSpeed.toFixed(1) + 'x';
+    });
+
+    // Scrubber click
+    scrubberTrack.addEventListener('click', (e) => {
+      const rect = scrubberTrack.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      progressSeconds = ratio * totalSeconds;
+      scrubberFill.style.width = (ratio * 100) + '%';
+      currentTimeDisplay.textContent = formatTime(progressSeconds);
+    });
+
+    // Chapter Card Clicks
+    chapterButtons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const startTimes = [0, 50, 105, 170, 220];
+        progressSeconds = startTimes[i];
+        renderChapter(i);
+        isPlaying = true;
+        btnPlayPause.textContent = '⏸';
+      });
+    });
+
+    // Action button: Copy current chapter's sample prompt
+    stageActionBtn.addEventListener('click', () => {
+      const currentPrompt = chapters[currentChapterIdx].samplePrompt;
+      navigator.clipboard.writeText(currentPrompt).then(() => {
+        const prevText = stageActionBtn.textContent;
+        stageActionBtn.textContent = '✓ Copied Prompt!';
+        stageActionBtn.style.borderColor = '#22c55e';
+        stageActionBtn.style.color = '#22c55e';
+        setTimeout(() => {
+          stageActionBtn.textContent = prevText;
+          stageActionBtn.style.borderColor = '';
+          stageActionBtn.style.color = '';
+        }, 2200);
+      });
+    });
+
+    // Fullscreen Toggle
+    btnFullscreen.addEventListener('click', () => {
+      const playerEl = document.getElementById('tutorial-player');
+      if (!document.fullscreenElement) {
+        if (playerEl.requestFullscreen) playerEl.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    });
+
+  })();
+</script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
