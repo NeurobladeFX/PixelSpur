@@ -481,11 +481,6 @@
       </div>
     </article>
 
-    <!-- High-CPM Mid-Gallery Ad Banner -->
-    <div class="ad-slot-wrapper" style="grid-column: 1 / -1; margin: 1.5rem 0;">
-      <div id="ad-slot-mid-728x90" class="ad-slot-728x90"></div>
-    </div>
-
     <!-- 17. 17. Liquid Silver Mercury (Futuristic Couture) -->
     <article class="aesthetic-card-full reveal-on-scroll" data-category="editorial">
       <div class="card-thumb-wrap">
@@ -910,44 +905,13 @@
   </div>
 </footer>
 
-<!-- High-CPM Pre-Footer Ads: 300x250 + 728x90 (Official Adsterra JS Async Container) -->
+<!-- Adsterra Official Banner Container -->
 <div class="ad-slot-wrapper" style="margin: 3rem auto 1.5rem;">
-  <div class="ad-slots-row">
-    <div id="ad-slot-300x250" class="ad-slot-300x250"></div>
-    <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635" class="ad-slot-728x90"></div>
-  </div>
+  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635"></div>
 </div>
 
 <!-- Application Scripts -->
 <script src="app.js"></script>
-
-<!-- ======== ADSTERRA HIGH-CPM AD LOADER ======== -->
-<script>
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      function injectAd(slotId, key, format, w, h) {
-        var slot = document.getElementById(slotId);
-        if (!slot) return;
-        var s1 = document.createElement('script');
-        s1.text = "atOptions = {'key':'" + key + "','format':'" + format + "','height':" + h + ",'width':" + w + ",'params':{}};";
-        s1.setAttribute('data-cfasync','false');
-        s1.type = 'text/javascript';
-        slot.appendChild(s1);
-        var s2 = document.createElement('script');
-        s2.setAttribute('data-cfasync','false');
-        s2.type = 'text/javascript';
-        s2.src = 'https://www.highrevenueformat.com/' + key + '/invoke.js';
-        s2.async = true;
-        slot.appendChild(s2);
-      }
-
-      // Mid-gallery Leaderboard
-      injectAd('ad-slot-mid-728x90', 'd5787b8bf3e86de096d5f5bf12337635', 'iframe', 728, 90);
-      // Bottom 300x250 Banner
-      injectAd('ad-slot-300x250', 'c075bb1d519d3ba0713981030cb622ed', 'iframe', 300, 250);
-    }, 1200);
-  });
-</script>
 
 </body>
 </html>
