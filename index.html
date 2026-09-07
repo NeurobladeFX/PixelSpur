@@ -15,6 +15,23 @@
   <!-- Stylesheet -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="style.css"/>
+
+  <!-- Adsterra JS Async Format Loader -->
+  <script>
+    if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];
+    atAsyncOptions.push({
+      key: 'd5787b8bf3e86de096d5f5bf12337635',
+      format: 'js',
+      async: true,
+      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635',
+      params: {},
+    });
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  </script>
 </head>
 <body>
 
@@ -384,11 +401,11 @@
       </a>
     </div>
 
-    <!-- High-CPM Pre-Footer Ads: 300x250 + 728x90 -->
+    <!-- High-CPM Pre-Footer Ads: 300x250 + 728x90 (Official Adsterra JS Async Container) -->
     <div class="ad-slot-wrapper" style="margin-top: 3.5rem;">
       <div class="ad-slots-row">
         <div id="ad-slot-300x250" class="ad-slot-300x250"></div>
-        <div id="ad-slot-728x90" class="ad-slot-728x90"></div>
+        <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635" class="ad-slot-728x90"></div>
       </div>
     </div>
 
@@ -463,8 +480,6 @@
       injectAd('ad-slot-mid-728x90', 'd5787b8bf3e86de096d5f5bf12337635', 'iframe', 728, 90);
       // Bottom 300x250 Banner
       injectAd('ad-slot-300x250', 'c075bb1d519d3ba0713981030cb622ed', 'iframe', 300, 250);
-      // Bottom 728x90 Leaderboard
-      injectAd('ad-slot-728x90', 'd5787b8bf3e86de096d5f5bf12337635', 'iframe', 728, 90);
     }, 1200);
   });
 </script>
