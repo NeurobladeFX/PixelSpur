@@ -2636,4 +2636,15 @@ select option:checked, select option:hover {
   overflow: hidden;
 }
 
+#atContainer-c075bb1d519d3ba0713981030cb622ed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  min-height: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 

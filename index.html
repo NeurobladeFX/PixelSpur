@@ -16,7 +16,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="style.css"/>
 
-  <!-- Adsterra JS Async Format Loader -->
+  <!-- Adsterra JS Async Format Loaders -->
   <script>
     if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];
     atAsyncOptions.push({
@@ -26,11 +26,24 @@
       container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635',
       params: {},
     });
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-    script.src = 'https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
+    atAsyncOptions.push({
+      key: 'c075bb1d519d3ba0713981030cb622ed',
+      format: 'js',
+      async: true,
+      container: 'atContainer-c075bb1d519d3ba0713981030cb622ed',
+      params: {},
+    });
+    var s1 = document.createElement('script');
+    s1.type = 'text/javascript';
+    s1.async = true;
+    s1.src = 'https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js';
+    document.getElementsByTagName('head')[0].appendChild(s1);
+
+    var s2 = document.createElement('script');
+    s2.type = 'text/javascript';
+    s2.async = true;
+    s2.src = 'https://www.highrevenueformat.com/c075bb1d519d3ba0713981030cb622ed/invoke.js';
+    document.getElementsByTagName('head')[0].appendChild(s2);
   </script>
 </head>
 <body>
@@ -323,6 +336,11 @@
   </div>
 </section>
 
+<!-- Adsterra 728x90 Leaderboard (Mid-Page Placement) -->
+<div class="container ad-slot-wrapper" style="margin: 2.5rem auto 1.5rem;">
+  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635"></div>
+</div>
+
 <!-- ════════════ TWO DEDICATED STUDIOS ════════════ -->
 <section class="section-studios">
   <div class="container">
@@ -396,9 +414,9 @@
       </a>
     </div>
 
-    <!-- Adsterra Official Banner Container -->
+    <!-- Adsterra 300x250 Medium Rectangle Banner -->
     <div class="ad-slot-wrapper" style="margin-top: 3.5rem;">
-      <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635"></div>
+      <div id="atContainer-c075bb1d519d3ba0713981030cb622ed"></div>
     </div>
 
   </div>
