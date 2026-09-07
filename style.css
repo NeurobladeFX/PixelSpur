@@ -2602,3 +2602,64 @@ select option:checked, select option:hover {
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.25) !important;
 }
 
+/* ════════════ ADSTERRA AD SLOTS & HIGH-CPM PLACEMENTS ════════════ */
+.ad-slot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5rem auto;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.ad-slot-wrapper::before {
+  content: "SPONSORED";
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 0.35rem;
+}
+
+.ad-slot-300x250 {
+  width: 300px;
+  min-width: 300px;
+  height: 250px;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.ad-slot-728x90 {
+  width: 728px;
+  max-width: 100%;
+  height: 90px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.ad-slots-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
