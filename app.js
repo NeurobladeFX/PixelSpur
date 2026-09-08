@@ -872,6 +872,7 @@ function initSpriteStudio() {
     if (!negativePromptOutput) return;
     navigator.clipboard.writeText(negativePromptOutput.textContent.trim()).then(() => {
       flashBtn(copyNegativeBtn, '✓ Copied Negative Exclusions!');
+      vignetteOnCopy();
     });
   });
 
@@ -879,6 +880,7 @@ function initSpriteStudio() {
     if (!gameSpecOutput) return;
     navigator.clipboard.writeText(gameSpecOutput.textContent.trim()).then(() => {
       flashBtn(copySpecBtn, '✓ Copied Engine Spec JSON!');
+      vignetteOnCopy();
     });
   });
 
@@ -928,6 +930,7 @@ function initSpriteStudio() {
       card.querySelector('.btn-copy-single-pack')?.addEventListener('click', (e) => {
         navigator.clipboard.writeText(fullPrompt).then(() => {
           flashBtn(e.target, '✓ Copied!');
+          vignetteOnCopy();
         });
       });
 
@@ -948,6 +951,7 @@ function initSpriteStudio() {
     const prompts = [...actionPackList.querySelectorAll('.action-pack-prompt')].map((el, i) => `// --- Action ${i + 1} ---\n${el.textContent.trim()}`).join('\n\n');
     navigator.clipboard.writeText(prompts).then(() => {
       flashBtn(btnCopyAllPack, '✓ Copied All 5 Prompts!');
+      vignetteOnCopy();
     });
   });
 
@@ -1027,6 +1031,7 @@ function initSpriteStudio() {
     if (!promptOutput) return;
     navigator.clipboard.writeText(promptOutput.textContent.trim()).then(() => {
       flashBtn(copyBtn, '✓ Copied Sprite Prompt!');
+      vignetteOnCopy();
     });
   });
 
@@ -2772,6 +2777,7 @@ function initSpriteStudio() {
     }
     if (records.length === 0) records = getLocalResponses();
     downloadFile(JSON.stringify(records, null, 2), 'user_responses.json', 'application/json');
+    vignetteOnDownload();
   }
 
   async function downloadDatasetJSONL() {
@@ -2788,6 +2794,7 @@ function initSpriteStudio() {
     if (records.length === 0) records = getLocalResponses();
     const jsonl = records.map(r => JSON.stringify(r)).join('\n') + '\n';
     downloadFile(jsonl, 'user_responses.jsonl', 'application/x-jsonlines');
+    vignetteOnDownload();
   }
 
   datasetDlJsonBtn?.addEventListener('click', downloadDatasetJSON);

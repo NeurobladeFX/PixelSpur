@@ -19,11 +19,49 @@
   <!-- Adsterra JS Async Format Loaders -->
   <script>
     if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];
+    // 728x90 Leaderboard Zones
+    atAsyncOptions.push({
+      key: 'd5787b8bf3e86de096d5f5bf12337635',
+      format: 'js',
+      async: true,
+      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-top',
+      params: {},
+    });
+    atAsyncOptions.push({
+      key: 'd5787b8bf3e86de096d5f5bf12337635',
+      format: 'js',
+      async: true,
+      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-mid',
+      params: {},
+    });
     atAsyncOptions.push({
       key: 'd5787b8bf3e86de096d5f5bf12337635',
       format: 'js',
       async: true,
       container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635',
+      params: {},
+    });
+    atAsyncOptions.push({
+      key: 'd5787b8bf3e86de096d5f5bf12337635',
+      format: 'js',
+      async: true,
+      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-bottom',
+      params: {},
+    });
+
+    // 300x250 Medium Rectangle Zones
+    atAsyncOptions.push({
+      key: 'c075bb1d519d3ba0713981030cb622ed',
+      format: 'js',
+      async: true,
+      container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-col1',
+      params: {},
+    });
+    atAsyncOptions.push({
+      key: 'c075bb1d519d3ba0713981030cb622ed',
+      format: 'js',
+      async: true,
+      container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-modal',
       params: {},
     });
     atAsyncOptions.push({
@@ -33,6 +71,7 @@
       container: 'atContainer-c075bb1d519d3ba0713981030cb622ed',
       params: {},
     });
+
     var s1 = document.createElement('script');
     s1.type = 'text/javascript';
     s1.async = true;
@@ -108,8 +147,12 @@
         </button>
       </div>
     </div>
-  </div>
 </section>
+
+<!-- Adsterra 728x90 Leaderboard (Top Hero Placement) -->
+<div class="container ad-slot-wrapper" style="margin: 1.5rem auto 2rem;">
+  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635-top"></div>
+</div>
 
 <!-- Main Interactive Studio Grid -->
 <main class="container sprite-studio-wrap">
@@ -361,6 +404,11 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Adsterra 300x250 Medium Rectangle Banner (Column 1 Mid-Studio Placement) -->
+      <div class="ad-slot-wrapper" style="margin: 1.5rem auto;">
+        <div id="atContainer-c075bb1d519d3ba0713981030cb622ed-col1"></div>
       </div>
 
       <!-- Generated Master Prompt Output with Tabs -->
@@ -702,6 +750,11 @@
           </div>
         </div>
 
+        <!-- Adsterra 728x90 Leaderboard (Mid-Player Placement) -->
+        <div class="ad-slot-wrapper" style="margin: 1.5rem auto 1rem;">
+          <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635-mid"></div>
+        </div>
+
         <!-- ─── 🎞️ EXTRACTED FRAMES MANAGER & REMOVER ─── -->
         <div class="extracted-frames-panel" id="extracted-frames-panel" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--silver-border);">
           <div class="frames-panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
@@ -765,6 +818,11 @@
 
 </main>
 
+<!-- Adsterra 728x90 Leaderboard (Pre-Footer Placement) -->
+<div class="container ad-slot-wrapper" style="margin: 2.5rem auto 1.5rem;">
+  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635-bottom"></div>
+</div>
+
 <!-- Footer -->
 
 <footer id="footer">
@@ -804,6 +862,11 @@
       </ul>
     </div>
   </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 PixelSpur Studio. All rights reserved. Curated for game developers &amp; creators.</p>
+  </div>
+</footer>
 
 <!-- ════════════ MODAL 1: AI TRAINING & ISSUE REPORTING LAB ════════════ -->
 <div class="modal-backdrop" id="modal-feedback" role="dialog" aria-modal="true" aria-labelledby="modal-feedback-title">
@@ -942,6 +1005,11 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
       <span style="font-size: 0.76rem; color: var(--silver-300);" id="pack-char-title">Target: <strong>Character Action Pack</strong></span>
       <button type="button" class="btn btn-silver btn-sm" id="btn-copy-all-pack">📋 Copy All 5 Prompts</button>
+    </div>
+
+    <!-- Adsterra 300x250 In-Modal Sponsored Banner -->
+    <div class="ad-slot-wrapper" style="margin: 0.5rem auto 1rem;">
+      <div id="atContainer-c075bb1d519d3ba0713981030cb622ed-modal"></div>
     </div>
 
     <div class="action-pack-list" id="action-pack-list" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 460px; overflow-y: auto; padding-right: 0.25rem;">
