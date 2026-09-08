@@ -722,18 +722,28 @@ function initSpriteStudio() {
 
     let layoutClause = '';
     if (pRows === 2) {
-      layoutClause = `structured 2-row horizontal sequence with exactly ${pCols} characters in Row 1 and ${promptFrames - pCols} characters in Row 2 (${promptFrames} sprites total, sequential animation reading left-to-right top-to-bottom), completely seamless and borderless, equal horizontal spacing between characters directly on the flat solid background, strictly zero dividing lines, zero panel borders, zero grid lines, zero boxes`;
+      layoutClause = `structured 2-row horizontal sequence with exactly ${pCols} characters in Row 1 and ${promptFrames - pCols} characters in Row 2 (${promptFrames} sprites total, sequential animation reading left-to-right top-to-bottom), completely seamless and borderless, extra wide generous spacing with expansive horizontal gaps separating each character pose directly on the flat solid background, strictly zero dividing lines, zero panel borders, zero grid lines, zero boxes`;
     } else {
-      layoutClause = `single continuous horizontal sprite strip with exactly ${promptFrames} sequential animation poses evenly spaced left-to-right in 1 straight row directly on the flat solid background, completely borderless, strictly zero dividing lines, zero grid lines, zero panel frames, zero box outlines`;
+      layoutClause = `single continuous horizontal sprite strip with exactly ${promptFrames} sequential animation poses positioned far apart with wide expansive gaps between each pose, evenly spaced left-to-right in 1 straight row directly on the flat solid background, completely borderless, strictly zero dividing lines, zero grid lines, zero panel frames, zero box outlines`;
     }
 
-    const ar = pRows === 2 ? '16:9' : (promptFrames <= 6 ? '3:1' : '4:1');
+    let ar = '16:9';
+    if (pRows === 2) {
+      ar = promptFrames >= 12 ? '21:9' : '16:9';
+    } else {
+      if (promptFrames <= 4) ar = '3:1';
+      else if (promptFrames <= 6) ar = '4:1';
+      else if (promptFrames <= 8) ar = '6:1';
+      else if (promptFrames <= 10) ar = '7:1';
+      else if (promptFrames <= 12) ar = '8:1';
+      else ar = '10:1';
+    }
 
     // Scale and positioning rules without any mention of box or cell
-    const spacingClause = `Character scale and positioning: character height strictly 70% of total canvas height with generous empty breathing room around each silhouette, razor-flat level ground baseline locked at Y=85% across all frames (feet contact the identical horizontal baseline with zero vertical floating), stationary in-place root motion with character center of mass centered in each pose on a treadmill with zero horizontal drifting across the sheet`;
+    const spacingClause = `Character scale and positioning: character height strictly 60% of total canvas height with massive empty breathing room and wide horizontal spacing around each silhouette, razor-flat level ground baseline locked at Y=85% across all frames (feet contact the identical horizontal baseline with zero vertical floating), stationary in-place root motion with character center of mass centered in each pose on a treadmill with zero horizontal drifting across the sheet`;
 
     // Frame isolation and anti-intersection spacing rule
-    const frameSeparationClause = `Frame isolation and anti-intersection spacing: generous wide uniform buffer space between every character pose, minimum 20% empty background margin between adjacent poses so one frame never intersects, overlaps, or touches the next frame, isolated non-overlapping character silhouettes, zero collision between limbs or weapons of adjacent poses, wide horizontal spacing with distinct clear gaps between all frames`;
+    const frameSeparationClause = `Extra wide frame gap and anti-intersection spacing: massive wide uniform buffer gaps between every character pose, minimum 35% empty negative background margin between adjacent characters so each pose is widely separated with vast clear space in between, isolated non-overlapping character silhouettes positioned far apart, zero collision between limbs or weapons of adjacent poses, extra wide horizontal spacing with distinct large gaps between all frames preventing any contact or proximity overlap`;
 
     // Seamless single background rules
     const backgroundClause = `Background rules: single continuous unbroken flat solid ${bg} across the entire canvas with zero gradients, zero shadows, completely seamless and borderless without any rectangular boxes, dividing lines, grid lines, panel frames, or borders`;
@@ -744,13 +754,13 @@ function initSpriteStudio() {
     // 1. Positive Master Prompt
     let prompt = '';
     if (engine === 'mj') {
-      prompt = `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${choreography}, ${layoutClause}, ${spacingClause}, ${frameSeparationClause}, ${modelSheetClause}, ${angle}, ${style}, ${backgroundClause} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, overlapping_frames, intersecting_characters, touching_poses, merged_sprites, overlapping_limbs_between_frames`;
+      prompt = `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${choreography}, ${layoutClause}, ${spacingClause}, ${frameSeparationClause}, ${modelSheetClause}, ${angle}, ${style}, ${backgroundClause} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, tight_spacing, close_characters, narrow_gaps, touching_poses, overlapping_frames, intersecting_characters, merged_sprites, overlapping_limbs_between_frames, colliding_silhouettes, crowded_frames`;
     } else if (engine === 'flux') {
-      prompt = `A masterwork 2D game asset sprite sheet of ${desc}. Layout structure: ${layoutClause}. Kinematic motion sequence: ${choreography}. Character scale & positioning: ${spacingClause}. Anti-intersection frame spacing: ${frameSeparationClause}. Model sheet rules: ${modelSheetClause}. ${backgroundClause}. Rendered in ${style}, ${angle}. The background is one continuous, uninterrupted, completely borderless solid flat color with strictly NO grid lines, NO dividing lines, NO bounding boxes, NO cell borders, NO frame outlines separating the characters, and NO intersecting or overlapping frames.`;
+      prompt = `A masterwork 2D game asset sprite sheet of ${desc}. Layout structure: ${layoutClause}. Kinematic motion sequence: ${choreography}. Character scale & positioning: ${spacingClause}. Extra wide frame gaps & isolation: ${frameSeparationClause}. Model sheet rules: ${modelSheetClause}. ${backgroundClause}. Rendered in ${style}, ${angle}. The background is one continuous, uninterrupted, completely borderless solid flat color with wide expansive gaps between each pose, and strictly NO grid lines, NO dividing lines, NO bounding boxes, NO cell borders, NO frame outlines, NO tight spacing, and NO intersecting or overlapping frames.`;
     } else if (engine === 'sdxl') {
-      prompt = `((2D game asset sprite sheet:1.3)), ${desc}, ${layoutClause}, ${choreography}, ((generous frame spacing, anti-intersection margin between poses, isolated silhouettes:1.3)), ((stationary root motion, treadmill in-place animation, locked center of mass at X=50%)), ((razor-flat ground baseline at Y=85%)), ((rigid model sheet anatomical consistency)), ${backgroundClause}, ${style}, ${angle}, crisp sharp outlines, game development asset, studio quality, (boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background, overlapping frames, touching characters, intersecting poses:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow:1.4)`;
+      prompt = `((2D game asset sprite sheet:1.3)), ${desc}, ${layoutClause}, ${choreography}, ((extra wide gaps between frames:1.4)), ((generous empty margin between poses, widely spaced characters, isolated silhouettes:1.4)), ((stationary root motion, treadmill in-place animation, locked center of mass at X=50%)), ((razor-flat ground baseline at Y=85%)), ((rigid model sheet anatomical consistency)), ${backgroundClause}, ${style}, ${angle}, crisp sharp outlines, game development asset, studio quality, (boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background, tight spacing, narrow gaps, close poses, touching sprites, overlapping frames, intersecting characters, crowded frames:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow:1.4)`;
     } else if (engine === 'gemini') {
-      prompt = `Pristine 2D game asset sprite sheet of ${desc}. ${layoutClause}. Sequential kinematic motion: ${choreography}. Spacing and positioning: ${spacingClause}. Frame isolation rules: ${frameSeparationClause}. Rendered in flat 2D game textures in ${style}, ${angle}, ${backgroundClause}. Model sheet fidelity: ${modelSheetClause}. Strictly borderless: NO grid lines, NO dividing lines, NO rectangular boxes, NO bounding boxes, NO frame borders, NO comic panels separating the frames. Strictly NO overlapping poses, NO intersecting frames, NO watermark, NO logo, NO signature, NO text labels, perfectly clean transparent-ready single background with wide breathing room between poses.`;
+      prompt = `Pristine 2D game asset sprite sheet of ${desc}. ${layoutClause}. Sequential kinematic motion: ${choreography}. Spacing and positioning: ${spacingClause}. Extra wide frame gap rules: ${frameSeparationClause}. Rendered in flat 2D game textures in ${style}, ${angle}, ${backgroundClause}. Model sheet fidelity: ${modelSheetClause}. Strictly borderless: NO grid lines, NO dividing lines, NO rectangular boxes, NO bounding boxes, NO frame borders, NO comic panels separating the frames. Every pose is separated by a wide expansive gap with vast breathing room. Strictly NO tight spacing, NO close poses, NO overlapping frames, NO intersecting poses, NO watermark, NO logo, NO signature, NO text labels, perfectly clean transparent-ready single background with massive clear gaps between poses.`;
     }
 
     if (promptOutput) promptOutput.textContent = prompt;
@@ -758,11 +768,11 @@ function initSpriteStudio() {
     // 2. Dedicated Negative Exclusions
     let negativePrompt = '';
     if (engine === 'mj') {
-      negativePrompt = `--no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, gradient_background, blurry_edges, overlapping_frames, intersecting_characters, touching_poses, merged_sprites`;
+      negativePrompt = `--no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, gradient_background, blurry_edges, tight_spacing, close_characters, narrow_gaps, overlapping_frames, intersecting_characters, touching_poses, merged_sprites, colliding_silhouettes`;
     } else if (engine === 'sdxl') {
-      negativePrompt = `(boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background, overlapping frames, touching poses, intersecting characters:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow, noisy background:1.4)`;
+      negativePrompt = `(boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background, tight spacing, narrow gaps, close poses, touching sprites, overlapping frames, intersecting characters, crowded frames, colliding poses:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow, noisy background:1.4)`;
     } else {
-      negativePrompt = `Strictly exclude: rectangular bounding boxes, inner border lines, comic book panel dividers, grid guidelines, drop shadows under feet, background color gradients, two-tone background patches, watermarks, spark logos, text signatures, perspective rotation, character drifting across frames, overlapping characters, and intersecting frames.`;
+      negativePrompt = `Strictly exclude: rectangular bounding boxes, inner border lines, comic book panel dividers, grid guidelines, drop shadows under feet, background color gradients, two-tone background patches, watermarks, spark logos, text signatures, perspective rotation, character drifting across frames, tight spacing, close characters, narrow gaps, touching poses, overlapping characters, and intersecting frames.`;
     }
     if (negativePromptOutput) negativePromptOutput.textContent = negativePrompt;
 
@@ -917,12 +927,22 @@ function initSpriteStudio() {
     actions.forEach((act, idx) => {
       const pCols = act.frames > 8 ? Math.ceil(act.frames / 2) : act.frames;
       const pRows = act.frames > 8 ? 2 : 1;
-      const ar = pRows === 2 ? '16:9' : '3:1';
+      let ar = '16:9';
+      if (pRows === 2) {
+        ar = act.frames >= 12 ? '21:9' : '16:9';
+      } else {
+        if (act.frames <= 4) ar = '3:1';
+        else if (act.frames <= 6) ar = '4:1';
+        else if (act.frames <= 8) ar = '6:1';
+        else if (act.frames <= 10) ar = '7:1';
+        else if (act.frames <= 12) ar = '8:1';
+        else ar = '10:1';
+      }
       const ch = buildKinematicChoreography(act.key, act.frames, pRows, pCols, 'arcade');
 
       const fullPrompt = engine === 'mj'
-        ? `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${ch}, single continuous borderless layout directly on ${bg}, locked center of mass, Y=85% ground plane, generous wide buffer space between poses with zero frame overlap or collision, ${style}, ${angle} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, dividing_lines, grid_lines, frames, borders, text, watermark, overlapping_frames, intersecting_characters`
-        : `A masterwork 2D game asset sprite sheet of ${desc}. ${ch}. Borderless single continuous flat ${bg}. Wide buffer spacing between all poses with zero intersection or collision between frames. Stationary root motion on treadmill, ground baseline at Y=85%, rigid model sheet consistency. Style: ${style}, ${angle}. Strictly NO dividing lines, NO boxes, NO borders, NO intersecting frames.`;
+        ? `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${ch}, single continuous borderless layout directly on ${bg}, locked center of mass, Y=85% ground plane, extra wide generous spacing with expansive horizontal gaps separating each character pose, minimum 35% empty negative margin between poses, widely separated characters with zero overlap or collision, ${style}, ${angle} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, dividing_lines, grid_lines, frames, borders, text, watermark, tight_spacing, close_characters, narrow_gaps, touching_poses, overlapping_frames, intersecting_characters, colliding_silhouettes, crowded_frames`
+        : `A masterwork 2D game asset sprite sheet of ${desc}. ${ch}. Borderless single continuous flat ${bg}. Extra wide frame gap spacing: massive wide uniform buffer gaps between every character pose, minimum 35% empty negative margin separating each character with vast clear space in between, zero intersection, collision, or touching between adjacent frames. Stationary root motion on treadmill, ground baseline at Y=85%, rigid model sheet consistency. Style: ${style}, ${angle}. Strictly NO dividing lines, NO boxes, NO borders, NO tight spacing, NO close poses, NO intersecting frames.`;
 
       const card = document.createElement('div');
       card.className = 'action-pack-item';
