@@ -551,9 +551,19 @@
             </div>
 
             <div id="watermark-options" style="display: block;">
+              <!-- Detection Mode -->
+              <div class="slider-row" style="margin-bottom: 0.5rem;">
+                <label for="wm-mode-select" style="font-size: 0.75rem;">Removal Mode:</label>
+                <select id="wm-mode-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px; flex: 1;">
+                  <option value="smart" selected>✨ Smart Watermark Color Detector (Preserves Character)</option>
+                  <option value="box">📦 Entire Corner Box Wipe</option>
+                </select>
+              </div>
+
+              <!-- Target Corner -->
               <div class="slider-row" style="margin-bottom: 0.5rem;">
                 <label for="wm-corner-select" style="font-size: 0.75rem;">Target Corner:</label>
-                <select id="wm-corner-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+                <select id="wm-corner-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px; flex: 1;">
                   <option value="br" selected>Bottom-Right (Gemini Standard)</option>
                   <option value="bl">Bottom-Left</option>
                   <option value="tr">Top-Right</option>
@@ -562,8 +572,26 @@
                 </select>
               </div>
 
+              <!-- Watermark Color & Auto-Detect -->
+              <div id="wm-color-row" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; padding: 0.35rem 0.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px;">
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <label for="wm-color-picker" style="font-size: 0.72rem; margin-bottom: 0; color: var(--silver-300);">WM Color:</label>
+                  <input type="color" id="wm-color-picker" value="#FFFFFF" style="width: 28px; height: 24px; padding: 0; border: none; cursor: pointer; background: transparent; vertical-align: middle;"/>
+                  <span id="wm-color-hex" style="font-size: 0.7rem; font-family: var(--mono); color: var(--silver-200);">#FFFFFF</span>
+                </div>
+                <button type="button" class="btn btn-silver-outline btn-sm" id="btn-detect-wm-color" style="font-size: 0.68rem; padding: 0.2rem 0.5rem;" title="Automatically sample corner and identify Gemini / AI watermark color">
+                  🎯 Auto-Detect Color
+                </button>
+              </div>
+
+              <div class="slider-row" id="wm-tol-row" style="margin-bottom: 0.5rem;">
+                <label for="wm-tol-slider" style="font-size: 0.75rem;">Color Tolerance:</label>
+                <input type="range" id="wm-tol-slider" class="slider" min="10" max="120" value="55"/>
+                <span class="slider-val" id="wm-tol-val">55</span>
+              </div>
+
               <div class="slider-row">
-                <label for="wm-size-slider" style="font-size: 0.75rem;">Erase Box Size:</label>
+                <label for="wm-size-slider" style="font-size: 0.75rem;">Corner Box Area:</label>
                 <input type="range" id="wm-size-slider" class="slider" min="30" max="180" value="85"/>
                 <span class="slider-val" id="wm-size-val">85px</span>
               </div>
@@ -993,6 +1021,94 @@
 
     <div class="action-pack-list" id="action-pack-list" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 460px; overflow-y: auto; padding-right: 0.25rem;">
       <!-- Dynamic Action Pack Cards Loaded by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ MODAL 4: SINGLE FRAME PRECISION EDITOR ════════════ -->
+<div class="modal-backdrop" id="modal-frame-editor" role="dialog" aria-modal="true" aria-labelledby="modal-frame-editor-title">
+  <div class="modal-card modal-card-lg" style="max-width: 920px;">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modal-frame-editor-title">
+          <span>✏️</span> Single Frame Editor — <span id="fe-frame-label">Frame #1</span>
+        </h3>
+        <p style="font-size: 0.74rem; color: var(--silver-400); margin-top: 0.25rem;">
+          Edit, erase artifacts, defringe, clean watermarks, or paint pixels directly on this individual frame without affecting other frames.
+        </p>
+      </div>
+      <button type="button" class="modal-close" id="modal-frame-editor-close" aria-label="Close modal">&times;</button>
+    </div>
+
+    <!-- Frame Editor Toolbar -->
+    <div class="frame-editor-toolbar" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; padding: 0.6rem 0.85rem; background: rgba(255,255,255,0.03); border: 1px solid var(--silver-border); border-radius: var(--radius-sm);">
+      <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+        <!-- Tools -->
+        <button type="button" class="btn btn-silver btn-sm fe-tool-btn active" id="fe-tool-eraser" title="Eraser Brush (erase pixels to transparent)">
+          🧹 Eraser
+        </button>
+        <button type="button" class="btn btn-silver-outline btn-sm fe-tool-btn" id="fe-tool-pencil" title="Pixel Pencil (draw pixels)">
+          ✏️ Pencil
+        </button>
+        <button type="button" class="btn btn-silver-outline btn-sm fe-tool-btn" id="fe-tool-eyedropper" title="Pick color from frame">
+          🔍 Eyedrop
+        </button>
+        <input type="color" id="fe-color-picker" value="#ffffff" title="Pencil Color" style="width: 32px; height: 28px; padding: 0; border: none; cursor: pointer; background: transparent; vertical-align: middle;" />
+        
+        <div style="display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem;">
+          <span style="font-size: 0.72rem; color: var(--silver-300);">Size:</span>
+          <select id="fe-brush-size" style="padding: 0.2rem 0.4rem; font-size: 0.72rem; background: var(--surface); color: #fff; border: 1px solid var(--silver-border); border-radius: 4px;">
+            <option value="1">1px (Pixel Art)</option>
+            <option value="2">2px</option>
+            <option value="4" selected>4px</option>
+            <option value="8">8px</option>
+            <option value="16">16px</option>
+            <option value="32">32px</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+        <!-- Zoom -->
+        <span style="font-size: 0.72rem; color: var(--silver-300);">Zoom:</span>
+        <div class="btn-group" style="display: inline-flex; gap: 0.2rem;">
+          <button type="button" class="btn btn-silver-outline btn-sm fe-zoom-btn" data-zoom="1">1x</button>
+          <button type="button" class="btn btn-silver-outline btn-sm fe-zoom-btn" data-zoom="2">2x</button>
+          <button type="button" class="btn btn-silver btn-sm fe-zoom-btn active" data-zoom="4">4x</button>
+          <button type="button" class="btn btn-silver-outline btn-sm fe-zoom-btn" data-zoom="8">8x</button>
+        </div>
+        <button type="button" class="btn btn-silver-outline btn-sm" id="fe-btn-clean-wm" title="Clean corner watermark on this frame">
+          ✨ Clean Watermark
+        </button>
+        <button type="button" class="btn btn-silver-outline btn-sm" id="fe-btn-undo" title="Undo last stroke">
+          ↩️ Undo
+        </button>
+        <button type="button" class="btn btn-silver-outline btn-sm" id="fe-btn-reset" title="Reset frame to unedited state">
+          🔄 Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Canvas Editing Workspace -->
+    <div class="fe-canvas-viewport" style="position: relative; width: 100%; min-height: 340px; max-height: 480px; overflow: auto; display: flex; align-items: center; justify-content: center; background: #0c0f16; border: 1px solid var(--silver-border); border-radius: var(--radius-sm); padding: 1.5rem;">
+      <div class="fe-canvas-inner" style="position: relative; background-image: repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%); background-size: 16px 16px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 30px rgba(0,0,0,0.6);">
+        <canvas id="fe-edit-canvas" style="display: block; image-rendering: pixelated; cursor: crosshair;"></canvas>
+      </div>
+    </div>
+
+    <!-- Modal Footer Actions -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+      <span style="font-size: 0.72rem; color: var(--silver-400);">
+        Click and drag to edit. Changes immediately reflect in the 60fps animation player.
+      </span>
+      <div style="display: flex; gap: 0.5rem;">
+        <button type="button" class="btn btn-silver-outline btn-sm" id="fe-btn-download-single">
+          💾 Download Frame PNG
+        </button>
+        <button type="button" class="btn btn-silver btn-sm" id="fe-btn-save-frame">
+          ✓ Save &amp; Apply to Animation
+        </button>
+      </div>
     </div>
   </div>
 </div>

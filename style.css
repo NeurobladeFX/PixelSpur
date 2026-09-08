@@ -3071,5 +3071,57 @@ select option:checked, select option:hover {
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
+/* ════════════ SINGLE FRAME PRECISION EDITOR ════════════ */
+.frame-btn-edit {
+  width: 100%;
+  font-size: 0.68rem;
+  padding: 0.3rem 0.4rem;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #7dd3fc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.frame-btn-edit:hover {
+  background: rgba(56, 189, 248, 0.28);
+  border-color: #38bdf8;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.fe-tool-btn.active {
+  background: #ffffff !important;
+  color: #070a10 !important;
+  border-color: #fff !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
+.fe-zoom-btn.active {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+  border-color: #fff !important;
+  font-weight: 700;
+}
+
+.fe-canvas-viewport::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.fe-canvas-viewport::-webkit-scrollbar-thumb {
+  background: var(--silver-border-hi);
+  border-radius: 4px;
+}
+
+
 
 

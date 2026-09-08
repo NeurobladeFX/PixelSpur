@@ -731,6 +731,9 @@ function initSpriteStudio() {
     // Scale and positioning rules without any mention of box or cell
     const spacingClause = `Character scale and positioning: character height strictly 70% of total canvas height with generous empty breathing room around each silhouette, razor-flat level ground baseline locked at Y=85% across all frames (feet contact the identical horizontal baseline with zero vertical floating), stationary in-place root motion with character center of mass centered in each pose on a treadmill with zero horizontal drifting across the sheet`;
 
+    // Frame isolation and anti-intersection spacing rule
+    const frameSeparationClause = `Frame isolation and anti-intersection spacing: generous wide uniform buffer space between every character pose, minimum 20% empty background margin between adjacent poses so one frame never intersects, overlaps, or touches the next frame, isolated non-overlapping character silhouettes, zero collision between limbs or weapons of adjacent poses, wide horizontal spacing with distinct clear gaps between all frames`;
+
     // Seamless single background rules
     const backgroundClause = `Background rules: single continuous unbroken flat solid ${bg} across the entire canvas with zero gradients, zero shadows, completely seamless and borderless without any rectangular boxes, dividing lines, grid lines, panel frames, or borders`;
 
@@ -740,13 +743,13 @@ function initSpriteStudio() {
     // 1. Positive Master Prompt
     let prompt = '';
     if (engine === 'mj') {
-      prompt = `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${choreography}, ${layoutClause}, ${spacingClause}, ${modelSheetClause}, ${angle}, ${style}, ${backgroundClause} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows`;
+      prompt = `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${choreography}, ${layoutClause}, ${spacingClause}, ${frameSeparationClause}, ${modelSheetClause}, ${angle}, ${style}, ${backgroundClause} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, overlapping_frames, intersecting_characters, touching_poses, merged_sprites, overlapping_limbs_between_frames`;
     } else if (engine === 'flux') {
-      prompt = `A masterwork 2D game asset sprite sheet of ${desc}. Layout structure: ${layoutClause}. Kinematic motion sequence: ${choreography}. Character scale & positioning: ${spacingClause}. Model sheet rules: ${modelSheetClause}. ${backgroundClause}. Rendered in ${style}, ${angle}. The background is one continuous, uninterrupted, completely borderless solid flat color with strictly NO grid lines, NO dividing lines, NO bounding boxes, NO cell borders, and NO frame outlines separating the characters.`;
+      prompt = `A masterwork 2D game asset sprite sheet of ${desc}. Layout structure: ${layoutClause}. Kinematic motion sequence: ${choreography}. Character scale & positioning: ${spacingClause}. Anti-intersection frame spacing: ${frameSeparationClause}. Model sheet rules: ${modelSheetClause}. ${backgroundClause}. Rendered in ${style}, ${angle}. The background is one continuous, uninterrupted, completely borderless solid flat color with strictly NO grid lines, NO dividing lines, NO bounding boxes, NO cell borders, NO frame outlines separating the characters, and NO intersecting or overlapping frames.`;
     } else if (engine === 'sdxl') {
-      prompt = `((2D game asset sprite sheet:1.3)), ${desc}, ${layoutClause}, ${choreography}, ((stationary root motion, treadmill in-place animation, locked center of mass at X=50%)), ((razor-flat ground baseline at Y=85%)), ((rigid model sheet anatomical consistency)), ${backgroundClause}, ${style}, ${angle}, crisp sharp outlines, game development asset, studio quality, (boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow:1.4)`;
+      prompt = `((2D game asset sprite sheet:1.3)), ${desc}, ${layoutClause}, ${choreography}, ((generous frame spacing, anti-intersection margin between poses, isolated silhouettes:1.3)), ((stationary root motion, treadmill in-place animation, locked center of mass at X=50%)), ((razor-flat ground baseline at Y=85%)), ((rigid model sheet anatomical consistency)), ${backgroundClause}, ${style}, ${angle}, crisp sharp outlines, game development asset, studio quality, (boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background, overlapping frames, touching characters, intersecting poses:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow:1.4)`;
     } else if (engine === 'gemini') {
-      prompt = `Pristine 2D game asset sprite sheet of ${desc}. ${layoutClause}. Sequential kinematic motion: ${choreography}. Spacing and positioning: ${spacingClause}. Rendered in flat 2D game textures in ${style}, ${angle}, ${backgroundClause}. Model sheet fidelity: ${modelSheetClause}. Strictly borderless: NO grid lines, NO dividing lines, NO rectangular boxes, NO bounding boxes, NO frame borders, NO comic panels separating the frames. Strictly NO watermark, NO logo, NO signature, NO text labels, perfectly clean transparent-ready single background.`;
+      prompt = `Pristine 2D game asset sprite sheet of ${desc}. ${layoutClause}. Sequential kinematic motion: ${choreography}. Spacing and positioning: ${spacingClause}. Frame isolation rules: ${frameSeparationClause}. Rendered in flat 2D game textures in ${style}, ${angle}, ${backgroundClause}. Model sheet fidelity: ${modelSheetClause}. Strictly borderless: NO grid lines, NO dividing lines, NO rectangular boxes, NO bounding boxes, NO frame borders, NO comic panels separating the frames. Strictly NO overlapping poses, NO intersecting frames, NO watermark, NO logo, NO signature, NO text labels, perfectly clean transparent-ready single background with wide breathing room between poses.`;
     }
 
     if (promptOutput) promptOutput.textContent = prompt;
@@ -754,11 +757,11 @@ function initSpriteStudio() {
     // 2. Dedicated Negative Exclusions
     let negativePrompt = '';
     if (engine === 'mj') {
-      negativePrompt = `--no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, gradient_background, blurry_edges`;
+      negativePrompt = `--no boxes, bounding_box, grid_lines, dividing_lines, cell_borders, panel_borders, frames, rectangular_boxes, comic_panels, borders, inner_boxes, perspective_shift, character_drift, morphing, floating_limbs, cropped_frame, watermark, text, signature, 3d, floor_shadows, gradient_background, blurry_edges, overlapping_frames, intersecting_characters, touching_poses, merged_sprites`;
     } else if (engine === 'sdxl') {
-      negativePrompt = `(boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow, noisy background:1.4)`;
+      negativePrompt = `(boxes, bounding box, grid lines, dividing lines, panel borders, cell frames, rectangular outlines, comic panels, borders, inner boxes, frames, non-uniform background, overlapping frames, touching poses, intersecting characters:1.5), (worst quality, low quality, blurry, 3d render, photo, photorealistic, perspective shift, rotation, character drifting, forward displacement, anatomical morphing, mutating limbs, extra arms, floating feet, cropped limbs, text, logo, signature, watermark, label, gradient background, floor drop shadow, noisy background:1.4)`;
     } else {
-      negativePrompt = `Strictly exclude: rectangular bounding boxes, inner border lines, comic book panel dividers, grid guidelines, drop shadows under feet, background color gradients, two-tone background patches, watermarks, spark logos, text signatures, perspective rotation, and character drifting across frames.`;
+      negativePrompt = `Strictly exclude: rectangular bounding boxes, inner border lines, comic book panel dividers, grid guidelines, drop shadows under feet, background color gradients, two-tone background patches, watermarks, spark logos, text signatures, perspective rotation, character drifting across frames, overlapping characters, and intersecting frames.`;
     }
     if (negativePromptOutput) negativePromptOutput.textContent = negativePrompt;
 
@@ -917,8 +920,8 @@ function initSpriteStudio() {
       const ch = buildKinematicChoreography(act.key, act.frames, pRows, pCols, 'arcade');
 
       const fullPrompt = engine === 'mj'
-        ? `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${ch}, single continuous borderless layout directly on ${bg}, locked center of mass, Y=85% ground plane, ${style}, ${angle} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, dividing_lines, grid_lines, frames, borders, text, watermark`
-        : `A masterwork 2D game asset sprite sheet of ${desc}. ${ch}. Borderless single continuous flat ${bg}. Stationary root motion on treadmill, ground baseline at Y=85%, rigid model sheet consistency. Style: ${style}, ${angle}. Strictly NO dividing lines, NO boxes, NO borders.`;
+        ? `/imagine prompt: 2D game asset sprite sheet of ${desc}, ${ch}, single continuous borderless layout directly on ${bg}, locked center of mass, Y=85% ground plane, generous wide buffer space between poses with zero frame overlap or collision, ${style}, ${angle} --ar ${ar} --style raw --v 6.1 --no boxes, bounding_box, dividing_lines, grid_lines, frames, borders, text, watermark, overlapping_frames, intersecting_characters`
+        : `A masterwork 2D game asset sprite sheet of ${desc}. ${ch}. Borderless single continuous flat ${bg}. Wide buffer spacing between all poses with zero intersection or collision between frames. Stationary root motion on treadmill, ground baseline at Y=85%, rigid model sheet consistency. Style: ${style}, ${angle}. Strictly NO dividing lines, NO boxes, NO borders, NO intersecting frames.`;
 
       const card = document.createElement('div');
       card.className = 'action-pack-item';
@@ -1055,7 +1058,15 @@ function initSpriteStudio() {
 
   // Gemini & AI Watermark removal elements
   const wmToggle = document.getElementById('toggle-watermark-erase');
+  const wmModeSelect = document.getElementById('wm-mode-select');
   const wmCornerSelect = document.getElementById('wm-corner-select');
+  const wmColorPicker = document.getElementById('wm-color-picker');
+  const wmColorHex = document.getElementById('wm-color-hex');
+  const btnDetectWmColor = document.getElementById('btn-detect-wm-color');
+  const wmColorRow = document.getElementById('wm-color-row');
+  const wmTolRow = document.getElementById('wm-tol-row');
+  const wmTolSlider = document.getElementById('wm-tol-slider');
+  const wmTolVal = document.getElementById('wm-tol-val');
   const wmSizeSlider = document.getElementById('wm-size-slider');
   const wmSizeVal = document.getElementById('wm-size-val');
   const btnEyedropper = document.getElementById('btn-tool-eyedropper');
@@ -1065,6 +1076,33 @@ function initSpriteStudio() {
   const eraserSizeRow = document.getElementById('eraser-size-row');
   const eraserSizeSlider = document.getElementById('eraser-size-slider');
   const eraserSizeVal = document.getElementById('eraser-size-val');
+
+  // Single Frame Precision Editor Modal Elements & State
+  const modalFrameEditor = document.getElementById('modal-frame-editor');
+  const modalFrameEditorClose = document.getElementById('modal-frame-editor-close');
+  const feFrameLabel = document.getElementById('fe-frame-label');
+  const feEditCanvas = document.getElementById('fe-edit-canvas');
+  const feEditCtx = feEditCanvas ? feEditCanvas.getContext('2d', { willReadFrequently: true }) : null;
+  const feToolEraser = document.getElementById('fe-tool-eraser');
+  const feToolPencil = document.getElementById('fe-tool-pencil');
+  const feToolEyedropper = document.getElementById('fe-tool-eyedropper');
+  const feColorPicker = document.getElementById('fe-color-picker');
+  const feBrushSizeSelect = document.getElementById('fe-brush-size');
+  const feZoomBtns = document.querySelectorAll('.fe-zoom-btn');
+  const feBtnCleanWm = document.getElementById('fe-btn-clean-wm');
+  const feBtnUndo = document.getElementById('fe-btn-undo');
+  const feBtnReset = document.getElementById('fe-btn-reset');
+  const feBtnDownloadSingle = document.getElementById('fe-btn-download-single');
+  const feBtnSaveFrame = document.getElementById('fe-btn-save-frame');
+
+  let currentEditingFrameIndex = null;
+  let feCurrentTool = 'eraser'; // 'eraser' | 'pencil' | 'eyedropper'
+  let feCurrentZoom = 4;
+  let feBrushSize = 4;
+  let fePencilColor = '#ffffff';
+  let feUndoStack = [];
+  let feIsDrawing = false;
+  let feOriginalImageData = null;
 
   // Offscreen canvas to track manual eraser brush strokes
   const eraseMaskCanvas = document.createElement('canvas');
@@ -1233,6 +1271,9 @@ function initSpriteStudio() {
                  <span>🗑️</span> Remove Frame
                </button>`
             }
+            <button type="button" class="frame-btn-edit btn-edit-frame" data-idx="${idx}" title="Edit Frame #${idx + 1} with precision pixel tools">
+              <span>✏️</span> Edit Frame
+            </button>
           </div>
           <div class="frame-sub-actions">
             <button type="button" class="frame-btn-sub btn-inspect-frame" data-idx="${idx}" title="Inspect frame on player canvas">👁️</button>
@@ -1253,6 +1294,13 @@ function initSpriteStudio() {
       const inspectBtn = card.querySelector('.btn-inspect-frame');
       inspectBtn?.addEventListener('click', () => {
         inspectFrame(idx);
+      });
+
+      // Event: Edit Frame
+      const editBtn = card.querySelector('.btn-edit-frame');
+      editBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openFrameEditor(idx);
       });
 
       // Event: Toggle Remove / Restore
@@ -1408,11 +1456,15 @@ function initSpriteStudio() {
     const exactH = h / rows;
     const total = rowMode === 'all' ? (cols * rows) : cols;
 
-    // Preserve previous exclusions by frame coordinate ID
+    // Preserve previous exclusions and custom edits by frame coordinate ID
     const previousExclusions = new Map();
+    const previousEdits = new Map();
     if (!resetExclusions && extractedFrames.length > 0) {
       extractedFrames.forEach(f => {
         previousExclusions.set(f.id, f.isExcluded);
+        if (f.isCustomEdited) {
+          previousEdits.set(f.id, { canvas: f.canvas, dataUrl: f.dataUrl });
+        }
       });
     }
 
@@ -1453,17 +1505,27 @@ function initSpriteStudio() {
 
       const frameId = `f_${c}_${r}_${i}`;
       const isExcluded = previousExclusions.has(frameId) ? previousExclusions.get(frameId) : false;
+      const isCustomEdited = previousEdits.has(frameId);
+
+      if (isCustomEdited) {
+        const prev = previousEdits.get(frameId);
+        fCanvas.width = prev.canvas.width;
+        fCanvas.height = prev.canvas.height;
+        fctx.clearRect(0, 0, fCanvas.width, fCanvas.height);
+        fctx.drawImage(prev.canvas, 0, 0);
+      }
 
       newFrames.push({
         id: frameId,
         origIndex: i,
         col: c,
         row: r,
-        frameW: sourceW,
-        frameH: sourceH,
+        frameW: fCanvas.width,
+        frameH: fCanvas.height,
         canvas: fCanvas,
-        dataUrl: fCanvas.toDataURL('image/png'),
-        isExcluded
+        dataUrl: isCustomEdited ? previousEdits.get(frameId).dataUrl : fCanvas.toDataURL('image/png'),
+        isExcluded,
+        isCustomEdited
       });
     }
 
@@ -1832,8 +1894,14 @@ function initSpriteStudio() {
       // 2. Gemini / AI Watermark Corner Erasure
       const wmEraseActive = wmToggle ? wmToggle.checked : true;
       if (wmEraseActive) {
+        const mode = wmModeSelect ? wmModeSelect.value : 'smart';
         const corner = wmCornerSelect ? wmCornerSelect.value : 'br';
         const boxSize = parseInt(wmSizeSlider?.value || 85, 10);
+        const wmTol = parseInt(wmTolSlider?.value || 55, 10);
+        const targetHex = wmColorPicker?.value || '#FFFFFF';
+        const wmTargetR = parseInt(targetHex.slice(1, 3), 16);
+        const wmTargetG = parseInt(targetHex.slice(3, 5), 16);
+        const wmTargetB = parseInt(targetHex.slice(5, 7), 16);
 
         let startX = 0, endX = 0, startY = 0, endY = 0;
         if (corner === 'br') {
@@ -1866,7 +1934,24 @@ function initSpriteStudio() {
         for (let y = startY; y < endY; y++) {
           for (let x = startX; x < endX; x++) {
             const idx = (y * w + x) * 4;
-            data[idx + 3] = 0; // Clear corner watermark to alpha 0
+            if (data[idx + 3] === 0) continue;
+
+            if (mode === 'box') {
+              data[idx + 3] = 0; // Wipe entire corner bounding box
+            } else {
+              // Smart Watermark Color Detection:
+              // Erase ONLY pixels matching target watermark color or Gemini white/silver sparkle signature
+              const r = data[idx];
+              const g = data[idx + 1];
+              const b = data[idx + 2];
+
+              const distWm = Math.sqrt((r - wmTargetR) ** 2 + (g - wmTargetG) ** 2 + (b - wmTargetB) ** 2);
+              const isGeminiWhiteSparkle = (r > 175 && g > 175 && b > 175 && Math.abs(r - g) < 35 && Math.abs(g - b) < 35);
+
+              if (distWm < wmTol || isGeminiWhiteSparkle) {
+                data[idx + 3] = 0; // Clear only watermark pixel to transparent!
+              }
+            }
           }
         }
       }
@@ -2084,9 +2169,26 @@ function initSpriteStudio() {
     applyDefringe();
   });
 
+  wmModeSelect?.addEventListener('change', () => {
+    const isSmart = wmModeSelect.value === 'smart';
+    if (wmColorRow) wmColorRow.style.display = isSmart ? 'flex' : 'none';
+    if (wmTolRow) wmTolRow.style.display = isSmart ? 'flex' : 'none';
+    applyDefringe();
+  });
+
   smartBoxToggle?.addEventListener('change', applyDefringe);
 
   wmCornerSelect?.addEventListener('change', applyDefringe);
+
+  wmColorPicker?.addEventListener('input', (e) => {
+    if (wmColorHex) wmColorHex.textContent = e.target.value.toUpperCase();
+    applyDefringe();
+  });
+
+  wmTolSlider?.addEventListener('input', (e) => {
+    if (wmTolVal) wmTolVal.textContent = e.target.value;
+    applyDefringe();
+  });
 
   wmSizeSlider?.addEventListener('input', (e) => {
     if (wmSizeVal) wmSizeVal.textContent = `${e.target.value}px`;
@@ -2096,6 +2198,88 @@ function initSpriteStudio() {
   eraserSizeSlider?.addEventListener('input', (e) => {
     if (eraserSizeVal) eraserSizeVal.textContent = `${e.target.value}px`;
   });
+
+  function autoDetectWatermarkColor() {
+    if (!sourceCanvas || sourceCanvas.width === 0) {
+      updateDropZoneStatus("Import or paste a sprite sheet first to detect watermark color.", false);
+      return;
+    }
+    const w = sourceCanvas.width;
+    const h = sourceCanvas.height;
+    const ctx = sourceCanvas.getContext('2d');
+
+    const corner = wmCornerSelect ? wmCornerSelect.value : 'br';
+    const boxSize = parseInt(wmSizeSlider?.value || 85, 10);
+
+    let startX = Math.max(0, w - boxSize), endX = w, startY = Math.max(0, h - boxSize), endY = h;
+    if (corner === 'bl') { startX = 0; endX = Math.min(w, boxSize); startY = Math.max(0, h - boxSize); endY = h; }
+    else if (corner === 'tr') { startX = Math.max(0, w - boxSize); endX = w; startY = 0; endY = Math.min(h, boxSize); }
+    else if (corner === 'tl') { startX = 0; endX = Math.min(w, boxSize); startY = 0; endY = Math.min(h, boxSize); }
+    else if (corner === 'all-bottom') { startX = 0; endX = w; startY = Math.max(0, h - Math.round(boxSize / 2)); endY = h; }
+
+    const regionW = Math.max(1, endX - startX);
+    const regionH = Math.max(1, endY - startY);
+
+    let imgData;
+    if (rawImage) {
+      const tempC = document.createElement('canvas');
+      tempC.width = w;
+      tempC.height = h;
+      const tctx = tempC.getContext('2d');
+      tctx.drawImage(rawImage, 0, 0);
+      imgData = tctx.getImageData(startX, startY, regionW, regionH);
+    } else {
+      imgData = ctx.getImageData(startX, startY, regionW, regionH);
+    }
+    const data = imgData.data;
+
+    const hex = colorPicker?.value || '#00FF00';
+    const rKey = parseInt(hex.slice(1, 3), 16);
+    const gKey = parseInt(hex.slice(3, 5), 16);
+    const bKey = parseInt(hex.slice(5, 7), 16);
+    const tolerance = parseInt(tolSlider?.value || 45, 10);
+
+    const candidates = [];
+    for (let i = 0; i < data.length; i += 4) {
+      if (data[i + 3] < 30) continue;
+      const r = data[i], g = data[i + 1], b = data[i + 2];
+      const distBg = Math.sqrt((r - rKey) ** 2 + (g - gKey) ** 2 + (b - bKey) ** 2);
+      if (distBg < tolerance) continue; // Skip chroma background
+
+      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+      candidates.push({ r, g, b, lum });
+    }
+
+    if (candidates.length === 0) {
+      updateDropZoneStatus("No distinct non-background watermark pixels found in selected corner.", false);
+      return;
+    }
+
+    // Sort descending by luminance (Gemini spark/watermarks are high-luminance)
+    candidates.sort((a, b) => b.lum - a.lum);
+    const count = Math.max(1, Math.min(candidates.length, 30));
+    let sumR = 0, sumG = 0, sumB = 0;
+    for (let i = 0; i < count; i++) {
+      sumR += candidates[i].r;
+      sumG += candidates[i].g;
+      sumB += candidates[i].b;
+    }
+    const detectedR = Math.round(sumR / count);
+    const detectedG = Math.round(sumG / count);
+    const detectedB = Math.round(sumB / count);
+    const detectedHex = `#${detectedR.toString(16).padStart(2, '0')}${detectedG.toString(16).padStart(2, '0')}${detectedB.toString(16).padStart(2, '0')}`.toUpperCase();
+
+    if (wmColorPicker) wmColorPicker.value = detectedHex;
+    if (wmColorHex) wmColorHex.textContent = detectedHex;
+    if (wmModeSelect) wmModeSelect.value = 'smart';
+    if (wmColorRow) wmColorRow.style.display = 'flex';
+    if (wmTolRow) wmTolRow.style.display = 'flex';
+
+    updateDropZoneStatus(`🎯 Watermark detected: ${detectedHex} (Preserving character)`);
+    applyDefringe();
+  }
+
+  btnDetectWmColor?.addEventListener('click', autoDetectWatermarkColor);
 
   function updateDropZoneStatus(message, isSuccess = true) {
     if (!dropZone) return;
@@ -2474,6 +2658,320 @@ function initSpriteStudio() {
     dlPngBtn.click();
     setTimeout(() => dlJsonBtn.click(), 300);
     flashBtn(dlBundleBtn, '✓ Downloaded Bundle!');
+  });
+
+  /* ═══════════════════════════════════════════════════════════
+     6B. SINGLE FRAME PRECISION PIXEL EDITOR
+     Allows pixel-level editing, erasing, defringing, and watermark
+     removal on an individual frame, instantly syncing back to the
+     live 60fps animation player and export bundle.
+     ═══════════════════════════════════════════════════════════ */
+  function setFeTool(tool) {
+    feCurrentTool = tool;
+    [feToolEraser, feToolPencil, feToolEyedropper].forEach(btn => {
+      if (!btn) return;
+      btn.classList.remove('active', 'btn-silver');
+      btn.classList.add('btn-silver-outline');
+    });
+
+    if (tool === 'eraser' && feToolEraser) {
+      feToolEraser.classList.add('active', 'btn-silver');
+      feToolEraser.classList.remove('btn-silver-outline');
+      if (feEditCanvas) feEditCanvas.style.cursor = 'crosshair';
+    } else if (tool === 'pencil' && feToolPencil) {
+      feToolPencil.classList.add('active', 'btn-silver');
+      feToolPencil.classList.remove('btn-silver-outline');
+      if (feEditCanvas) feEditCanvas.style.cursor = 'crosshair';
+    } else if (tool === 'eyedropper' && feToolEyedropper) {
+      feToolEyedropper.classList.add('active', 'btn-silver');
+      feToolEyedropper.classList.remove('btn-silver-outline');
+      if (feEditCanvas) feEditCanvas.style.cursor = 'cell';
+    }
+  }
+
+  function updateFeZoom(zoomLevel) {
+    feCurrentZoom = parseInt(zoomLevel, 10) || 4;
+    feZoomBtns.forEach(btn => {
+      if (parseInt(btn.dataset.zoom, 10) === feCurrentZoom) {
+        btn.classList.add('active', 'btn-silver');
+        btn.classList.remove('btn-silver-outline');
+      } else {
+        btn.classList.remove('active', 'btn-silver');
+        btn.classList.add('btn-silver-outline');
+      }
+    });
+
+    if (feEditCanvas && currentEditingFrameIndex !== null) {
+      const frame = extractedFrames[currentEditingFrameIndex];
+      if (frame) {
+        feEditCanvas.style.width = `${frame.frameW * feCurrentZoom}px`;
+        feEditCanvas.style.height = `${frame.frameH * feCurrentZoom}px`;
+      }
+    }
+  }
+
+  function pushFeUndo() {
+    if (!feEditCanvas || !feEditCtx) return;
+    try {
+      const snap = feEditCtx.getImageData(0, 0, feEditCanvas.width, feEditCanvas.height);
+      feUndoStack.push(snap);
+      if (feUndoStack.length > 25) feUndoStack.shift();
+    } catch (e) {}
+  }
+
+  function openFrameEditor(idx) {
+    if (!extractedFrames[idx]) return;
+    const frame = extractedFrames[idx];
+    currentEditingFrameIndex = idx;
+
+    if (feFrameLabel) {
+      feFrameLabel.textContent = `Frame #${idx + 1} (${frame.frameW}×${frame.frameH})`;
+    }
+
+    if (feEditCanvas && feEditCtx) {
+      feEditCanvas.width = frame.frameW;
+      feEditCanvas.height = frame.frameH;
+      feEditCtx.imageSmoothingEnabled = false;
+      feEditCtx.clearRect(0, 0, frame.frameW, frame.frameH);
+      feEditCtx.drawImage(frame.canvas, 0, 0);
+
+      // Save baseline snapshot for Reset button
+      feOriginalImageData = feEditCtx.getImageData(0, 0, frame.frameW, frame.frameH);
+
+      // Initialize undo stack with current frame snapshot
+      feUndoStack = [feEditCtx.getImageData(0, 0, frame.frameW, frame.frameH)];
+
+      updateFeZoom(feCurrentZoom);
+      setFeTool(feCurrentTool);
+    }
+
+    if (modalFrameEditor) {
+      modalFrameEditor.classList.add('active');
+    }
+  }
+
+  function closeFrameEditor() {
+    if (modalFrameEditor) {
+      modalFrameEditor.classList.remove('active');
+    }
+    currentEditingFrameIndex = null;
+    feIsDrawing = false;
+  }
+
+  function getFeCanvasCoords(e) {
+    if (!feEditCanvas) return { x: 0, y: 0 };
+    const rect = feEditCanvas.getBoundingClientRect();
+    const scaleX = feEditCanvas.width / rect.width;
+    const scaleY = feEditCanvas.height / rect.height;
+    const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+    const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+    return {
+      x: Math.floor((clientX - rect.left) * scaleX),
+      y: Math.floor((clientY - rect.top) * scaleY)
+    };
+  }
+
+  function applyFeDraw(x, y) {
+    if (!feEditCanvas || !feEditCtx) return;
+    const half = Math.floor(feBrushSize / 2);
+    const startX = x - half;
+    const startY = y - half;
+
+    if (feCurrentTool === 'eraser') {
+      feEditCtx.clearRect(startX, startY, feBrushSize, feBrushSize);
+    } else if (feCurrentTool === 'pencil') {
+      feEditCtx.fillStyle = fePencilColor;
+      feEditCtx.fillRect(startX, startY, feBrushSize, feBrushSize);
+    } else if (feCurrentTool === 'eyedropper') {
+      try {
+        const clampedX = Math.max(0, Math.min(feEditCanvas.width - 1, x));
+        const clampedY = Math.max(0, Math.min(feEditCanvas.height - 1, y));
+        const pixel = feEditCtx.getImageData(clampedX, clampedY, 1, 1).data;
+        if (pixel[3] > 0) {
+          const hex = `#${pixel[0].toString(16).padStart(2, '0')}${pixel[1].toString(16).padStart(2, '0')}${pixel[2].toString(16).padStart(2, '0')}`.toUpperCase();
+          fePencilColor = hex;
+          if (feColorPicker) feColorPicker.value = hex;
+          setFeTool('pencil');
+        }
+      } catch (e) {}
+    }
+  }
+
+  // Single Frame Canvas Mouse & Touch Events
+  if (feEditCanvas) {
+    const handleStart = (e) => {
+      e.preventDefault();
+      pushFeUndo();
+      feIsDrawing = true;
+      const { x, y } = getFeCanvasCoords(e);
+      applyFeDraw(x, y);
+    };
+
+    const handleMove = (e) => {
+      if (!feIsDrawing) return;
+      e.preventDefault();
+      const { x, y } = getFeCanvasCoords(e);
+      applyFeDraw(x, y);
+    };
+
+    const handleEnd = () => {
+      feIsDrawing = false;
+    };
+
+    feEditCanvas.addEventListener('mousedown', handleStart);
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', handleEnd);
+
+    feEditCanvas.addEventListener('touchstart', handleStart, { passive: false });
+    feEditCanvas.addEventListener('touchmove', handleMove, { passive: false });
+    feEditCanvas.addEventListener('touchend', handleEnd);
+  }
+
+  // Frame Editor Toolbar Buttons
+  feToolEraser?.addEventListener('click', () => setFeTool('eraser'));
+  feToolPencil?.addEventListener('click', () => setFeTool('pencil'));
+  feToolEyedropper?.addEventListener('click', () => setFeTool('eyedropper'));
+
+  feColorPicker?.addEventListener('input', (e) => {
+    fePencilColor = e.target.value;
+  });
+
+  feBrushSizeSelect?.addEventListener('change', (e) => {
+    feBrushSize = parseInt(e.target.value, 10) || 4;
+  });
+
+  feZoomBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      updateFeZoom(btn.dataset.zoom);
+    });
+  });
+
+  feBtnUndo?.addEventListener('click', () => {
+    if (feUndoStack.length > 1 && feEditCtx) {
+      feUndoStack.pop(); // Pop current state
+      const prev = feUndoStack[feUndoStack.length - 1];
+      feEditCtx.putImageData(prev, 0, 0);
+    }
+  });
+
+  feBtnReset?.addEventListener('click', () => {
+    if (feOriginalImageData && feEditCtx) {
+      pushFeUndo();
+      feEditCtx.putImageData(feOriginalImageData, 0, 0);
+    }
+  });
+
+  // Clean Watermark On This Single Frame
+  feBtnCleanWm?.addEventListener('click', () => {
+    if (!feEditCanvas || !feEditCtx) return;
+    pushFeUndo();
+
+    const w = feEditCanvas.width;
+    const h = feEditCanvas.height;
+    const imgData = feEditCtx.getImageData(0, 0, w, h);
+    const data = imgData.data;
+
+    const corner = wmCornerSelect ? wmCornerSelect.value : 'br';
+    const boxSize = Math.min(Math.floor(Math.min(w, h) * 0.5), parseInt(wmSizeSlider?.value || 85, 10));
+    const mode = wmModeSelect ? wmModeSelect.value : 'smart';
+    const wmTol = parseInt(wmTolSlider?.value || 55, 10);
+    const targetHex = wmColorPicker?.value || '#FFFFFF';
+    const wmTargetR = parseInt(targetHex.slice(1, 3), 16);
+    const wmTargetG = parseInt(targetHex.slice(3, 5), 16);
+    const wmTargetB = parseInt(targetHex.slice(5, 7), 16);
+
+    let startX = Math.max(0, w - boxSize), endX = w, startY = Math.max(0, h - boxSize), endY = h;
+    if (corner === 'bl') { startX = 0; endX = Math.min(w, boxSize); startY = Math.max(0, h - boxSize); endY = h; }
+    else if (corner === 'tr') { startX = Math.max(0, w - boxSize); endX = w; startY = 0; endY = Math.min(h, boxSize); }
+    else if (corner === 'tl') { startX = 0; endX = Math.min(w, boxSize); startY = 0; endY = Math.min(h, boxSize); }
+
+    let cleanedCount = 0;
+    for (let y = startY; y < endY; y++) {
+      for (let x = startX; x < endX; x++) {
+        const idx = (y * w + x) * 4;
+        if (data[idx + 3] === 0) continue;
+
+        if (mode === 'box') {
+          data[idx + 3] = 0;
+          cleanedCount++;
+        } else {
+          const r = data[idx], g = data[idx + 1], b = data[idx + 2];
+          const distWm = Math.sqrt((r - wmTargetR) ** 2 + (g - wmTargetG) ** 2 + (b - wmTargetB) ** 2);
+          const isGeminiWhiteSparkle = (r > 175 && g > 175 && b > 175 && Math.abs(r - g) < 35 && Math.abs(g - b) < 35);
+          if (distWm < wmTol || isGeminiWhiteSparkle) {
+            data[idx + 3] = 0;
+            cleanedCount++;
+          }
+        }
+      }
+    }
+
+    feEditCtx.putImageData(imgData, 0, 0);
+    flashBtn(feBtnCleanWm, `✓ Cleaned ${cleanedCount}px`);
+  });
+
+  // Save & Apply Changes Directly to Live Animation
+  feBtnSaveFrame?.addEventListener('click', () => {
+    if (currentEditingFrameIndex === null || !extractedFrames[currentEditingFrameIndex]) return;
+    const targetFrame = extractedFrames[currentEditingFrameIndex];
+
+    // 1. Update target frame's canvas and dataUrl
+    const tctx = targetFrame.canvas.getContext('2d');
+    tctx.clearRect(0, 0, targetFrame.frameW, targetFrame.frameH);
+    tctx.drawImage(feEditCanvas, 0, 0);
+    targetFrame.dataUrl = targetFrame.canvas.toDataURL('image/png');
+    targetFrame.isCustomEdited = true;
+
+    // 2. Update thumbnail in the grid
+    if (extractedFramesGrid) {
+      const card = extractedFramesGrid.querySelector(`.frame-card[data-idx="${currentEditingFrameIndex}"]`);
+      if (card) {
+        const img = card.querySelector('.frame-thumb-img');
+        if (img) img.src = targetFrame.dataUrl;
+      }
+    }
+
+    // 3. Write back into sourceCanvas to keep overall sprite sheet exports synchronized
+    if (sourceCanvas && sourceCanvas.width > 0) {
+      const w = sourceCanvas.width;
+      const h = sourceCanvas.height;
+      const exactW = w / cols;
+      const exactH = h / rows;
+      const sliceInset = parseInt(sliceInsetSlider?.value || 0, 10);
+      const sliceOffsetX = parseInt(sliceOffsetXSlider?.value || 0, 10);
+      const sliceOffsetY = parseInt(sliceOffsetYSlider?.value || 0, 10);
+
+      const x0 = Math.round(targetFrame.col * exactW);
+      const y0 = Math.round(targetFrame.row * exactH);
+      const sourceX = Math.max(0, Math.min(w - 1, x0 + sliceOffsetX + sliceInset));
+      const sourceY = Math.max(0, Math.min(h - 1, y0 + sliceOffsetY + sliceInset));
+
+      const sctx = sourceCanvas.getContext('2d');
+      sctx.clearRect(sourceX, sourceY, targetFrame.frameW, targetFrame.frameH);
+      sctx.drawImage(feEditCanvas, sourceX, sourceY);
+    }
+
+    // 4. Immediately redraw live animation player
+    drawAnimFrame();
+
+    // 5. Close modal & flash confirmation
+    closeFrameEditor();
+    updateDropZoneStatus(`✓ Frame #${currentEditingFrameIndex + 1} edited & applied to 60fps player!`);
+  });
+
+  // Download Single Frame PNG from Modal
+  feBtnDownloadSingle?.addEventListener('click', () => {
+    if (!feEditCanvas) return;
+    const a = document.createElement('a');
+    a.href = feEditCanvas.toDataURL('image/png');
+    a.download = `frame_${String((currentEditingFrameIndex ?? 0) + 1).padStart(2, '0')}_edited.png`;
+    a.click();
+    vignetteOnDownload();
+  });
+
+  modalFrameEditorClose?.addEventListener('click', closeFrameEditor);
+  modalFrameEditor?.addEventListener('click', (e) => {
+    if (e.target === modalFrameEditor) closeFrameEditor();
   });
 
   /* ═══════════════════════════════════════════════════════════
