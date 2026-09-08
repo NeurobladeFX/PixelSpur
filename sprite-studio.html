@@ -17,10 +17,9 @@
   <link rel="stylesheet" href="style.css"/>
 
   <!-- Adsterra JS Async Multi-Zone Loader -->
-  <script>
+  <script data-cfasync="false">
     (function() {
       var adQueue = [
-        { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-top' },
         { key: 'c075bb1d519d3ba0713981030cb622ed', container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-col1' },
         { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-mid' },
         { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635' },
@@ -47,6 +46,7 @@
         });
 
         var s = document.createElement('script');
+        s.setAttribute('data-cfasync', 'false');
         s.type = 'text/javascript';
         s.async = true;
         s.src = 'https://www.highrevenueformat.com/' + ad.key + '/invoke.js';
@@ -129,8 +129,19 @@
 </section>
 
 <!-- Adsterra 728x90 Leaderboard (Top Hero Placement) -->
-<div class="container ad-slot-wrapper" style="margin: 1.5rem auto 2rem;">
-  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635-top"></div>
+<div class="container ad-slot-wrapper" style="margin: 1.5rem auto 2rem; text-align: center; min-height: 90px; display: flex; justify-content: center; align-items: center;">
+  <div id="atContainer-d5787b8bf3e86de096d5f5bf12337635-top">
+    <script data-cfasync="false" type="text/javascript">
+      atOptions = {
+        'key' : 'd5787b8bf3e86de096d5f5bf12337635',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script data-cfasync="false" type="text/javascript" src="https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js"></script>
+  </div>
 </div>
 
 <!-- Main Interactive Studio Grid -->

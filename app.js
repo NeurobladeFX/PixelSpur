@@ -13,6 +13,7 @@ let _copyCount = 0;
 function showVignetteAd() {
   try {
     const s = document.createElement('script');
+    s.setAttribute('data-cfasync', 'false');
     s.dataset.zone = '11738580';
     s.src = 'https://n6wxm.com/vignette.min.js';
     document.body.appendChild(s);
