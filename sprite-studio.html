@@ -16,66 +16,52 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="style.css"/>
 
-  <!-- Adsterra JS Async Format Loaders -->
+  <!-- Adsterra JS Async Multi-Zone Loader -->
   <script>
-    if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];
-    // 728x90 Leaderboard Zones
-    atAsyncOptions.push({
-      key: 'd5787b8bf3e86de096d5f5bf12337635',
-      format: 'js',
-      async: true,
-      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-top',
-      params: {},
-    });
-    atAsyncOptions.push({
-      key: 'd5787b8bf3e86de096d5f5bf12337635',
-      format: 'js',
-      async: true,
-      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-mid',
-      params: {},
-    });
-    atAsyncOptions.push({
-      key: 'd5787b8bf3e86de096d5f5bf12337635',
-      format: 'js',
-      async: true,
-      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635',
-      params: {},
-    });
-    atAsyncOptions.push({
-      key: 'd5787b8bf3e86de096d5f5bf12337635',
-      format: 'js',
-      async: true,
-      container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-bottom',
-      params: {},
-    });
+    (function() {
+      var adQueue = [
+        { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-top' },
+        { key: 'c075bb1d519d3ba0713981030cb622ed', container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-col1' },
+        { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-mid' },
+        { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635' },
+        { key: 'd5787b8bf3e86de096d5f5bf12337635', container: 'atContainer-d5787b8bf3e86de096d5f5bf12337635-bottom' },
+        { key: 'c075bb1d519d3ba0713981030cb622ed', container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-modal' }
+      ];
 
-    // 300x250 Medium Rectangle Zones
-    atAsyncOptions.push({
-      key: 'c075bb1d519d3ba0713981030cb622ed',
-      format: 'js',
-      async: true,
-      container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-col1',
-      params: {},
-    });
-    atAsyncOptions.push({
-      key: 'c075bb1d519d3ba0713981030cb622ed',
-      format: 'js',
-      async: true,
-      container: 'atContainer-c075bb1d519d3ba0713981030cb622ed-modal',
-      params: {},
-    });
+      function loadNextAd() {
+        if (!adQueue.length) return;
+        var ad = adQueue.shift();
+        var targetEl = document.getElementById(ad.container);
+        if (!targetEl) {
+          loadNextAd();
+          return;
+        }
 
-    var s1 = document.createElement('script');
-    s1.type = 'text/javascript';
-    s1.async = true;
-    s1.src = 'https://www.highrevenueformat.com/d5787b8bf3e86de096d5f5bf12337635/invoke.js';
-    document.getElementsByTagName('head')[0].appendChild(s1);
+        if (typeof window.atAsyncOptions !== 'object') window.atAsyncOptions = [];
+        window.atAsyncOptions.push({
+          key: ad.key,
+          format: 'js',
+          async: true,
+          container: ad.container,
+          params: {}
+        });
 
-    var s2 = document.createElement('script');
-    s2.type = 'text/javascript';
-    s2.async = true;
-    s2.src = 'https://www.highrevenueformat.com/c075bb1d519d3ba0713981030cb622ed/invoke.js';
-    document.getElementsByTagName('head')[0].appendChild(s2);
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://www.highrevenueformat.com/' + ad.key + '/invoke.js';
+        s.onload = s.onerror = function() {
+          setTimeout(loadNextAd, 150);
+        };
+        document.head.appendChild(s);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadNextAd);
+      } else {
+        loadNextAd();
+      }
+    })();
   </script>
 </head>
 <body>

@@ -3,35 +3,40 @@
  * Powers: Viral Portraits & Fashion Studio, Cinematic & Surrealism Studio,
  * Scroll Progress, Reveal Animations, and 1-Click Prompt Copying.
  */
+/* ═══════════════════════════════════════════════════════════
+   0. MONETAG VIGNETTE AD ENGINE
+   Fires on every download. On prompt copy: every 3rd click only.
+   Globally scoped so all studio modules & handlers can access it.
+   ═══════════════════════════════════════════════════════════ */
+let _copyCount = 0;
+
+function showVignetteAd() {
+  try {
+    const s = document.createElement('script');
+    s.dataset.zone = '11738580';
+    s.src = 'https://n6wxm.com/vignette.min.js';
+    document.body.appendChild(s);
+  } catch (e) { /* fail silently */ }
+}
+
+function vignetteOnDownload() {
+  showVignetteAd();
+}
+
+function vignetteOnCopy() {
+  _copyCount++;
+  if (_copyCount % 3 === 0) showVignetteAd();
+}
+
+window.showVignetteAd = showVignetteAd;
+window.vignetteOnDownload = vignetteOnDownload;
+window.vignetteOnCopy = vignetteOnCopy;
+
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-
-  /* ═══════════════════════════════════════════════════════════
-     0. MONETAG VIGNETTE AD ENGINE
-     Fires on every download. On prompt copy: every 3rd click only.
-     ═══════════════════════════════════════════════════════════ */
-  let _copyCount = 0;
-
-  function showVignetteAd() {
-    try {
-      const s = document.createElement('script');
-      s.dataset.zone = '11738580';
-      s.src = 'https://n6wxm.com/vignette.min.js';
-      document.body.appendChild(s);
-    } catch (e) { /* fail silently */ }
-  }
-
-  function vignetteOnDownload() {
-    showVignetteAd();
-  }
-
-  function vignetteOnCopy() {
-    _copyCount++;
-    if (_copyCount % 3 === 0) showVignetteAd();
-  }
 
   /* ═══════════════════════════════════════════════════════════
      1. FIXED PROMPT COPY HANDLERS
